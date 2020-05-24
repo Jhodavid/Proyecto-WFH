@@ -13,6 +13,10 @@ public class Usuario {
     public String Nombre;
     public String Apellidos;
     public String Sexo;
+    public int Telefono;
+    public int Edad;
+    public double Altura;
+    public double Peso;
     public Usuario LD;
 
     public Usuario() {
@@ -23,7 +27,12 @@ public class Usuario {
     public Usuario(Usuario user) {
         Cedula = user.Cedula;
         Nombre = user.Nombre;
+        Apellidos = user.Apellidos;
         Sexo = user.Sexo;
+        Telefono = user.Telefono;
+        Edad = user.Edad;
+        Altura = user.Altura;
+        Altura = user.Peso;
         LI = null;
         LD = null;
     }
