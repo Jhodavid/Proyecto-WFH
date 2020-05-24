@@ -5,7 +5,7 @@ package Model;
  *
  * @author jhoda
  */
-// quieres que te patee
+
 public class Usuario {
     
     public Usuario LI;
