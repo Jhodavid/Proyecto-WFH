@@ -11,6 +11,7 @@ public class Usuario {
     public int Cedula;
     public String Nombre;
     public String Apellidos;
+    public String Sexo;
     public Usuario LD;
 
     public Usuario() {
@@ -21,6 +22,7 @@ public class Usuario {
     public Usuario(Usuario user) {
         Cedula = user.Cedula;
         Nombre = user.Nombre;
+        Sexo = user.Sexo;
         LI = null;
         LD = null;
     }
