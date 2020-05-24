@@ -10,6 +10,7 @@ public class Usuario {
     public Usuario LI;
     public int Cedula;
     public String Nombre;
+    public String Apellidos;
     public Usuario LD;
 
     public Usuario() {
