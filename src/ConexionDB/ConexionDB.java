@@ -19,8 +19,8 @@ Statement st = null;
     public ConexionDB(){
         try 
             {
-                String rutafile = "C:\\Programar\\Usuarios\\jhoda\\Documentos\\NetBeansProjects\\Proyecto-WFH\\DateBaseWFH.accdb";
-                //Tienen que cambiar la ruta por la de ustedes.
+                String rutafile = "C:\\Users\\jhoda\\Documents\\NetBeansProjects\\Proyecto-WFH\\DateBaseWFH.accdb";
+                //Tienen que cambiar la ruta por la de ustedes.C:\Users\jhoda\Documents\NetBeansProjects\Proyecto-WFH
                 String Url = "jdbc:ucanaccess://" + rutafile;
                 ccn = DriverManager.getConnection(Url);
                 st = ccn.createStatement();
