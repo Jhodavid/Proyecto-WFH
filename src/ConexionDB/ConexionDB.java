@@ -20,7 +20,7 @@ Statement st = null;
         try 
             {
                 String rutafile = "C:\\Users\\jhoda\\Documents\\NetBeansProjects\\Proyecto-WFH\\DateBaseWFH.accdb";
-                //Tienen que cambiar la ruta por la de ustedes.C:\Users\jhoda\Documents\NetBeansProjects\Proyecto-WFH
+                //Tienen que cambiar la ruta por la de ustedes.
                 String Url = "jdbc:ucanaccess://" + rutafile;
                 ccn = DriverManager.getConnection(Url);
                 st = ccn.createStatement();
