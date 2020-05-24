@@ -18,8 +18,7 @@ public class Usuario {
         LI = null;
         LD = null;
     }
-// ricas nalgas bb
-    // que hago uwu
+
     public Usuario(Usuario user) {
         Cedula = user.Cedula;
         Nombre = user.Nombre;
