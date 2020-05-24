@@ -7,7 +7,7 @@ package Model;
  */
 
 public class Usuario {
-    //ssssss
+    
     public Usuario LI;
     public int Cedula;
     public String Nombre;
