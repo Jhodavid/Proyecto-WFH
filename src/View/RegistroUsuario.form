@@ -29,17 +29,17 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="btncancelar" min="-2" pref="110" max="-2" attributes="0"/>
+                              <Component id="btnregistrar" min="-2" pref="110" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="cmbsexo" pref="189" max="32767" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="cmbsexo" min="-2" pref="189" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="txtaltura" min="-2" pref="112" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="txtnombre" max="32767" attributes="0"/>
+                                  <Component id="txtnombre" pref="311" max="32767" attributes="0"/>
                                   <Component id="txtcedula" alignment="1" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
@@ -48,7 +48,6 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txtapellido" alignment="0" max="32767" attributes="0"/>
                           <Component id="txttelefono" alignment="0" max="32767" attributes="0"/>
-                          <Component id="btnregistrar" min="-2" pref="110" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txtpeso" min="-2" pref="139" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -84,17 +83,14 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtaltura" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmbsexo" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="txtedad" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtpeso" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="cmbsexo" min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnregistrar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="btncancelar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="btnregistrar" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -211,19 +207,6 @@
           </Border>
         </Property>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="btncancelar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Cancelar"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-            <BevelBorder/>
-          </Border>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncancelarActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnregistrar">
       <Properties>
