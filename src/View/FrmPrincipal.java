@@ -171,7 +171,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
+//------------------------------------------------------------------
+    //-----------------------------------------------------------------
+    //-------------  ayudaaaaaaaaaaaaaaaaaaaaaaaa--------------
     private void btncrearcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearcuentaActionPerformed
     RegistroUsuario obj=new RegistroUsuario();
     jDesktopPane1.add(obj);
