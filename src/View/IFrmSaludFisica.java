@@ -34,6 +34,8 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
 
+        setClosable(true);
+        setIconifiable(true);
         setPreferredSize(new java.awt.Dimension(696, 369));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

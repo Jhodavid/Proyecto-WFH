@@ -199,11 +199,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jDesktopPane1.add(obj);
         obj.toFront();
         obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
-        try {
-            obj.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         obj.setVisible(true);
     }//GEN-LAST:event_btncrearcuentaActionPerformed
 
@@ -212,11 +208,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jDesktopPane1.add(interfaz);
         interfaz.toFront();
         interfaz.setLocation(jDesktopPane1.getWidth() / 2 - interfaz.getWidth() / 2, jDesktopPane1.getHeight() / 2 - interfaz.getHeight() / 2);
-        try {
-            interfaz.setMaximum(true); //OPCIONAL
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         interfaz.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -225,11 +217,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jDesktopPane1.add(interfaz);
         interfaz.toFront();
         interfaz.setLocation(jDesktopPane1.getWidth() / 2 - interfaz.getWidth() / 2, jDesktopPane1.getHeight() / 2 - interfaz.getHeight() / 2);
-        try {
-            interfaz.setMaximum(true); //OPCIONAL
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
         interfaz.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
