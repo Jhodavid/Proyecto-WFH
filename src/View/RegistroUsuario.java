@@ -5,6 +5,16 @@
  */
 package View;
 
+import ConexionDB.ConexionDB;
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author angel
@@ -16,6 +26,21 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
      */
     public RegistroUsuario() {
         initComponents();
+
+        btnregistrar.setEnabled(false);
+ 
+    }
+
+    public void Nuevo() {
+        txtnombre.setText("");
+        txtapellido.setText("");
+        txtcedula.setText("");
+        txttelefono.setText("");
+        cmbsexo.setSelectedIndex(0);
+        txtaltura.setText("");
+        txtpeso.setText("");
+        txtedad.setText("");
+
     }
 
     /**
@@ -128,19 +153,20 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtapellido, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtaltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtedad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -152,7 +178,58 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
-        // TODO add your handling code here:
+    
+        if (txtnombre.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Debe ingresar al menos un  nombre","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        txtnombre.requestFocus();
+        }else if (txtapellido.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Debe ingresar al menos un apellido","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        txtapellido.requestFocus();
+        }else if (txtcedula.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Debe ingresar su No. de documento","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        txtcedula.requestFocus();
+        }else if (txttelefono.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Debe ingresar su telefono","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        txttelefono.requestFocus();
+        }else if (cmbsexo.getSelectedItem().equals("-Seleccione-")){
+        JOptionPane.showMessageDialog(null,"Debe ingresar su cedula","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        }else if (txtaltura.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Debe ingresar su altura","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        txtaltura.requestFocus();
+        }else if (txtpeso.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Debe ingresar su peso","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        txtpeso.requestFocus();
+        }else if (txtedad.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Debe ingresar su edad","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        txtedad.requestFocus();
+        }else{
+        try{
+
+              Connection con = null;
+                ConexionDB conect = new ConexionDB();
+                con = conect.getConnection();
+                Statement st = con.createStatement();
+                String sql = "insert into Usuario (Cedula,Nombre,Apellidos,Sexo,Telefono,Edad,Altura,Peso) values (?,?,?,?,?,?,?,?)";
+                
+                PreparedStatement pst = con.prepareStatement(sql);
+                pst.setString(1, txtcedula.getText());
+                pst.setString(2, txtnombre.getText());
+                pst.setString(3, txtapellido.getText());
+                pst.setString(4, cmbsexo.getSelectedItem().toString());
+                pst.setString(5, txttelefono.getText());
+                pst.setString(6, txtedad.getText());
+                pst.setString(7, txtaltura.getText());
+                pst.setString(8, txtpeso.getText());
+                
+                int n = pst.executeUpdate();
+                if (n > 0)
+                {
+                JOptionPane.showMessageDialog(this, "DATOS GUARDADOS CORRECTAMENTE");
+                }
+        }   catch(SQLException | HeadlessException e){
+        JOptionPane.showMessageDialog(this, "LOS DATOS NO HAN SIDO GUARDADOS CORRECTAMENTE", "Error", JOptionPane.ERROR_MESSAGE);
+        }     
+        }
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void txtapellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapellidoActionPerformed
