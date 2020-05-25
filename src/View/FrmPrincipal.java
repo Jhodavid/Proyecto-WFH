@@ -60,6 +60,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         btncrearcuenta.setText("Crear cuenta");
+        btncrearcuenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncrearcuentaActionPerformed(evt);
+            }
+        });
 
         jDesktopPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btncrearcuenta, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -166,6 +171,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btncrearcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearcuentaActionPerformed
+    RegistroUsuario obj=new RegistroUsuario();
+    jDesktopPane1.add(obj);
+    obj.toFront();
+    obj.setLocation(jDesktopPane1.getWidth()/ 2- obj.getWidth()/ 2, jDesktopPane1.getHeight()/ 2 - obj.getHeight()/2);
+        try{
+        obj.setMaximum(true);
+        }catch(PropertyVetoException ex){
+        Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE,null,ex);
+        }
+        obj.setVisible(true);
+    }//GEN-LAST:event_btncrearcuentaActionPerformed
 
     /**
      * @param args the command line arguments
