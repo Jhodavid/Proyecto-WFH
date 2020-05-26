@@ -231,10 +231,10 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
             txtcontraseña.requestFocus();
         }
         // ayudame con esta validacion
-      //  else if (txtnombre.getText().isEmpty()){
-      //  JOptionPane.showMessageDialog(null,"Debe ingresar al menos un  nombre","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-       // txtnombre.requestFocus();
-       // }
+       else if (txtnombre.getText().isEmpty()){
+        JOptionPane.showMessageDialog(null,"Debe ingresar al menos un  nombre","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+       txtnombre.requestFocus();
+        }
         else if (txtapellido.getText().isEmpty()){
         JOptionPane.showMessageDialog(null,"Debe ingresar al menos un apellido","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
         txtapellido.requestFocus();
