@@ -187,7 +187,7 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(2, 2, 2)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -210,8 +210,8 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                             .addComponent(txtpeso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnregistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                    .addComponent(cmbsexo, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -248,7 +248,7 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Debe ingresar su telefono", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txttelefono.requestFocus();
         } else if (cmbsexo.getSelectedItem().equals("-Seleccione-")) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar su cedula", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Debe ingresar su sexo", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
         } else if (txtaltura.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe ingresar su altura", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtaltura.requestFocus();

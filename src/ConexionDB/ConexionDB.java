@@ -19,14 +19,14 @@ Statement st = null;
     public ConexionDB(){
         try 
             {
-                int ruta = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Escoja la ruta de la base de dato:"
+                String rutafile = "DateBaseWFH.accdb";
+                
+                /*int ruta = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Escoja la ruta de la base de dato:"
                                                                                 + "\n1. Ruta de Poveda."
                                                                                 + "\n2. Ruta de Guell."
                                                                                 + "\n3. Ruta de Truyol."
                                                                                 + "\n4. Ruta de Gaviria."
                                                                                 + "\n5. Ruta de Restán."));
-                String rutafile = "";
-                
                 switch(ruta){
                     case 1:
                         rutafile = "C:\\Users\\jhoda\\Documents\\NetBeansProjects\\Proyecto-WFH\\DateBaseWFH.accdb";
@@ -43,8 +43,7 @@ Statement st = null;
                     case 5:
                         rutafile = "C:\\Users\\angel\\Documents\\NetBeansProjects\\Proyecto-WFH\\DateBaseWFH.accdb";
                         break;
-                }
-                
+                }*/
                 
                 //"
                 //Tienen que cambiar la ruta por la de ustedes.
