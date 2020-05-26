@@ -20,14 +20,15 @@ import javax.swing.table.DefaultTableModel;
  * @author angel
  */
 public class RegistroUsuario extends javax.swing.JInternalFrame {
- int contador = 0;
+
+    int contador = 0;
+
     /**
      * Creates new form RegistroUsuario
      */
     public RegistroUsuario() {
         initComponents();
 
- 
     }
 
     public void Nuevo() {
@@ -226,44 +227,44 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
         // TODO add your handling code here:
-        if(txtcontraseña.getText().isEmpty() || txtconfirmarcontraseña.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Debe ingresar la contraseña en ambos campos","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
+        if (txtcontraseña.getText().isEmpty() || txtconfirmarcontraseña.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar la contraseña en ambos campos", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtcontraseña.requestFocus();
-        }
-        // ayudame con esta validacion
-       else if (txtnombre.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Debe ingresar al menos un  nombre","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-       txtnombre.requestFocus();
-        }
-        else if (txtapellido.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Debe ingresar al menos un apellido","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-        txtapellido.requestFocus();
-        }else if (txtcedula.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Debe ingresar su No. de documento","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-        txtcedula.requestFocus();
-        }else if (txttelefono.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Debe ingresar su telefono","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-        txttelefono.requestFocus();
-        }else if (cmbsexo.getSelectedItem().equals("-Seleccione-")){
-        JOptionPane.showMessageDialog(null,"Debe ingresar su cedula","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-        }else if (txtaltura.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Debe ingresar su altura","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-        txtaltura.requestFocus();
-        }else if (txtpeso.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Debe ingresar su peso","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-        txtpeso.requestFocus();
-        }else if (txtedad.getText().isEmpty()){
-        JOptionPane.showMessageDialog(null,"Debe ingresar su edad","ARVERTENCIA",JOptionPane.WARNING_MESSAGE);
-        txtedad.requestFocus();
-        }else{
-        try{
+        } else if (txtcontraseña.getText() != txtconfirmarcontraseña.getText()) {
+            JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtcontraseña.requestFocus();
+        } else if (txtnombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar al menos un  nombre", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtnombre.requestFocus();
+        } else if (txtapellido.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar al menos un apellido", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtapellido.requestFocus();
+        } else if (txtcedula.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar su No. de documento", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtcedula.requestFocus();
+        } else if (txttelefono.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar su telefono", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txttelefono.requestFocus();
+        } else if (cmbsexo.getSelectedItem().equals("-Seleccione-")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar su cedula", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+        } else if (txtaltura.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar su altura", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtaltura.requestFocus();
+        } else if (txtpeso.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar su peso", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtpeso.requestFocus();
+        } else if (txtedad.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar su edad", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
+            txtedad.requestFocus();
+        } else {
+            try {
 
-              Connection con = null;
+                Connection con = null;
                 ConexionDB conect = new ConexionDB();
                 con = conect.getConnection();
                 Statement st = con.createStatement();
                 String sql = "insert into Usuario (Cedula,Contraseña,Nombre,Apellidos,Sexo,Telefono,Edad,Altura,Peso) values (?,?,?,?,?,?,?,?,?)";
-                
+
                 PreparedStatement pst = con.prepareStatement(sql);
                 pst.setString(1, txtcedula.getText());
                 pst.setString(2, txtcontraseña.getText());
@@ -274,16 +275,15 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
                 pst.setString(7, txtedad.getText());
                 pst.setString(8, txtaltura.getText());
                 pst.setString(9, txtpeso.getText());
-                
+
                 int n = pst.executeUpdate();
-                if (n > 0)
-                {
-                JOptionPane.showMessageDialog(this, "DATOS GUARDADOS CORRECTAMENTE");
+                if (n > 0) {
+                    JOptionPane.showMessageDialog(this, "DATOS GUARDADOS CORRECTAMENTE");
                 }
-        }   catch(SQLException | HeadlessException e){
-        JOptionPane.showMessageDialog(this, "LOS DATOS NO HAN SIDO GUARDADOS CORRECTAMENTE", "Error", JOptionPane.ERROR_MESSAGE);
-        Nuevo();
-        }     
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(this, "LOS DATOS NO HAN SIDO GUARDADOS CORRECTAMENTE", "Error", JOptionPane.ERROR_MESSAGE);
+                Nuevo();
+            }
         }
     }//GEN-LAST:event_btnregistrarActionPerformed
 
@@ -292,37 +292,37 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtcedulaKeyPressed
 
     private void txttelefonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelefonoKeyPressed
-   
+
     }//GEN-LAST:event_txttelefonoKeyPressed
 
     private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
- char Validacion = evt.getKeyChar();
+        char Validacion = evt.getKeyChar();
         if (Validacion < '0' || Validacion > '9') {
             evt.consume();
         }
     }//GEN-LAST:event_txtcedulaKeyTyped
 
     private void txttelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelefonoKeyTyped
- char Validacion = evt.getKeyChar();
+        char Validacion = evt.getKeyChar();
         if (Validacion < '0' || Validacion > '9') {
             evt.consume();
         }
     }//GEN-LAST:event_txttelefonoKeyTyped
 
     private void txtalturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtalturaActionPerformed
-       
+
     }//GEN-LAST:event_txtalturaActionPerformed
 
     private void txtalturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtalturaKeyTyped
-    
+
     }//GEN-LAST:event_txtalturaKeyTyped
 
     private void txtpesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesoKeyTyped
-       
+
     }//GEN-LAST:event_txtpesoKeyTyped
 
     private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
- char Validacion = evt.getKeyChar();
+        char Validacion = evt.getKeyChar();
         if (Validacion < '0' || Validacion > '9') {
             evt.consume();
         }
