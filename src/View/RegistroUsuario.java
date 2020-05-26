@@ -39,7 +39,8 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
         txtaltura.setText("");
         txtpeso.setText("");
         txtedad.setText("");
-
+        txtcontraseña.setText("");
+        txtconfirmarcontraseña.setText("");
     }
 
     /**
