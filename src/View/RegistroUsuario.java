@@ -231,7 +231,7 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Debe ingresar la contraseña en ambos campos", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtcontraseña.requestFocus();
             //------------------ayuda con esta validacion----------------------------------------------------------
-        } else if (txtcontraseña.getText() != txtconfirmarcontraseña.getText()) {
+        } else if(txtcontraseña.getText().equals(txtconfirmarcontraseña.getText())==false) {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtcontraseña.requestFocus();
             //------------------------------------------------------------------------------------------------------
