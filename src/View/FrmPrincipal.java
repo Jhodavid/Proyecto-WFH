@@ -5,6 +5,8 @@ package View;
  * @author jhoda
  */
 import ConexionDB.ConexionDB;
+import Controller.Operaciones;
+import Model.Usuario;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +23,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     Connection con = null;
     ConexionDB conect = new ConexionDB();
-
+    private Operaciones op;
+    public String inicio[] = new String[2];
+    
     /**
      * Creates new form FrmPrincipal
      */
@@ -38,7 +42,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnSaludFisica.setEnabled(false);
         btnCuenta.setEnabled(false);
         btnCerrarSesion.setEnabled(false);
+        this.setResizable(false);
         
+        op = new Operaciones();
     }
 
     /**
@@ -171,23 +177,24 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JPanelCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(129, 129, 129))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JLabelBienvenido)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(JPanelCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(129, 129, 129))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(JLabelBienvenido)
+                        .addGap(111, 111, 111))))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addComponent(JLabelBienvenido)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JPanelCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         btnSaludFisica.setText("Salud Física");
@@ -280,7 +287,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -291,8 +298,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jDesktopPane1))
         );
 
         pack();
@@ -363,17 +369,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btncrearcuentaActionPerformed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        Dimension preferredSize = jDesktopPane1.getPreferredSize();
-        JPanelCuenta.setVisible(false);
-        JLabelBienvenido.setVisible(true);
-        jDesktopPane1.setPreferredSize(preferredSize);
         
-        btnEnfermedades.setEnabled(true);
-        btnEstadisticas.setEnabled(true);
-        btnSaludFisica.setEnabled(true);
-        btnCuenta.setEnabled(true);
-        btnCerrarSesion.setEnabled(true);
-        
+        if(op.iniciar(inicio) != null){
+            if (Integer.toString(op.iniciar(inicio).Cedula).equals(inicio[0]) && op.iniciar(inicio).Contraseña.equals(inicio[1])) {
+                
+                //INTERFAZ//////////////////////////////////////////////////////
+                Dimension preferredSize = jDesktopPane1.getPreferredSize();
+                JPanelCuenta.setVisible(false);
+                JLabelBienvenido.setVisible(true);
+                jDesktopPane1.setPreferredSize(preferredSize);
+
+                btnEnfermedades.setEnabled(true);
+                btnEstadisticas.setEnabled(true);
+                btnSaludFisica.setEnabled(true);
+                btnCuenta.setEnabled(true);
+                btnCerrarSesion.setEnabled(true);
+                ////////////////////////////////////////////////////////////////
+                
+                 
+            }
+        }else{
+            
+        }
+            
 
     }//GEN-LAST:event_btnIniciarActionPerformed
 
@@ -393,14 +411,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         JPanelCuenta.setVisible(true);
         JLabelBienvenido.setVisible(false);
         jDesktopPane1.setPreferredSize(preferredSize);
-        
+
         btnEnfermedades.setEnabled(false);
         btnEstadisticas.setEnabled(false);
         btnSaludFisica.setEnabled(false);
         btnCuenta.setEnabled(false);
         btnCerrarSesion.setEnabled(false);
-        
-        
+
+
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**

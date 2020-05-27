@@ -5,10 +5,17 @@
  */
 package Controller;
 
+import Model.Usuario;
+
 /**
  *
  * @author jhoda
  */
 public class Operaciones {
     
+    
+    public Usuario iniciar(String inicio[]){
+        
+        return null;
+    }
 }
