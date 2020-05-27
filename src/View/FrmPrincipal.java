@@ -386,10 +386,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 btnCerrarSesion.setEnabled(true);
                 ////////////////////////////////////////////////////////////////
                 
-                 
+                
             }
         }else{
-            
+            javax.swing.JOptionPane.showMessageDialog(null, "Contraseña y/o usuario inconrrecto(s).");
         }
             
 
