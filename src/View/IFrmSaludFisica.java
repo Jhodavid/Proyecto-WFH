@@ -88,7 +88,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CALORIAS DIARIAS");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/calories.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Calories (1).png"))); // NOI18N
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -120,7 +120,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                             .addComponent(jButton3)))
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
+                        .addGap(20, 20, 20)
                         .addComponent(jButton1)))
                 .addContainerGap())
         );
@@ -143,9 +143,9 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                 .addComponent(jButton3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
