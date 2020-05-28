@@ -29,37 +29,36 @@ public class Operaciones {
     }
     
     public Usuario iniciar(String inicio[]){
-        user = null;
         
         try {
             Connection con1 = null;
-            DefaultTableModel miModelo = (DefaultTableModel) JT_TablaHistorial.getModel();
             ConexionDB conect1 = new ConexionDB();
             con1 = conect1.getConnection();
-            String dts[] = new String[12];
-            String sql = "select * from registro";
+            String sql = "select * from Usuario";
             Statement st = con1.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()){
-                dts[0] = rs.getString("Id_inventario");
-                dts[1] = rs.getString("no_catalogo");
-                dts[2] = rs.getString("marca");
-                dts[3] = rs.getString("modelo");
-                dts[4] = rs.getString("nombre");
-                dts[5] = rs.getString("descripcion");               
-                dts[6] = rs.getString("cantidad");
-                dts[7] = rs.getString("ubicacion");
-                dts[8] = rs.getString("Id_proveedores");
-                dts[9] = rs.getString("nombre_proveedor");
-                dts[10] = rs.getString("codigo");
-                dts[11] = rs.getString("url");
-                miModelo.addRow(dts);
+                user.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
+                user.Cedula = Integer.parseInt(rs.getString("Cedula"));
+                user.Contraseña = rs.getString("Contraseña");
+                user.Nombre = rs.getString("Nombre");
+                user.Apellidos = rs.getString("Apellidos");
+                user.Sexo = rs.getString("Sexo");               
+                user.Telefono = Integer.parseInt(rs.getString("Telefono"));
+                user.Edad = Integer.parseInt(rs.getString("Edad"));
+                user.Altura = Double.parseDouble(rs.getString("Altura"));
+                user.Peso = Double.parseDouble(rs.getString("Peso"));
+                
+                System.out.println(user.Cedula);
+                System.out.println(user.Contraseña);
+                
+                if (Integer.toString(user.Cedula).equals(inicio[0]) && user.Contraseña.equals(inicio[1])) {
+                    return user;
+                }
             }
-
         } catch (SQLException e) {
             javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-        
-        return user;
+        return null;
     }
 }

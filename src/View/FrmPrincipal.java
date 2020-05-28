@@ -370,8 +370,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         
+        inicio[0] = txtCedula.getText();
+        inicio[1] = txtContraseña.getText();
+        
         if(op.iniciar(inicio) != null){
-            if (Integer.toString(op.iniciar(inicio).Cedula).equals(inicio[0]) && op.iniciar(inicio).Contraseña.equals(inicio[1])) {
                 
                 //INTERFAZ//////////////////////////////////////////////////////
                 Dimension preferredSize = jDesktopPane1.getPreferredSize();
@@ -387,7 +389,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 ////////////////////////////////////////////////////////////////
                 
                 
-            }
+            
         }else{
             javax.swing.JOptionPane.showMessageDialog(null, "Contraseña y/o usuario inconrrecto(s).");
         }

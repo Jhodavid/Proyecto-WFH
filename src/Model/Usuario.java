@@ -9,6 +9,7 @@ package Model;
 public class Usuario {
     
     public Usuario LI;
+    public int IdUsuario;
     public int Cedula;
     public String Contraseña;
     public String Nombre;
@@ -26,6 +27,7 @@ public class Usuario {
     }
 
     public Usuario(Usuario user) {
+        IdUsuario = user.IdUsuario;
         Cedula = user.Cedula;
         Nombre = user.Nombre;
         Apellidos = user.Apellidos;
