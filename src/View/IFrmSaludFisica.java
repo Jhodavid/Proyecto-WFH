@@ -5,6 +5,7 @@
  */
 package View;
 
+import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,7 +40,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        BtnPeso = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -95,7 +96,12 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("PESO OPTIMO");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/peso.png"))); // NOI18N
+        BtnPeso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/peso.png"))); // NOI18N
+        BtnPeso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnPesoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -117,7 +123,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(BtnRitmoCardiaco)
-                            .addComponent(jButton3)))
+                            .addComponent(BtnPeso)))
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -140,12 +146,12 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
+                .addComponent(BtnPeso)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -165,11 +171,26 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         obje.setVisible(true);
     }//GEN-LAST:event_BtnRitmoCardiacoActionPerformed
 
+    private void BtnPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPesoActionPerformed
+     IFrmPesoOptimo obj = new IFrmPesoOptimo();
+        Dimension preferredSize = jDesktopPane1.getPreferredSize();
+        obj.setPreferredSize(preferredSize);
+        jDesktopPane1.add(obj);
+        obj.toFront();
+        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
+        try {
+            obj.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        obj.setVisible(true);
+    }//GEN-LAST:event_BtnPesoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnPeso;
     private javax.swing.JButton BtnRitmoCardiaco;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

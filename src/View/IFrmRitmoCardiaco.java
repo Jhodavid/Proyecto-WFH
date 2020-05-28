@@ -91,7 +91,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         getContentPane().add(Btnpausar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 240, -1, -1));
 
         BtnUso.setBackground(new java.awt.Color(0, 204, 204));
-        BtnUso.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        BtnUso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         BtnUso.setForeground(new java.awt.Color(0, 0, 0));
         BtnUso.setText(" ¿ COMO UTILIZAR  ?");
         BtnUso.addActionListener(new java.awt.event.ActionListener() {
@@ -99,7 +99,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
                 BtnUsoActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnUso, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
+        getContentPane().add(BtnUso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 180, 30));
 
         Btndetener.setBackground(new java.awt.Color(0, 204, 204));
         Btndetener.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
