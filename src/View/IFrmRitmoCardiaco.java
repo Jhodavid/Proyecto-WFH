@@ -65,6 +65,8 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(71, 71, 75));
+        setClosable(true);
+        setIconifiable(true);
         setPreferredSize(new java.awt.Dimension(526, 192));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
