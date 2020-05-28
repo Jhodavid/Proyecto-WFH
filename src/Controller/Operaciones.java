@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Operaciones {
     
-    private Usuario user;
+    public Usuario user;
     DefaultTableModel model = new DefaultTableModel();  
     Statement st = null;
     ResultSet rs = null;
@@ -48,9 +48,6 @@ public class Operaciones {
                 user.Edad = Integer.parseInt(rs.getString("Edad"));
                 user.Altura = Double.parseDouble(rs.getString("Altura"));
                 user.Peso = Double.parseDouble(rs.getString("Peso"));
-                
-                System.out.println(user.Cedula);
-                System.out.println(user.Contraseña);
                 
                 if (Integer.toString(user.Cedula).equals(inicio[0]) && user.Contraseña.equals(inicio[1])) {
                     return user;

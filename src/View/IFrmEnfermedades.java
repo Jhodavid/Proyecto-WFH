@@ -6,18 +6,20 @@
 package View;
 
 import java.awt.Dimension;
-
+import Controller.Operaciones;
 /**
  *
  * @author jhoda
  */
 public class IFrmEnfermedades extends javax.swing.JInternalFrame {
-
-    /**
-     * Creates new form IFrmEnfermedades
-     */
+    
+    private Operaciones op;
+    private FrmPrincipal vis;
+    
     public IFrmEnfermedades() {
         initComponents();
+        FrmPrincipal vis = new FrmPrincipal();
+        
     }
 
     /**
@@ -44,6 +46,11 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_petri_dish_virus_bacteria_biology_6217216.png"))); // NOI18N
         jButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -75,6 +82,10 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        System.out.println(vis.Datos().Apellidos+" -- "+vis.Datos().Nombre);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

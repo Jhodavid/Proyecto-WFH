@@ -23,8 +23,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     Connection con = null;
     ConexionDB conect = new ConexionDB();
-    private Operaciones op;
-    public String inicio[] = new String[2];
+    public Operaciones op;
+    public static String inicio[] = new String[2];
+    public Usuario datos; 
     
     /**
      * Creates new form FrmPrincipal
@@ -45,8 +46,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.setResizable(false);
         
         op = new Operaciones();
+        datos = new Usuario();
+        datos = null;
     }
-
+    
+    public Usuario Datos(){
+        return datos;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -374,7 +381,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         inicio[1] = txtContraseña.getText();
         
         if(op.iniciar(inicio) != null){
-                
+                datos = op.user;
                 //INTERFAZ//////////////////////////////////////////////////////
                 Dimension preferredSize = jDesktopPane1.getPreferredSize();
                 JPanelCuenta.setVisible(false);
