@@ -379,6 +379,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         inicio[0] = txtCedula.getText();
         inicio[1] = txtContraseña.getText();
+        txtCedula.setText("");
+        txtContraseña.setText("");
         
         if(op.iniciar(inicio) != null){
                 datos = op.user;
