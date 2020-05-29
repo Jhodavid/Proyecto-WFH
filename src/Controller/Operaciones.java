@@ -7,9 +7,7 @@ package Controller;
 
 import ConexionDB.ConexionDB;
 import Model.Usuario;
-import java.awt.HeadlessException;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Operaciones {
     
-    public Usuario user;
+    public static Usuario user;
     DefaultTableModel model = new DefaultTableModel();  
     Statement st = null;
     ResultSet rs = null;

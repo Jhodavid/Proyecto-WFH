@@ -8,24 +8,17 @@ import ConexionDB.ConexionDB;
 import Controller.Operaciones;
 import Model.Usuario;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
 import java.sql.Connection;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.Timer;
 
 public class FrmPrincipal extends javax.swing.JFrame {
 
     Connection con = null;
     ConexionDB conect = new ConexionDB();
     public Operaciones op;
-    public static String inicio[] = new String[2];
-    public Usuario datos; 
     
     /**
      * Creates new form FrmPrincipal
@@ -46,12 +39,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.setResizable(false);
         
         op = new Operaciones();
-        datos = new Usuario();
-        datos = null;
-    }
-    
-    public Usuario Datos(){
-        return datos;
+        
     }
     
     /**
@@ -75,12 +63,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         JPanelCuenta = new javax.swing.JPanel();
         txtCedula = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JTextField();
         btnIniciar = new javax.swing.JButton();
         btncrearcuenta = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        txtContraseña = new javax.swing.JPasswordField();
         JLabelBienvenido = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnSaludFisica = new javax.swing.JButton();
@@ -138,12 +126,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addGap(53, 53, 53)
                 .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtContraseña)
                     .addComponent(txtCedula)
                     .addGroup(JPanelCuentaLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addComponent(btncrearcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(txtContraseña))
                 .addContainerGap())
             .addGroup(JPanelCuentaLayout.createSequentialGroup()
                 .addGap(177, 177, 177)
@@ -165,8 +153,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(btnIniciar)
                 .addGap(18, 18, 18)
@@ -376,6 +364,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btncrearcuentaActionPerformed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+        String inicio[] = new String[2];
         
         inicio[0] = txtCedula.getText();
         inicio[1] = txtContraseña.getText();
@@ -383,7 +372,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtContraseña.setText("");
         
         if(op.iniciar(inicio) != null){
-                datos = op.user;
                 //INTERFAZ//////////////////////////////////////////////////////
                 Dimension preferredSize = jDesktopPane1.getPreferredSize();
                 JPanelCuenta.setVisible(false);
@@ -428,8 +416,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnSaludFisica.setEnabled(false);
         btnCuenta.setEnabled(false);
         btnCerrarSesion.setEnabled(false);
-
-
+        
+        this.setVisible(false);
+        FrmPrincipal Nuevo = new FrmPrincipal();
+        Nuevo.setVisible(true);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
 
     /**
@@ -494,6 +484,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu3;
     private javax.swing.JPopupMenu jPopupMenu4;
     private javax.swing.JTextField txtCedula;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     // End of variables declaration//GEN-END:variables
 }

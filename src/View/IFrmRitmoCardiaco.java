@@ -8,7 +8,7 @@ package View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-
+import static Controller.Operaciones.user;
 /**
  *
  * @author CAMILO A TRUYOL O
