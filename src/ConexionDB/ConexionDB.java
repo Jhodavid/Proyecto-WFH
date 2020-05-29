@@ -20,7 +20,8 @@ Statement st = null;
         try 
             {
                 String rutafile = "DateBaseWFH.accdb";
-                
+                  rutafile = "C:\\Users\\angel\\Documents\\NetBeansProjects\\Proyecto-WFH\\DateBaseWFH.accdb";
+                       
                 /*int ruta = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Escoja la ruta de la base de dato:"
                                                                                 + "\n1. Ruta de Poveda."
                                                                                 + "\n2. Ruta de Guell."

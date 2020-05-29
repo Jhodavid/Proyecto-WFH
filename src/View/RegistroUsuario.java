@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package View;
-
+import Controller.Operaciones;
 import ConexionDB.ConexionDB;
 import java.awt.HeadlessException;
 import java.sql.Connection;
@@ -22,7 +22,7 @@ import javax.swing.table.DefaultTableModel;
 public class RegistroUsuario extends javax.swing.JInternalFrame {
 
     int contador = 0;
-
+Operaciones op=new Operaciones();
     /**
      * Creates new form RegistroUsuario
      */
@@ -227,6 +227,7 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
         // TODO add your handling code here:
+       
         if (txtcontraseña.getText().isEmpty() || txtconfirmarcontraseña.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe ingresar la contraseña en ambos campos", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtcontraseña.requestFocus();
@@ -259,34 +260,23 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Debe ingresar su edad", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtedad.requestFocus();
         } else {
-            try {
-
-                Connection con = null;
-                ConexionDB conect = new ConexionDB();
-                con = conect.getConnection();
-                Statement st = con.createStatement();
-                String sql = "insert into Usuario (Cedula,Contraseña,Nombre,Apellidos,Sexo,Telefono,Edad,Altura,Peso) values (?,?,?,?,?,?,?,?,?)";
-
-                PreparedStatement pst = con.prepareStatement(sql);
-                pst.setString(1, txtcedula.getText());
-                pst.setString(2, txtcontraseña.getText());
-                pst.setString(3, txtnombre.getText());
-                pst.setString(4, txtapellido.getText());
-                pst.setString(5, cmbsexo.getSelectedItem().toString());
-                pst.setString(6, txttelefono.getText());
-                pst.setString(7, txtedad.getText());
-                pst.setString(8, txtaltura.getText());
-                pst.setString(9, txtpeso.getText());
-
-                int n = pst.executeUpdate();
-                if (n > 0) {
-                    JOptionPane.showMessageDialog(this, "DATOS GUARDADOS CORRECTAMENTE");
-                }
-            } catch (SQLException | HeadlessException e) {
-                JOptionPane.showMessageDialog(this, "LOS DATOS NO HAN SIDO GUARDADOS CORRECTAMENTE", "Error", JOptionPane.ERROR_MESSAGE);
-                Nuevo();
-            }
+            
+             String cedula,contraseña,nombre,apellidos,sexo,telefono,edad,altura,peso,campos ,valores;
+             cedula=txtcedula.getText();
+             contraseña=txtcontraseña.getText();
+             nombre=txtnombre.getText();
+             apellidos=txtapellido.getText();
+             sexo=cmbsexo.getSelectedItem().toString();
+             telefono=txttelefono.getText();
+             edad=txtedad.getText();
+             altura=txtaltura.getText();
+             peso=txtpeso.getText();
+             campos="Cedula,Contraseña,Nombre,Apellidos,Sexo,Telefono,Edad,Altura,Peso";
+             valores="'"+cedula+"','"+contraseña+"','"+nombre+"','"+apellidos+"','"+sexo+"','"+telefono+"','"+edad+"','"+altura+"','"+peso+"'";
+             op.Registar("Usuario", campos, valores);
+               Nuevo();  
         }
+         
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void txtcedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyPressed

@@ -50,7 +50,6 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         jLabel1.setText("Prueba salud fisica");
 
         jLabelOpcion.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabelOpcion.setForeground(new java.awt.Color(0, 0, 0));
         jLabelOpcion.setText("SELECCIONE UNA OPCION DEL LADO DERECHO ");
 
         jDesktopPane1.setLayer(jLabelOpcion, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -74,7 +73,6 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("RITMO CARDIACO");
 
         BtnRitmoCardiaco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_Artboard_20_3874679 (1).png"))); // NOI18N
@@ -86,14 +84,12 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CALORIAS DIARIAS");
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Calories (1).png"))); // NOI18N
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("PESO OPTIMO");
 
         BtnPeso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/peso.png"))); // NOI18N
@@ -151,7 +147,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

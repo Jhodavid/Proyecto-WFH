@@ -7,10 +7,13 @@ package Controller;
 
 import ConexionDB.ConexionDB;
 import Model.Usuario;
+import java.awt.HeadlessException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -24,10 +27,28 @@ public class Operaciones {
     Statement st = null;
     ResultSet rs = null;
     Connection con2 = null;
+    String query;
     public Operaciones(){
         user = new Usuario();
     }
     
+    public void Registar(String tabla,String campos,String valores){
+     try {
+         query="insert into "+tabla+" ("+campos+") values ("+valores+")";
+         Connection con = null;
+                ConexionDB conect = new ConexionDB();
+                con = conect.getConnection();
+                Statement st = con.createStatement();
+                st.execute(query);
+                JOptionPane.showMessageDialog(null, "Regitro guardado exitosamente");
+    }
+    catch(SQLException ex){
+JOptionPane.showMessageDialog(null, "Error sql"+ex);
+}
+    }
+    
+    
+  
     public Usuario iniciar(String inicio[]){
         
         try {
