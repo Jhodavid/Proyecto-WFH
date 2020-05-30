@@ -3,7 +3,7 @@ package Model;
 
 /**
  *
- * @author jhoda
+ * @author poveda la chupa
  */
 
 public class Usuario {
