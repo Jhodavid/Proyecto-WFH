@@ -15,13 +15,16 @@ import static Controller.Operaciones.user;
  * @author jhoda
  */
 public class IFrmSaludFisica extends javax.swing.JInternalFrame {
-
+ IFrmRitmoCardiaco obje = new IFrmRitmoCardiaco();
+  
     /**
      * Creates new form IFrmSaludFisica
      */
     public IFrmSaludFisica() {
         initComponents();
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,7 +41,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         BtnRitmoCardiaco = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Btncalorias = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         BtnPeso = new javax.swing.JButton();
 
@@ -86,7 +89,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setText("CALORIAS DIARIAS");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Calories (1).png"))); // NOI18N
+        Btncalorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Calories (1).png"))); // NOI18N
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -123,7 +126,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addComponent(jButton1)))
+                        .addComponent(Btncalorias)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -146,15 +149,15 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Btncalorias)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRitmoCardiacoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRitmoCardiacoActionPerformed
-       IFrmRitmoCardiaco obje = new IFrmRitmoCardiaco();
+       
        jDesktopPane1.add(obje);
         obje.toFront();
          obje.setLocation(jDesktopPane1.getWidth() / 2 - obje.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obje.getHeight() / 2);
@@ -165,10 +168,12 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         }
         obje.setVisible(true);
         obje.setVisible(true);
+      BtnPeso.setEnabled(false);
+      Btncalorias.setEnabled(false);
     }//GEN-LAST:event_BtnRitmoCardiacoActionPerformed
 
     private void BtnPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPesoActionPerformed
-     IFrmPesoOptimo obj = new IFrmPesoOptimo();
+       IFrmPesoOptimo obj = new IFrmPesoOptimo();
         Dimension preferredSize = jDesktopPane1.getPreferredSize();
         obj.setPreferredSize(preferredSize);
         jDesktopPane1.add(obj);
@@ -180,13 +185,14 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         obj.setVisible(true);
+       
     }//GEN-LAST:event_BtnPesoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnPeso;
     private javax.swing.JButton BtnRitmoCardiaco;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Btncalorias;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
