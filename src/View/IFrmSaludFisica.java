@@ -15,7 +15,7 @@ import static Controller.Operaciones.user;
  * @author jhoda
  */
 public class IFrmSaludFisica extends javax.swing.JInternalFrame {
- IFrmRitmoCardiaco obje = new IFrmRitmoCardiaco();
+
   
     /**
      * Creates new form IFrmSaludFisica
@@ -150,14 +150,14 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Btncalorias)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnRitmoCardiacoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRitmoCardiacoActionPerformed
-       
+        IFrmRitmoCardiaco obje = new IFrmRitmoCardiaco();
        jDesktopPane1.add(obje);
         obje.toFront();
          obje.setLocation(jDesktopPane1.getWidth() / 2 - obje.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obje.getHeight() / 2);
