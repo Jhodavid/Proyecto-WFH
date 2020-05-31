@@ -324,6 +324,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         con = conect.getConnection();
         JOptionPane.showMessageDialog(null, "CONEXION EXITOSA");
+        
+        IFrmAdmin obj = new IFrmAdmin();
+
+        jDesktopPane1.add(obj);
+        obj.toFront();
+        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
+        try {
+            obj.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        obj.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnSaludFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaludFisicaActionPerformed
