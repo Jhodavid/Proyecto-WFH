@@ -207,6 +207,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         btnEstadisticas.setText("Estadisticas");
+        btnEstadisticas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEstadisticasMouseClicked(evt);
+            }
+        });
         btnEstadisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEstadisticasActionPerformed(evt);
@@ -311,6 +316,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         obj.setVisible(true);
+        
+        
+        
     }//GEN-LAST:event_btnEstadisticasActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -421,6 +429,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         FrmPrincipal Nuevo = new FrmPrincipal();
         Nuevo.setVisible(true);
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnEstadisticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstadisticasMouseClicked
+        // TODO add your handling code here:
+      
+      
+       
+    }//GEN-LAST:event_btnEstadisticasMouseClicked
 
     /**
      * @param args the command line arguments

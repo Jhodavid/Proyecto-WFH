@@ -77,4 +77,10 @@ JOptionPane.showMessageDialog(null, "Error sql"+ex);
         }
         return null;
     }
+    // ________________________________________________________________________________ graficar 
+   
+   public void graficar (Usuario dato){
+       
+   }
+            
 }
