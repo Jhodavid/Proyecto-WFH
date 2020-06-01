@@ -8,20 +8,22 @@ package View;
 import Controller.Operaciones;
 
 import static Controller.Operaciones.user;
+
 /**
  *
  * @author angel
  */
 public class IFrmActualizardatos extends javax.swing.JInternalFrame {
-Operaciones op=new Operaciones();
+
     /**
      * Creates new form IFrmActualizardatos
      */
     public IFrmActualizardatos() {
         initComponents();
-        
+
     }
-public void Nuevo() {
+
+    public void Nuevo() {
         txtnombre.setText("");
         txtapellido.setText("");
         txtcedula.setText("");
@@ -33,16 +35,17 @@ public void Nuevo() {
         txtcontraseña.setText("");
         txtconfirmarcontraseña.setText("");
     }
-public void VerDatos(){
 
-txtnombre.setText(user.Nombre);
-txtapellido.setText(user.Apellidos);
-txttelefono.setText(Integer.toHexString(user.Telefono));
-txtpeso.setText(Integer.toString((int) user.Peso));
-txtaltura.setText(Integer.toString((int) user.Altura));
-txtedad.setText(Integer.toString(user.Edad));
+    public void VerDatos() {
 
-}
+        txtnombre.setText(user.Nombre);
+        txtapellido.setText(user.Apellidos);
+        txttelefono.setText(Integer.toHexString(user.Telefono));
+        txtpeso.setText(Integer.toString((int) user.Peso));
+        txtaltura.setText(Integer.toString((int) user.Altura));
+        txtedad.setText(Integer.toString(user.Edad));
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -208,7 +211,7 @@ txtedad.setText(Integer.toString(user.Edad));
     }//GEN-LAST:event_txtapellidoActionPerformed
 
     private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
-     
+
     }//GEN-LAST:event_txtedadKeyTyped
 
     private void txtpesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesoKeyTyped
@@ -225,8 +228,8 @@ txtedad.setText(Integer.toString(user.Edad));
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
         // TODO add your handling code here:
-VerDatos();
-      
+        VerDatos();
+        System.out.println(user.Apellidos);
 
     }//GEN-LAST:event_btnregistrarActionPerformed
 

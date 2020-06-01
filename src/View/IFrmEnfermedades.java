@@ -93,7 +93,7 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         System.out.println(user.Apellidos+" -- "+user.Nombre+" -- "+user.Peso);
         
         
-        jTextField1.setText(Integer.toString(user.IdUsuario));
+        jTextField1.setText(user.Nombre);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
