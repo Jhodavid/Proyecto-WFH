@@ -91,9 +91,9 @@ public class Operaciones {
         }
     }
     
-    public void GuardarEnfermedades(String Enfermedad, String Descripcion){
+    public void GuardarEnfermedades(String Enfermedad, String Descripcion, String Tipo, String Diag){
         try {
-            query = "insert into Enfermedades (Nombre, Decripcion) values ('"+Enfermedad+"', '"+Descripcion+"')";
+            query = "insert into Enfermedades (Nombre, Descripcion, TipoEnfermedad, Diagnostico) values ('"+Enfermedad+"', '"+Descripcion+"', '"+Tipo+"', '"+Diag+"')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
             con = conect.getConnection();
