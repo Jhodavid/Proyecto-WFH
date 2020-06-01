@@ -19,6 +19,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     Connection con = null;
     ConexionDB conect = new ConexionDB();
     public Operaciones op;
+    public static Usuario userIni = new Usuario(); 
     
     /**
      * Creates new form FrmPrincipal
@@ -392,6 +393,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtContraseña.setText("");
         
         if(op.iniciar(inicio) != null){
+            
+                userIni = op.iniciar(inicio);
                 //INTERFAZ//////////////////////////////////////////////////////
                 Dimension preferredSize = jDesktopPane1.getPreferredSize();
                 JPanelCuenta.setVisible(false);

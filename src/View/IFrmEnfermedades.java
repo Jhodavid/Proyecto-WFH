@@ -7,7 +7,7 @@ package View;
 
 import java.awt.Dimension;
 import Controller.Operaciones;
-import static Controller.Operaciones.user;
+import static View.FrmPrincipal.userIni;
 /**
  *
  * @author jhoda
@@ -18,7 +18,7 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
     
     public IFrmEnfermedades() {
         initComponents();
-        
+        op = new Operaciones();
     }
 
     /**
@@ -90,10 +90,10 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.out.println(user.Apellidos+" -- "+user.Nombre+" -- "+user.Peso);
+        System.out.println(userIni.Apellidos+" -- "+userIni.Nombre+" -- "+userIni.Peso);
         
         
-        jTextField1.setText(user.Nombre);
+        jTextField1.setText(userIni.Nombre);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
