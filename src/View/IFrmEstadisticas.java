@@ -8,10 +8,8 @@ import java.beans.PropertyVetoException;
 import static Controller.Operaciones.user;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import View.FrmPrincipal;
-import View.IFrmEnfermedades;
-import View.IFrmEstadisticas;
-import View.IFrmSaludFisica;
+
+
 /**
  *
  * @author jhoda
@@ -169,12 +167,21 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
         
        
          
-      BtnRitmoCardiaco1.setEnabled(false);
-      BTNSALUDFISICA.setEnabled(false);
+     
     }//GEN-LAST:event_BTNSALUDFISICAActionPerformed
 
     private void BtnRitmoCardiaco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRitmoCardiaco1ActionPerformed
-        // TODO add your handling code here:
+        IFrmEstadisticaEmfermedades obje = new IFrmEstadisticaEmfermedades();
+       jDesktopPane1.add(obje);
+        obje.toFront();
+         obje.setLocation(jDesktopPane1.getWidth() / 2 - obje.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obje.getHeight() / 2);
+           try {
+            obje.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        obje.setVisible(true);
+        obje.setVisible(true);
     }//GEN-LAST:event_BtnRitmoCardiaco1ActionPerformed
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked

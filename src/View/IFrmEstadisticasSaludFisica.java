@@ -27,6 +27,11 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
     public IFrmEstadisticasSaludFisica() {
         
         initComponents();     
+     }
+    
+    public DefaultCategoryDataset mostrar (){
+        
+        
         Dato.addValue(1,  " Grafica de Peso Obtimo ", " 1 año");
         Dato.addValue(2,  " Grafica de Peso Obtimo ", " 2 año");
         Dato.addValue(3,  " Grafica de Peso Obtimo ", " 3 año");
@@ -47,10 +52,8 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
         Dato.addValue(22,  " Grafica de Sobre Peso ", " 8 año");
         Dato.addValue(54,  " Grafica de Sobre Peso ", " 9 año");
         
-        
-        
-        
-     }
+        return Dato;
+    }
      
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,6 +93,13 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
         BTNPESO_OBTIMO = new javax.swing.JButton();
         BTN_SOBRE_PESO = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -156,29 +166,71 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Estadistica General De Salud Fisica");
+
+        jButton3.setText("jButton3");
+
+        jButton4.setText("jButton4");
+
+        jButton5.setText("jButton5");
+
+        jButton6.setText("jButton6");
+
+        jButton7.setText("jButton7");
+
+        jButton8.setText("jButton8");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(BTN_SOBRE_PESO, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BTNPESO_OBTIMO, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 264, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BTNPESO_OBTIMO, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BTN_SOBRE_PESO, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton8))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton7))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jButton3)
+                            .addGap(46, 46, 46)
+                            .addComponent(jButton6))))
+                .addGap(0, 252, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(BTNPESO_OBTIMO, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                        .addComponent(BTN_SOBRE_PESO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addGap(5, 5, 5)
+                .addComponent(jLabel1)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTN_SOBRE_PESO)
+                    .addComponent(jButton3)
+                    .addComponent(jButton6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BTNPESO_OBTIMO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton7))
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton8)
+                        .addComponent(jButton5)))
+                .addGap(342, 342, 342))
         );
 
         pack();
@@ -186,7 +238,7 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
 
     private void BTNPESO_OBTIMOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNPESO_OBTIMOActionPerformed
         // TODO add your handling code here:
-         JFreeChart Grafica;
+        
         DefaultCategoryDataset Datoss = new DefaultCategoryDataset();
         
         Datoss.addValue(1,  " Grafica de Peso Obtimo ", " 1 año");
@@ -199,7 +251,7 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
         Datoss.addValue(10, " Grafica de Peso Obtimo ", " 8 año");
         Datoss.addValue(11, " Grafica de Peso Obtimo ", " 9 año");
         
-        Grafica = ChartFactory.createBarChart3D(" GRAFICA DE PESO OBTIMO","EDADES", "KILOS"
+        Grafica = ChartFactory.createBarChart3D(" GRAFICA DE PESO OBTIMO"," RANGO DE EDADES", "CANTIDAD DE PERSONAS"
                 , Datoss,PlotOrientation.VERTICAL, true, true, false);
          ChartPanel Panel = new ChartPanel(Grafica);
          JFrame Ventana;
@@ -226,7 +278,7 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
         Datos.addValue(22,  " Grafica de Sobre Peso ", " 8 año");
         Datos.addValue(54,  " Grafica de Sobre Peso ", " 9 año");
         
-         Grafica2 = ChartFactory.createBarChart3D("GRAFICA DE SOBRE PESO","EDADES", "KILOS"
+         Grafica2 = ChartFactory.createBarChart3D("GRAFICA DE SOBRE PESO"," RANGO DE EDADES", "CANTIDAD DE PERSONAS"
                 , Datos,PlotOrientation.VERTICAL, true, true, false);
         ChartPanel Panel = new ChartPanel(Grafica2);
         JFrame Ventana;
@@ -238,9 +290,10 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BTN_SOBRE_PESOActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        Grafica = ChartFactory.createBarChart3D("GRAFICA DE SOBRE PESO","EDADES", "KILOS"
-                , Dato,PlotOrientation.VERTICAL, true, true, false);
+         // TODO add your handling code here:
+         
+        Grafica = ChartFactory.createBarChart3D("GRAFICA DE PESO "," RANGO DE EDADES", "CANTIDAD DE PERSONAS"
+                , mostrar(),PlotOrientation.VERTICAL, true, true, false);
         ChartPanel Panel = new ChartPanel(Grafica);
         JFrame Ventana;
         Ventana = new JFrame("JFreeChart");
@@ -260,11 +313,18 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
