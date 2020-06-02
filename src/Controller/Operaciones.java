@@ -8,6 +8,7 @@ package Controller;
 import ConexionDB.ConexionDB;
 import Model.Usuario;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -44,7 +45,43 @@ public class Operaciones {
             JOptionPane.showMessageDialog(null, "Error sql" + ex);
         }
     }
+public void Actualizar(String v[]){
 
+ try {
+            Connection con = null;
+            ConexionDB conect1 = new ConexionDB();
+            con= conect1.getConnection();
+            Statement st = con.createStatement();
+           String sql = "update Usuario set Cedula = ?, Contraseña = ?, Nombre = ?, Apellidos = ?, Sexo = ?, Telefono = ?, Edad = ?, Altura = ?, Peso = ? where IdUsuario = ?";
+           PreparedStatement pst = con.prepareStatement(sql);
+             pst.setString(1, v[2]);
+              pst.setString(2, v[4]);
+               pst.setString(3, v[0]);
+                pst.setString(4, v[1]);
+                 pst.setString(5, v[8]);
+                  pst.setString(6, v[3]);
+                   pst.setString(7, v[5]);
+                    pst.setString(8, v[7]);
+                     pst.setString(9, v[6]);
+                      pst.setInt(10, Integer.parseInt(v[9]));
+  
+          
+          pst.executeUpdate();
+             
+                        JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE");
+
+                
+            
+            
+            
+ } catch (SQLException ex)
+        {
+     //JOptionPane.showMessageDialog(null, "Error sql" + ex);    
+                   JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR MIENTRAS SE ACTULIZABAN SUS DATOS", "Error "+ex, javax.swing.JOptionPane.ERROR_MESSAGE);
+
+        } 
+    
+}
     public Usuario iniciar(String inicio[]) {
 
         try {
