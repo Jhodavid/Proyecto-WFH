@@ -8,13 +8,15 @@ package View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import static Controller.Operaciones.user;
+import  View.IFrmSaludFisica;
+
+
 /**
  *
  * @author CAMILO A TRUYOL O
  */
-public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
-
+public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame { 
+    IFrmSaludFisica X= new  IFrmSaludFisica();
     /**
      * Creates new form IFrmRitmoCardiaco
      */
@@ -24,7 +26,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
           BtnIniciar.setEnabled(false);
           Btnpausar.setEnabled(false);
           Btndetener.setEnabled(false);
-          
+       
     }
 
      private Timer t;
@@ -56,6 +58,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Btnsalir = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         etiquetaTiempo = new javax.swing.JLabel();
         Btnpausar = new javax.swing.JButton();
@@ -65,10 +68,19 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(71, 71, 75));
-        setClosable(true);
-        setIconifiable(true);
         setPreferredSize(new java.awt.Dimension(526, 192));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Btnsalir.setBackground(new java.awt.Color(0, 204, 204));
+        Btnsalir.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        Btnsalir.setForeground(new java.awt.Color(0, 0, 0));
+        Btnsalir.setText("SALIR");
+        Btnsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnsalirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
@@ -152,6 +164,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         BtnIniciar.setText("Iniciar");
         Btnpausar.setEnabled(false);
         Btndetener.setEnabled(false);
+        
         m=0; s=0; cs=0;
         actualizarLabel();
     }//GEN-LAST:event_BtndetenerActionPerformed
@@ -164,12 +177,17 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         Btndetener.setEnabled(true);
     }//GEN-LAST:event_BtnIniciarActionPerformed
 
+    private void BtnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsalirActionPerformed
+      this.setVisible(false);
+    }//GEN-LAST:event_BtnsalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnIniciar;
     private javax.swing.JButton BtnUso;
     private javax.swing.JButton Btndetener;
     private javax.swing.JButton Btnpausar;
+    private javax.swing.JButton Btnsalir;
     private javax.swing.JLabel etiquetaTiempo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

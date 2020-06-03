@@ -24,7 +24,12 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         initComponents();
         
     }
-    
+    public void habliitar(){
+      BtnPeso.setEnabled(true);
+        BtnRitmoCardiaco.setEnabled(true);
+        Btncalorias.setEnabled(true);
+
+            }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,6 +95,11 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         jLabel3.setText("CALORIAS DIARIAS");
 
         Btncalorias.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Calories (1).png"))); // NOI18N
+        Btncalorias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtncaloriasActionPerformed(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -109,9 +119,9 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 196, Short.MAX_VALUE)
+                        .addGap(0, 235, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addGap(179, 179, 179))
+                        .addGap(140, 140, 140))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jDesktopPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)))
@@ -150,7 +160,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Btncalorias)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,8 +178,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         }
         obje.setVisible(true);
         obje.setVisible(true);
-      BtnPeso.setEnabled(false);
-      Btncalorias.setEnabled(false);
+      
     }//GEN-LAST:event_BtnRitmoCardiacoActionPerformed
 
     private void BtnPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPesoActionPerformed
@@ -185,8 +194,24 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         obj.setVisible(true);
+        
        
     }//GEN-LAST:event_BtnPesoActionPerformed
+
+    private void BtncaloriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncaloriasActionPerformed
+         IFrmCalorias f = new IFrmCalorias();
+        Dimension preferredSize = jDesktopPane1.getPreferredSize();
+        f.setPreferredSize(preferredSize);
+        jDesktopPane1.add(f);
+        f.toFront();
+        f.setLocation(jDesktopPane1.getWidth() / 2 - f.getWidth() / 2, jDesktopPane1.getHeight() / 2 - f.getHeight() / 2);
+        try {
+            f.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        f.setVisible(true);
+    }//GEN-LAST:event_BtncaloriasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
