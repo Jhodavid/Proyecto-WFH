@@ -57,12 +57,12 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(Txtcalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 140, 30));
+        getContentPane().add(Txtcalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Actividades  diarias");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
@@ -82,20 +82,20 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Calorias diarias Aprox");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Sexo");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
-        CMBestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione una opcion --", "1. No muy activo ( Sobre todo sentado ej. trabajo de oficina)", "2. Medianamente activo ( Sobre todo de pie ej. cajero, profesor)", "3. Activo ( Sobre todo andando ej. vendedor, camarero)", "4. Muy activo ( Trabajos físicos ej. construcción)" }));
+        CMBestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione una opcion --", "1. No muy activo ( Si no haces nada de ejercicio y trabajas sentado)", "2. Medianamente activo (  ej. cajero, profesor)", "3. Activo (unos cuatro días por semana hace ejercicio: ej. vendedor, camarero)", "4. Muy activo ( Trabajos físicos , ejercicios 6 veces a la semana ej. construcción)" }));
         CMBestado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CMBestadoActionPerformed(evt);
             }
         });
-        getContentPane().add(CMBestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
+        getContentPane().add(CMBestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
         getContentPane().add(TxtAlltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 100, 30));
         getContentPane().add(Txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 100, 30));
         getContentPane().add(TxtSExo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 100, 30));
@@ -110,7 +110,7 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
                 BtncargardatosActionPerformed(evt);
             }
         });
-        getContentPane().add(Btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        getContentPane().add(Btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         Btnsalir.setBackground(new java.awt.Color(0, 255, 204));
         Btnsalir.setForeground(new java.awt.Color(0, 0, 0));
@@ -183,7 +183,13 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JmenuusarKeyPressed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-      JOptionPane.showMessageDialog(null, "");
+      JOptionPane.showMessageDialog(null, " PASOS PARA CALCULAR LAS CALORIAS DIARIAS A CONSUMIR : \n"
+              + "\n"
+              + "1. Cargar los datos para proceder con el computo \n"
+              + "2. Escoger una de las Actividades diarias para saber cuantas calorias se queman en la semana \n"
+              + "3. En la opcion de arriba presionar calcular y escoger una de las 2 opciones \n"
+              + "La primera calcula las calorias para aprox para mantener el peso \n"
+              + "la 2da opcion nos deja ver cuantas calorias comer para perfer peso");
         Btncargardatos.setEnabled(true);
         CMBestado.setEnabled(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed

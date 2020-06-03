@@ -71,7 +71,7 @@
     <Component class="javax.swing.JTextField" name="Txtcalorias">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="240" width="140" height="30"/>
+          <AbsoluteConstraints x="30" y="210" width="140" height="30"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -87,7 +87,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="250" y="230" width="-1" height="-1"/>
+          <AbsoluteConstraints x="180" y="250" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -151,7 +151,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="0" y="210" width="-1" height="-1"/>
+          <AbsoluteConstraints x="0" y="180" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -176,10 +176,10 @@
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
             <StringItem index="0" value="-- Seleccione una opcion --"/>
-            <StringItem index="1" value="1. No muy activo ( Sobre todo sentado ej. trabajo de oficina)"/>
-            <StringItem index="2" value="2. Medianamente activo ( Sobre todo de pie ej. cajero, profesor)"/>
-            <StringItem index="3" value="3. Activo ( Sobre todo andando ej. vendedor, camarero)"/>
-            <StringItem index="4" value="4. Muy activo ( Trabajos f&#xed;sicos ej. construcci&#xf3;n)"/>
+            <StringItem index="1" value="1. No muy activo ( Si no haces nada de ejercicio y trabajas sentado)"/>
+            <StringItem index="2" value="2. Medianamente activo (  ej. cajero, profesor)"/>
+            <StringItem index="3" value="3. Activo (unos cuatro d&#xed;as por semana hace ejercicio: ej. vendedor, camarero)"/>
+            <StringItem index="4" value="4. Muy activo ( Trabajos f&#xed;sicos , ejercicios 6 veces a la semana ej. construcci&#xf3;n)"/>
           </StringArray>
         </Property>
       </Properties>
@@ -191,7 +191,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="180" y="260" width="-1" height="-1"/>
+          <AbsoluteConstraints x="60" y="280" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -241,7 +241,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="100" y="140" width="-1" height="-1"/>
+          <AbsoluteConstraints x="100" y="110" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
