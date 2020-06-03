@@ -167,7 +167,7 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
         if (peso<18) {
             JOptionPane.showMessageDialog(null,"Tu peso es mas bajo de lo normal","Peso no Optimo",JOptionPane.ERROR_MESSAGE);
         }else
-        if (peso>25 || peso < 30) {
+        if (peso>25 && peso < 30) {
             JOptionPane.showMessageDialog(null,"Poesees indices de sobre peso ","Peso no Optimo",JOptionPane.ERROR_MESSAGE);
         }else
             if (peso>30) {

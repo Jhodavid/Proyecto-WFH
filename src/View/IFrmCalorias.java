@@ -13,7 +13,7 @@ import Controller.Operaciones;
  * @author CAMILO A TRUYOL O
  */
 public class IFrmCalorias extends javax.swing.JInternalFrame {
-
+  Operaciones F = new Operaciones();
     /**
      * Creates new form IFrmCalorias
      */
@@ -33,10 +33,12 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Txtcalorias = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         CMBestado = new javax.swing.JComboBox<>();
         TxtAlltura = new javax.swing.JTextField();
@@ -51,33 +53,41 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         Jmenuusar = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         MenuCalculat = new javax.swing.JMenu();
+        Mndiariasnormales = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(Txtcalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Actividades  diarias");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Peso (Kg)");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Altura (Cm)");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Edad");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel7.setText("Calorias diarias Aprox");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Sexo");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
         CMBestado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Seleccione una opcion --", "1. No muy activo ( Sobre todo sentado ej. trabajo de oficina)", "2. Medianamente activo ( Sobre todo de pie ej. cajero, profesor)", "3. Activo ( Sobre todo andando ej. vendedor, camarero)", "4. Muy activo ( Trabajos físicos ej. construcción)" }));
         CMBestado.addActionListener(new java.awt.event.ActionListener() {
@@ -85,11 +95,11 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
                 CMBestadoActionPerformed(evt);
             }
         });
-        getContentPane().add(CMBestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
-        getContentPane().add(TxtAlltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 100, 30));
-        getContentPane().add(Txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 100, 30));
-        getContentPane().add(TxtSExo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 100, 30));
-        getContentPane().add(Txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 100, 30));
+        getContentPane().add(CMBestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
+        getContentPane().add(TxtAlltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 100, 30));
+        getContentPane().add(Txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 100, 30));
+        getContentPane().add(TxtSExo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 100, 30));
+        getContentPane().add(Txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 100, 30));
 
         Btncargardatos.setBackground(new java.awt.Color(0, 255, 204));
         Btncargardatos.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
@@ -100,7 +110,7 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
                 BtncargardatosActionPerformed(evt);
             }
         });
-        getContentPane().add(Btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        getContentPane().add(Btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
 
         Btnsalir.setBackground(new java.awt.Color(0, 255, 204));
         Btnsalir.setForeground(new java.awt.Color(0, 0, 0));
@@ -116,7 +126,7 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         label1.setBackground(new java.awt.Color(51, 255, 204));
         label1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         label1.setText("Calculador de calorias diarias");
-        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, 220, -1));
+        getContentPane().add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 220, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondi isi.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -139,6 +149,23 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         jMenuBar1.add(Jmenuusar);
 
         MenuCalculat.setText("Calcular");
+
+        Mndiariasnormales.setText(" Calorias diarias para mantener peso");
+        Mndiariasnormales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MndiariasnormalesActionPerformed(evt);
+            }
+        });
+        MenuCalculat.add(Mndiariasnormales);
+
+        jMenuItem2.setText("Calorias diarias para perder peso");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        MenuCalculat.add(jMenuItem2);
+
         jMenuBar1.add(MenuCalculat);
 
         setJMenuBar(jMenuBar1);
@@ -172,6 +199,113 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
     Txtpeso.setText(Double.toString(userIni.Peso));
     }//GEN-LAST:event_BtncargardatosActionPerformed
 
+    private void MndiariasnormalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MndiariasnormalesActionPerformed
+       double TBM=0;
+        if (CMBestado.getSelectedIndex()!=0) {
+            
+        if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==1) {
+            TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+            TBM=TBM*1.2;
+        }else
+            if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==2) {
+                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM=TBM* 1.375;
+            } else
+                if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==3 ) {
+                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM=TBM*1.55;
+            }else
+                    if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==4) {
+                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM=TBM*1.725;
+            }else
+                        
+            if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==1) {
+            TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+             TBM=TBM*1.2;
+        }else
+                if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==2) {
+                 TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                 TBM=TBM*1.375;
+            }else
+             if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==3) {
+                  TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                 TBM=TBM*1.55;
+             }else
+                 if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==4) {
+                 TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                 TBM=TBM*1.725;
+            }
+         
+         JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para esta persona son de : "+TBM);
+         Txtcalorias.setText(Double.toString(TBM));
+        }else{
+             JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+       
+    }//GEN-LAST:event_MndiariasnormalesActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+      double TBM=0,resta;
+        if (CMBestado.getSelectedIndex()!=0) {
+            
+        if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==1) {
+            TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+            TBM=TBM*1.2;
+            resta=TBM*0.17;
+            TBM=TBM-resta;
+        }else
+            if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==2) {
+                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM=TBM* 1.375;
+                resta=TBM*0.17;
+                TBM=TBM-resta;
+            } else
+                if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==3 ) {
+                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM=TBM*1.55;
+                resta=TBM*0.17;
+                TBM=TBM-resta;
+            }else
+                    if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==4) {
+                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM=TBM*1.725;
+                resta=TBM*0.17;
+                TBM=TBM-resta;
+            }else
+                        
+            if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==1) {
+            TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+             TBM=TBM*1.2;
+             resta=TBM*0.17;
+             TBM=TBM-resta;
+        }else
+                if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==2) {
+                 TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                 TBM=TBM*1.375;
+                 resta=TBM*0.17;
+                 TBM=TBM-resta;
+            }else
+             if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==3) {
+                  TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                 TBM=TBM*1.55;
+                 resta=TBM*0.17;
+                 TBM=TBM-resta;
+             }else
+                 if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==4) {
+                 TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                 TBM=TBM*1.725;
+                 resta=TBM*0.17;
+                 TBM=TBM-resta;
+            }
+         
+         JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para perder de 0.5 a 1 kilo semanal son de : "+TBM);
+         Txtcalorias.setText(Double.toString(TBM));
+        }else{
+             JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btncargardatos;
@@ -179,8 +313,10 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> CMBestado;
     private javax.swing.JMenu Jmenuusar;
     private javax.swing.JMenu MenuCalculat;
+    private javax.swing.JMenuItem Mndiariasnormales;
     private javax.swing.JTextField TxtAlltura;
     private javax.swing.JTextField TxtSExo;
+    private javax.swing.JTextField Txtcalorias;
     private javax.swing.JTextField Txtedad;
     private javax.swing.JTextField Txtpeso;
     private javax.swing.JLabel jLabel1;
@@ -189,8 +325,10 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
