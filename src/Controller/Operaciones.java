@@ -190,5 +190,12 @@ public class Operaciones {
     public void graficar(Usuario dato) {
 
     }
+ /////// SALUD FISICA !!!!!!!!!!!!!!!!!!!!! ///////////////////////////////////////////////////////////
+    
+  
+    public double PesoOptimo(double cm,double ps){
+        double mt=cm/100;
+        return ps/(Math.pow(mt, 2));
+    }
 
 }
