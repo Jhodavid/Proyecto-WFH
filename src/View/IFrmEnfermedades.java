@@ -5,9 +5,11 @@
  */
 package View;
 
-import java.awt.Dimension;
 import Controller.Operaciones;
-import static View.FrmPrincipal.userIni;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author jhoda
@@ -21,6 +23,7 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         op = new Operaciones();
     }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,9 +35,21 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jTextField1 = new javax.swing.JTextField();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu11 = new javax.swing.JMenu();
+        jMenu12 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -44,64 +59,125 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setPreferredSize(new java.awt.Dimension(696, 369));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_petri_dish_virus_bacteria_biology_6217216.png"))); // NOI18N
-        jButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 318, Short.MAX_VALUE)
         );
 
-        jTextField1.setText("jTextField1");
+        jMenu1.setText("Tipo de Enfermedad");
+
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesCardiovascular.png"))); // NOI18N
+        jMenu4.setText("Cardiovasculares");
+        jMenu1.add(jMenu4);
+
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesDelaMujer.png"))); // NOI18N
+        jMenu5.setText("De la Mujer");
+        jMenu1.add(jMenu5);
+
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesDermatologicas.png"))); // NOI18N
+        jMenu6.setText("Dermatológicas");
+        jMenu1.add(jMenu6);
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesAlergia.png"))); // NOI18N
+        jMenu3.setText("Alergias");
+        jMenu1.add(jMenu3);
+
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesSanguineas.png"))); // NOI18N
+        jMenu7.setText("Sanguíneas");
+        jMenu1.add(jMenu7);
+
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesOculares.png"))); // NOI18N
+        jMenu8.setText("Oculares");
+        jMenu1.add(jMenu8);
+
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesTransmisionSex.png"))); // NOI18N
+        jMenu9.setText("Transmisión Sexual");
+
+        jMenuItem8.setText("Sífilis");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jMenuItem8);
+
+        jMenu1.add(jMenu9);
+
+        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesDigestivas.png"))); // NOI18N
+        jMenu10.setText("Digestivas");
+        jMenu1.add(jMenu10);
+
+        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesNeurologicas.png"))); // NOI18N
+        jMenu11.setText("Neurológicas");
+        jMenu1.add(jMenu11);
+
+        jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesUrgencias.png"))); // NOI18N
+        jMenu12.setText("Urgencias Médicas");
+        jMenu1.add(jMenu12);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Sintomas");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton2)
-                .addGap(63, 63, 63)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 187, Short.MAX_VALUE))
             .addComponent(jDesktopPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        System.out.println(userIni.Apellidos+" -- "+userIni.Nombre+" -- "+userIni.Peso);
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        IFrmEnfermedadesInterfaz obj = new IFrmEnfermedadesInterfaz();
         
+        jDesktopPane1.add(obj);
+        obj.toFront();
+        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
+        try {
+            obj.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String A = jMenuItem8.getText();
         
-        jTextField1.setText(userIni.Nombre);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        obj.EnfermedadFrm(op.Enfermedades(A).Titulo, "Tipo: "+op.Enfermedades(A).Tipo, op.Enfermedades(A).Descripcion, op.Enfermedades(A).Sintomas);
+        
+        obj.setVisible(true);
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

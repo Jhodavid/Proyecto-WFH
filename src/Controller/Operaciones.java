@@ -7,6 +7,7 @@ package Controller;
 
 import ConexionDB.ConexionDB;
 import Model.Usuario;
+import Model.Enfermedad;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -22,6 +23,8 @@ import javax.swing.table.DefaultTableModel;
 public class Operaciones {
 
     public static Usuario user;
+    public Enfermedad datosE;
+    
     DefaultTableModel model = new DefaultTableModel();
     Statement st = null;
     ResultSet rs = null;
@@ -30,6 +33,7 @@ public class Operaciones {
 
     public Operaciones() {
         user = new Usuario();
+        datosE = new Enfermedad();
     }
 
     public void Registar(String tabla, String campos, String valores) {
@@ -45,43 +49,40 @@ public class Operaciones {
             JOptionPane.showMessageDialog(null, "Error sql" + ex);
         }
     }
-public void Actualizar(String v[]){
 
- try {
+    public void Actualizar(String v[]) {
+
+        try {
             Connection con = null;
             ConexionDB conect1 = new ConexionDB();
-            con= conect1.getConnection();
+            con = conect1.getConnection();
             Statement st = con.createStatement();
-           String sql = "update Usuario set Cedula = ?, Contraseña = ?, Nombre = ?, Apellidos = ?, Sexo = ?, Telefono = ?, Edad = ?, Altura = ?, Peso = ? where IdUsuario = ?";
-           PreparedStatement pst = con.prepareStatement(sql);
-             pst.setString(1, v[2]);
-              pst.setString(2, v[4]);
-               pst.setString(3, v[0]);
-                pst.setString(4, v[1]);
-                 pst.setString(5, v[8]);
-                  pst.setString(6, v[3]);
-                   pst.setString(7, v[5]);
-                    pst.setString(8, v[7]);
-                     pst.setString(9, v[6]);
-                      pst.setInt(10, Integer.parseInt(v[9]));
-  
-          
-          pst.executeUpdate();
-             
-                        JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE");
+            String sql = "update Usuario set Cedula = ?, Contraseña = ?, Nombre = ?, Apellidos = ?, Sexo = ?, Telefono = ?, Edad = ?, Altura = ?, Peso = ? where IdUsuario = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, v[2]);
+            pst.setString(2, v[4]);
+            pst.setString(3, v[0]);
+            pst.setString(4, v[1]);
+            pst.setString(5, v[8]);
+            pst.setString(6, v[3]);
+            pst.setString(7, v[5]);
+            pst.setString(8, v[7]);
+            pst.setString(9, v[6]);
+            pst.setInt(10, Integer.parseInt(v[9]));
 
-                
-            
-            
-            
- } catch (SQLException ex)
-        {
-     //JOptionPane.showMessageDialog(null, "Error sql" + ex);    
-                   JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR MIENTRAS SE ACTULIZABAN SUS DATOS", "Error "+ex, javax.swing.JOptionPane.ERROR_MESSAGE);
+            pst.executeUpdate();
 
-        } 
-    
-}
+            JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE");
+
+        } catch (SQLException ex) {
+            //JOptionPane.showMessageDialog(null, "Error sql" + ex);    
+            JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR MIENTRAS SE ACTULIZABAN SUS DATOS", "Error " + ex, javax.swing.JOptionPane.ERROR_MESSAGE);
+
+        }
+
+    }
+
+    ///////////////METODOS INICIO - ADMIN - ENFERMEDADES
     public Usuario iniciar(String inicio[]) {
 
         try {
@@ -116,21 +117,7 @@ public void Actualizar(String v[]){
     public void GuardarSintomas(String sintoma) {
 
         try {
-            query = "insert into Sintomas (Nombre) values ('"+sintoma+"')";
-            Connection con = null;
-            ConexionDB conect = new ConexionDB();
-            con = conect.getConnection();
-            Statement st = con.createStatement();
-            st.execute(query);
-            JOptionPane.showMessageDialog(null, "Regitro guardado exitosamente");
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error sql" + ex);
-        }
-    }
-    
-    public void GuardarEnfermedades(String Enfermedad, String Descripcion, String Tipo, String Diag){
-        try {
-            query = "insert into Enfermedades (Nombre, Descripcion, TipoEnfermedad, Diagnostico) values ('"+Enfermedad+"', '"+Descripcion+"', '"+Tipo+"', '"+Diag+"')";
+            query = "insert into Sintomas (Nombre) values ('" + sintoma + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
             con = conect.getConnection();
@@ -142,6 +129,63 @@ public void Actualizar(String v[]){
         }
     }
 
+    public void GuardarEnfermedades(String Enfermedad, String Descripcion, String Tipo, String Diag) {
+        try {
+            query = "insert into Enfermedades (Nombre, Descripcion, TipoEnfermedad, Diagnostico) values ('" + Enfermedad + "', '" + Descripcion + "', '" + Tipo + "', '" + Diag + "')";
+            Connection con = null;
+            ConexionDB conect = new ConexionDB();
+            con = conect.getConnection();
+            Statement st = con.createStatement();
+            st.execute(query);
+            JOptionPane.showMessageDialog(null, "Regitro guardado exitosamente");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error sql" + ex);
+        }
+    }
+
+    public Enfermedad Enfermedades(String nombre) {
+
+        try {
+            Connection con1 = null;
+            ConexionDB conect1 = new ConexionDB();
+            con1 = conect1.getConnection();
+            String sql = "select * from Enfermedades";
+            Statement st = con1.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                if (nombre.equals(rs.getString("Nombre"))) {
+                    datosE.IdEnfermedad = Integer.parseInt(rs.getString("IdEnfermedades"));
+                    datosE.Titulo = rs.getString("Nombre");
+                    datosE.Tipo = rs.getString("TipoEnfermedad");
+                    datosE.Descripcion = rs.getString("Descripcion");
+                    datosE.Sintomas = rs.getString("Sintomas");
+
+                    return datosE;
+                }
+            }
+
+        } catch (SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+        return null;
+    }
+    
+    public void ImformeEnfermedad(int IdEnfermedad){
+        try {
+            query = "insert into Informe_Enfermedades (IdUsuario, IdEnfermedades) values ('" + user.IdUsuario + "', '" + datosE.IdEnfermedad + "')";
+            Connection con = null;
+            ConexionDB conect = new ConexionDB();
+            con = conect.getConnection();
+            Statement st = con.createStatement();
+            st.execute(query);
+            JOptionPane.showMessageDialog(null, "Regitro guardado exitosamente");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error sql" + ex);
+        }
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
     // ________________________________________________________________________________ graficar 
     public void graficar(Usuario dato) {
 
