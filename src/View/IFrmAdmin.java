@@ -6,7 +6,7 @@
 package View;
 
 import Controller.Operaciones;
-
+import Model.Enfermedad;
 /**
  *
  * @author jhoda
@@ -14,12 +14,14 @@ import Controller.Operaciones;
 public class IFrmAdmin extends javax.swing.JInternalFrame {
     
     public Operaciones op;
+    public Enfermedad datos;
     /**
      * Creates new form NewJInternalFrame
      */
     public IFrmAdmin() {
         initComponents();
         op = new Operaciones();
+        datos = new Enfermedad();
         EnableHorizontalScroll();
     }
     
@@ -300,12 +302,12 @@ public class IFrmAdmin extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnGuardarSintomaActionPerformed
 
     private void btnGuardarEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarEnfermedadActionPerformed
-        String enfermdedad = txtNombreEnfermedad.getText();
-        String descripcion = txtDescipcion.getText().substring(WIDTH);
-        String tipo = cmbTipoEnfermedad.getSelectedItem().toString();
-        String diag = txtDiagEnfermedad.getText().substring(WIDTH);
+        datos.Titulo = txtNombreEnfermedad.getText();
+        datos.Descripcion = txtDescipcion.getText().substring(WIDTH);
+        datos.Tipo = cmbTipoEnfermedad.getSelectedItem().toString();
+        datos.Sintomas = txtDiagEnfermedad.getText().substring(WIDTH);
         System.out.println(txtDescipcion);
-        op.GuardarEnfermedades(enfermdedad, descripcion, tipo, diag);
+        op.GuardarEnfermedades(datos);
         txtNombreEnfermedad.setText("");
         txtDescipcion.setText("");
         cmbTipoEnfermedad.setSelectedItem(0);
