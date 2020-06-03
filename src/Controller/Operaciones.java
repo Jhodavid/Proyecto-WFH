@@ -131,7 +131,7 @@ public class Operaciones {
 
     public void GuardarEnfermedades(Enfermedad datos) {
         try {
-            query = "insert into Enfermedades (Nombre, Descripcion, TipoEnfermedad, Sintomas) values ('" + datos.Titulo + "', '" + datos.Descripcion + "', '" + datos.Tipo + "', '" + datos.Sintomas + "')";
+            query = "insert into Enfermedades (Nombre, Descripcion, TipoEnfermedad, Sintomas) values ('" + datos.Tipo + "', '" + datos.Descripcion + "', '" + datos.Tipo + "', '" + datos.Sintomas + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
             con = conect.getConnection();
@@ -196,6 +196,17 @@ public class Operaciones {
     public double PesoOptimo(double cm,double ps){
         double mt=cm/100;
         return ps/(Math.pow(mt, 2));
+    }
+  //------- Calorias ---------------------------------------------  
+    public double CaloriasF(double kg, double Alt,  double Ed ){
+        Double TBM;
+        TBM = ((10*kg)+(6.25*Alt)-(5*Ed)-161);
+        return TBM;
+    }
+    public double CaloriasM(double kg, double Alt,  double Ed){
+         Double TBM;
+        TBM = ((10*kg)+(6.25*Alt)-(5*Ed)+5);
+        return TBM;
     }
 
 }
