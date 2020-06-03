@@ -131,7 +131,7 @@ public class Operaciones {
 
     public void GuardarEnfermedades(Enfermedad datos) {
         try {
-            query = "insert into Enfermedades (Nombre, Descripcion, TipoEnfermedad, Sintomas) values ('" + datos.Tipo + "', '" + datos.Descripcion + "', '" + datos.Tipo + "', '" + datos.Sintomas + "')";
+            query = "insert into Enfermedades (Nombre, Descripcion, TipoEnfermedad, Sintomas) values ('" + datos.Titulo + "', '" + datos.Descripcion + "', '" + datos.Tipo + "', '" + datos.Sintomas + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
             con = conect.getConnection();
