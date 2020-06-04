@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import Model.SaludFisica;
 import javax.swing.JOptionPane;
+import static View.IFrmSaludFisica.SaludDatos;
 /**
  *
  * @author CAMILO A TRUYOL O
@@ -176,7 +177,7 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
         }else{
                 JOptionPane.showMessageDialog(null, "Tienes un peso adecuado :D !!!! ");
             }
-                
+        SaludDatos.IMC = Sf.IMC;
         
     }//GEN-LAST:event_BtncomputarActionPerformed
 
