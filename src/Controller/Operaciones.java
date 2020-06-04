@@ -17,6 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Controller.Encriptacion;
 
 /**
  *
@@ -29,7 +30,8 @@ public class Operaciones {
     public static DatosGrafica DatosGraf;
     public Enfermedad datosE;
     public static SaludFisica SaludF;
-
+    public Encriptacion en;
+    
     DefaultTableModel model = new DefaultTableModel();
     Statement st = null;
     ResultSet rs = null;
@@ -103,7 +105,7 @@ public class Operaciones {
             while (rs.next()) {
                 user.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
                 user.Cedula = Integer.parseInt(rs.getString("Cedula"));
-                user.Contraseña = rs.getString("Contraseña");
+                user.Contraseña = en.Desencriptado(rs.getString("Contraseña"));
                 user.Nombre = rs.getString("Nombre");
                 user.Apellidos = rs.getString("Apellidos");
                 user.Sexo = rs.getString("Sexo");

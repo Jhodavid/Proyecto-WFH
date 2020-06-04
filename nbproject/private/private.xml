@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/ConexionDB/ConexionDB.java</file>
-            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/View/IFrmRitmoCardiaco.java</file>
-            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/View/IFrmSaludFisica.java</file>
+            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/Controller/Encriptacion.java</file>
             <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/Controller/Operaciones.java</file>
-            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/Model/Usuario.java</file>
             <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/View/FrmPrincipal.java</file>
-            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/View/IFrmEnfermedades.java</file>
-            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/Model/SaludFisica.java</file>
-            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/View/IFrmEstadisticasSaludFisica.java</file>
-            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/Model/Enfermedad.java</file>
+            <file>file:/C:/Users/jhoda/Documents/NetBeansProjects/Proyecto-WFH3/src/View/RegistroUsuario.java</file>
         </group>
     </open-files>
 </project-private>

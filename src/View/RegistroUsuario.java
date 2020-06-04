@@ -6,6 +6,7 @@
 package View;
 import Controller.Operaciones;
 import ConexionDB.ConexionDB;
+import Controller.Encriptacion;
 import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,12 +16,14 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+
 /**
  *
  * @author angel
  */
 public class RegistroUsuario extends javax.swing.JInternalFrame {
-
+    
+    public Encriptacion en;
     int contador = 0;
 Operaciones op=new Operaciones();
     /**
@@ -28,7 +31,7 @@ Operaciones op=new Operaciones();
      */
     public RegistroUsuario() {
         initComponents();
-
+         en = new Encriptacion();
     }
 
     public void Nuevo() {
@@ -272,7 +275,8 @@ Operaciones op=new Operaciones();
              altura=txtaltura.getText();
              peso=txtpeso.getText();
              campos="Cedula,Contraseña,Nombre,Apellidos,Sexo,Telefono,Edad,Altura,Peso";
-             valores="'"+cedula+"','"+contraseña+"','"+nombre+"','"+apellidos+"','"+sexo+"','"+telefono+"','"+edad+"','"+altura+"','"+peso+"'";
+             System.out.println(en.Cifrado(contraseña));
+             valores="'"+cedula+"','"+en.Cifrado(contraseña)+"','"+nombre+"','"+apellidos+"','"+sexo+"','"+telefono+"','"+edad+"','"+altura+"','"+peso+"'";
              op.Registar("Usuario", campos, valores);
                Nuevo();  
         }

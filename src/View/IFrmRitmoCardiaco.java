@@ -32,6 +32,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
           Btn10.setEnabled(false);
           Btn20.setEnabled(false);
           Btn30.setEnabled(false);
+          Txtlatidos.setEnabled(false);
        
     }
 
@@ -83,6 +84,12 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(71, 71, 75));
         setPreferredSize(new java.awt.Dimension(526, 192));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Txtlatidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtlatidosActionPerformed(evt);
+            }
+        });
         getContentPane().add(Txtlatidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, 110, 30));
 
         Btnsalir.setBackground(new java.awt.Color(0, 204, 204));
@@ -245,35 +252,57 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnsalirActionPerformed
 
     private void Btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn10ActionPerformed
-    
-     p.Rc = Integer.parseInt(Txtpulso.getText());
+    p.Rc = Integer.parseInt(Txtpulso.getText());
      p.Rc= p.Rc* 6 ;
         if (p.Rc<100 && p.Rc > 60) {
             javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son normales !");
+         Txtlatidos.setText(Double.toString(p.Rc));
         }else
             if (p.Rc >= 100) {
             javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son muy altos !!!!", "PROBLEMAS ", JOptionPane.ERROR_MESSAGE);
-        }else
+        Txtlatidos.setText(Double.toString(p.Rc));
+            }else
+                  javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos son muy buenos !");
      Txtlatidos.setText(Double.toString(p.Rc));
      SaludDatos.Rc=p.Rc;
-     
     }//GEN-LAST:event_Btn10ActionPerformed
 
     private void Btn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn20ActionPerformed
-   p.Rc = Integer.parseInt(Txtpulso.getText());
+     p.Rc = Integer.parseInt(Txtpulso.getText());
      p.Rc= p.Rc* 3 ;
+      if (p.Rc<100 && p.Rc > 60) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son normales !");
+            Txtlatidos.setText(Double.toString(p.Rc));
+        }else
+            if (p.Rc >= 100) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son muy altos !!!!", "PROBLEMAS ", JOptionPane.ERROR_MESSAGE);
+            Txtlatidos.setText(Double.toString(p.Rc));
+        }else
+                  javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos son muy buenos !");
      Txtlatidos.setText(Double.toString(p.Rc));
      SaludDatos.Rc=p.Rc;
-     
     }//GEN-LAST:event_Btn20ActionPerformed
 
     private void Btn30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn30ActionPerformed
-       p.Rc = Integer.parseInt(Txtpulso.getText());
+     p.Rc = Integer.parseInt(Txtpulso.getText());
      p.Rc= p.Rc* 2 ;
+
+      if (p.Rc<100 && p.Rc > 60) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son normales !");
+            Txtlatidos.setText(Double.toString(p.Rc));
+        }else
+            if (p.Rc >= 100) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son muy altos !!!!", "PROBLEMAS ", JOptionPane.ERROR_MESSAGE);
+            Txtlatidos.setText(Double.toString(p.Rc));
+        }else
+                  javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos son muy buenos !");
      Txtlatidos.setText(Double.toString(p.Rc));
      SaludDatos.Rc=p.Rc;
-     
     }//GEN-LAST:event_Btn30ActionPerformed
+
+    private void TxtlatidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtlatidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtlatidosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -55,7 +55,7 @@ public class Encriptacion {
         char array[] = Encriptado.toCharArray();
         int N = array.length;
         int C = N;
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < N-1; i++) {
             char aux = array[i];
             array[i] = array[N - i - 1];
             array[N - i - 1] = aux;
