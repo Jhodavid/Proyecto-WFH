@@ -11,7 +11,7 @@ package Model;
  */
 public class DatosGrafica {
     
-    public Enfermedad LI;
+    public DatosGrafica sig;
     public int PesoOptimo1;
     public int PesoOptimo2;
     public int PesoOptimo3;
@@ -41,12 +41,9 @@ public class DatosGrafica {
     public int PorDebajo7;
     public int PorDebajo8;
     public int PorDebajo9;
-    
-    public Enfermedad LD;
 
     public DatosGrafica() {
-        LI = null;
-        LD = null;
+        sig = null;
     }
 
     public DatosGrafica(DatosGrafica datos) {
@@ -80,7 +77,6 @@ public class DatosGrafica {
         PorDebajo8 = datos.PorDebajo8;
         PorDebajo9 = datos.PorDebajo9;
         
-        LI = null;
-        LD = null;
+        sig = null;
     }
 }

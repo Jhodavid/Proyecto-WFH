@@ -5,19 +5,11 @@
  */
 package View;
 
-import static Controller.Operaciones.user;
-import java.beans.PropertyVetoException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
-import javax.swing.JInternalFrame;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.*;
-import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
+import static Controller.Operaciones.DatosGraf;
 
 public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
 
@@ -28,46 +20,46 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
 
         initComponents();
     }
-/*
+
     public DefaultCategoryDataset GraficaSaludFisica() {
-        /*
-        while (op.R != null) {
+        
+        while (DatosGraf != null) {
 
-            Dato.addValue(R.PesoOptimo1, "Peso Optimo", "1-10 año(s)");
-            Dato.addValue(R.PesoOptimo2, "Peso Optimo", "11-20 años");
-            Dato.addValue(R.PesoOptimo3, "Peso Optimo", "21-30 años");
-            Dato.addValue(R.PesoOptimo4, "Peso Optimo", "31-40 años");
-            Dato.addValue(R.PesoOptimo5, "Peso Optimo", "41-50 años");
-            Dato.addValue(R.PesoOptimo6, "Peso Optimo", "51-60 años");
-            Dato.addValue(R.PesoOptimo7, "Peso Optimo", "61-70 años");
-            Dato.addValue(R.PesoOptimo8, "Peso Optimo", "71-80 años");
-            Dato.addValue(R.PesoOptimo9, "Peso Optimo", "81-90 años");
+            Dato.addValue(DatosGraf.PesoOptimo1, "Peso Optimo", "1-10 año(s)");
+            Dato.addValue(DatosGraf.PesoOptimo2, "Peso Optimo", "11-20 años");
+            Dato.addValue(DatosGraf.PesoOptimo3, "Peso Optimo", "21-30 años");
+            Dato.addValue(DatosGraf.PesoOptimo4, "Peso Optimo", "31-40 años");
+            Dato.addValue(DatosGraf.PesoOptimo5, "Peso Optimo", "41-50 años");
+            Dato.addValue(DatosGraf.PesoOptimo6, "Peso Optimo", "51-60 años");
+            Dato.addValue(DatosGraf.PesoOptimo7, "Peso Optimo", "61-70 años");
+            Dato.addValue(DatosGraf.PesoOptimo8, "Peso Optimo", "71-80 años");
+            Dato.addValue(DatosGraf.PesoOptimo9, "Peso Optimo", "81-90 años");
 
-            Dato.addValue(R.SobrePeso1, "Sobre Peso", "1-10 año(s)");
-            Dato.addValue(R.SobrePeso2, "Sobre Peso", "11-20 años");
-            Dato.addValue(R.SobrePeso3, "Sobre Peso", "21-30 años");
-            Dato.addValue(R.SobrePeso4, "Sobre Peso", "31-40 años");
-            Dato.addValue(R.SobrePeso5, "Sobre Peso", "41-50 años");
-            Dato.addValue(R.SobrePeso6, "Sobre Peso", "51-60 años");
-            Dato.addValue(R.SobrePeso7, "Sobre Peso", "61-70 años");
-            Dato.addValue(R.SobrePeso8, "Sobre Peso", "71-80 años");
-            Dato.addValue(R.SobrePeso9, "Sobre Peso", "81-90 años");
+            Dato.addValue(DatosGraf.SobrePeso1, "Sobre Peso", "1-10 año(s)");
+            Dato.addValue(DatosGraf.SobrePeso2, "Sobre Peso", "11-20 años");
+            Dato.addValue(DatosGraf.SobrePeso3, "Sobre Peso", "21-30 años");
+            Dato.addValue(DatosGraf.SobrePeso4, "Sobre Peso", "31-40 años");
+            Dato.addValue(DatosGraf.SobrePeso5, "Sobre Peso", "41-50 años");
+            Dato.addValue(DatosGraf.SobrePeso6, "Sobre Peso", "51-60 años");
+            Dato.addValue(DatosGraf.SobrePeso7, "Sobre Peso", "61-70 años");
+            Dato.addValue(DatosGraf.SobrePeso8, "Sobre Peso", "71-80 años");
+            Dato.addValue(DatosGraf.SobrePeso9, "Sobre Peso", "81-90 años");
 
-            Dato.addValue(R.PorDebajo1, "Peso por Debajo", "1-10 año(s)");
-            Dato.addValue(R.PorDebajo2, "Peso por Debajo", "11-20 años");
-            Dato.addValue(R.PorDebajo3, "Peso por Debajo", "21-30 años");
-            Dato.addValue(R.PorDebajo4, "Peso por Debajo", "31-40 años");
-            Dato.addValue(R.PorDebajo5, "Peso por Debajo", "41-50 años");
-            Dato.addValue(R.PorDebajo6, "Peso por Debajo", "51-60 años");
-            Dato.addValue(R.PorDebajo7, "Peso por Debajo", "61-70 años");
-            Dato.addValue(R.PorDebajo8, "Peso por Debajo", "71-80 años");
-            Dato.addValue(R.PorDebajo9, "Peso por Debajo", "81-90 años");
+            Dato.addValue(DatosGraf.PorDebajo1, "Peso por Debajo", "1-10 año(s)");
+            Dato.addValue(DatosGraf.PorDebajo2, "Peso por Debajo", "11-20 años");
+            Dato.addValue(DatosGraf.PorDebajo3, "Peso por Debajo", "21-30 años");
+            Dato.addValue(DatosGraf.PorDebajo4, "Peso por Debajo", "31-40 años");
+            Dato.addValue(DatosGraf.PorDebajo5, "Peso por Debajo", "41-50 años");
+            Dato.addValue(DatosGraf.PorDebajo6, "Peso por Debajo", "51-60 años");
+            Dato.addValue(DatosGraf.PorDebajo7, "Peso por Debajo", "61-70 años");
+            Dato.addValue(DatosGraf.PorDebajo8, "Peso por Debajo", "71-80 años");
+            Dato.addValue(DatosGraf.PorDebajo9, "Peso por Debajo", "81-90 años");
             
-            R = R.sig;
+            DatosGraf = DatosGraf.sig;
         }
         return Dato;
     }
-        */
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -190,7 +182,7 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        /*Grafica = ChartFactory.createBarChart3D("GRAFICA DE PESO ", " RANGO DE EDADES", "CANTIDAD DE PERSONAS",
+        Grafica = ChartFactory.createBarChart3D("GRAFICA DE PESO ", " RANGO DE EDADES", "CANTIDAD DE PERSONAS",
                  GraficaSaludFisica(), PlotOrientation.VERTICAL, true, true, false);
         ChartPanel Panel = new ChartPanel(Grafica);
         JFrame Ventana;
@@ -198,7 +190,7 @@ public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
         Ventana.getContentPane().add(Panel);
         Ventana.pack();
         Ventana.setVisible(true);
-        Ventana.setLocationRelativeTo(null);*/
+        Ventana.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
