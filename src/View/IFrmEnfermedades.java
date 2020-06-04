@@ -95,10 +95,6 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         jMenuItem31 = new javax.swing.JMenuItem();
         jMenuItem32 = new javax.swing.JMenuItem();
         jMenuItem33 = new javax.swing.JMenuItem();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenu12 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -119,7 +115,7 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
             .addGap(0, 318, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Tipo de Enfermedad");
+        jMenu1.setText("Enfermedades");
 
         jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesCardiovascular.png"))); // NOI18N
         jMenu4.setText("Cardiovasculares");
@@ -420,22 +416,7 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
 
         jMenu1.add(jMenu9);
 
-        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesDigestivas.png"))); // NOI18N
-        jMenu10.setText("Digestivas");
-        jMenu1.add(jMenu10);
-
-        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesNeurologicas.png"))); // NOI18N
-        jMenu11.setText("Neurológicas");
-        jMenu1.add(jMenu11);
-
-        jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/EnfermedadesUrgencias.png"))); // NOI18N
-        jMenu12.setText("Urgencias Médicas");
-        jMenu1.add(jMenu12);
-
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Sintomas");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -589,10 +570,6 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;

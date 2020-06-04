@@ -182,7 +182,7 @@ public class Operaciones {
     public void ImformeEnfermedad(int IdEnfermedad, int IdUsuario) {
         try {
             System.out.println(IdUsuario+" -- "+IdEnfermedad);
-            query = "insert into Informe_Enfermedades (IdUsuario, IdEnfermedades) values ('" + user.IdUsuario + "', '" + datosE.IdEnfermedad + "')";
+            query = "insert into Informe_Enfermedades (IdUsuario, IdEnfermedades) values ('" + IdUsuario + "', '" + IdEnfermedad + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
             con = conect.getConnection();
@@ -194,9 +194,9 @@ public class Operaciones {
         }
     }
 
-    public void GuardarSaludFisica(SaludFisica datos) {
+    public void GuardarSaludFisica(SaludFisica datos, int idUser) {
         try {
-            query = "insert into SaludFisica (PesoOptimo, RitmoCardiaco, CaloriasDiarias, IdUsuario) values ('" + datos.IMC + "', '" + datos.Rc + "', '" + datos.TBM + "', '" + user.IdUsuario + "')";
+            query = "insert into SaludFisica (PesoOptimo, RitmoCardiaco, CaloriasDiarias, IdUsuario) values ('" + datos.IMC + "', '" + datos.Rc + "', '" + datos.TBM + "', '" + idUser + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
             con = conect.getConnection();
@@ -209,8 +209,7 @@ public class Operaciones {
     }
 
     public void DatosSaludFisicaGrafica() {
-        
-        
+
         try {
             Connection con1 = null;
             ConexionDB conect1 = new ConexionDB();

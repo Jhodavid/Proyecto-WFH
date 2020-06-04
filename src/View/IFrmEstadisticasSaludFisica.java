@@ -9,54 +9,55 @@ import javax.swing.JFrame;
 import org.jfree.chart.*;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import static Controller.Operaciones.DatosGraf;
+import  Controller.Operaciones;
 
 public class IFrmEstadisticasSaludFisica extends javax.swing.JInternalFrame {
 
     JFreeChart Grafica;
     DefaultCategoryDataset Dato = new DefaultCategoryDataset();
-
+    public Operaciones op;
+    
     public IFrmEstadisticasSaludFisica() {
-
+        op = new Operaciones();
         initComponents();
     }
 
     public DefaultCategoryDataset GraficaSaludFisica() {
         
-        while (DatosGraf != null) {
+        //while (op.DatosGraf != null) {
 
-            Dato.addValue(DatosGraf.PesoOptimo1, "Peso Optimo", "1-10 año(s)");
-            Dato.addValue(DatosGraf.PesoOptimo2, "Peso Optimo", "11-20 años");
-            Dato.addValue(DatosGraf.PesoOptimo3, "Peso Optimo", "21-30 años");
-            Dato.addValue(DatosGraf.PesoOptimo4, "Peso Optimo", "31-40 años");
-            Dato.addValue(DatosGraf.PesoOptimo5, "Peso Optimo", "41-50 años");
-            Dato.addValue(DatosGraf.PesoOptimo6, "Peso Optimo", "51-60 años");
-            Dato.addValue(DatosGraf.PesoOptimo7, "Peso Optimo", "61-70 años");
-            Dato.addValue(DatosGraf.PesoOptimo8, "Peso Optimo", "71-80 años");
-            Dato.addValue(DatosGraf.PesoOptimo9, "Peso Optimo", "81-90 años");
-
-            Dato.addValue(DatosGraf.SobrePeso1, "Sobre Peso", "1-10 año(s)");
-            Dato.addValue(DatosGraf.SobrePeso2, "Sobre Peso", "11-20 años");
-            Dato.addValue(DatosGraf.SobrePeso3, "Sobre Peso", "21-30 años");
-            Dato.addValue(DatosGraf.SobrePeso4, "Sobre Peso", "31-40 años");
-            Dato.addValue(DatosGraf.SobrePeso5, "Sobre Peso", "41-50 años");
-            Dato.addValue(DatosGraf.SobrePeso6, "Sobre Peso", "51-60 años");
-            Dato.addValue(DatosGraf.SobrePeso7, "Sobre Peso", "61-70 años");
-            Dato.addValue(DatosGraf.SobrePeso8, "Sobre Peso", "71-80 años");
-            Dato.addValue(DatosGraf.SobrePeso9, "Sobre Peso", "81-90 años");
-
-            Dato.addValue(DatosGraf.PorDebajo1, "Peso por Debajo", "1-10 año(s)");
-            Dato.addValue(DatosGraf.PorDebajo2, "Peso por Debajo", "11-20 años");
-            Dato.addValue(DatosGraf.PorDebajo3, "Peso por Debajo", "21-30 años");
-            Dato.addValue(DatosGraf.PorDebajo4, "Peso por Debajo", "31-40 años");
-            Dato.addValue(DatosGraf.PorDebajo5, "Peso por Debajo", "41-50 años");
-            Dato.addValue(DatosGraf.PorDebajo6, "Peso por Debajo", "51-60 años");
-            Dato.addValue(DatosGraf.PorDebajo7, "Peso por Debajo", "61-70 años");
-            Dato.addValue(DatosGraf.PorDebajo8, "Peso por Debajo", "71-80 años");
-            Dato.addValue(DatosGraf.PorDebajo9, "Peso por Debajo", "81-90 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo1*/2, "Peso Optimo", "1-10 año(s)");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/0, "Peso Optimo", "11-20 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/1, "Peso Optimo", "21-30 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/6, "Peso Optimo", "31-40 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/5, "Peso Optimo", "41-50 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/1, "Peso Optimo", "51-60 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/6, "Peso Optimo", "61-70 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/0, "Peso Optimo", "71-80 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/0, "Peso Optimo", "81-90 años");
             
-            DatosGraf = DatosGraf.sig;
-        }
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/0, "Sobre Peso", "1-10 año(s)");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/1, "Sobre Peso", "11-20 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/3, "Sobre Peso", "21-30 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/4, "Sobre Peso", "31-40 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/9, "Sobre Peso", "41-50 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/4, "Sobre Peso", "51-60 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/0, "Sobre Peso", "61-70 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/0, "Sobre Peso", "71-80 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/0, "Sobre Peso", "81-90 años");
+
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/1, "Peso por Debajo", "1-10 año(s)");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/1, "Peso por Debajo", "11-20 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/1, "Peso por Debajo", "21-30 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/2, "Peso por Debajo", "31-40 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/5, "Peso por Debajo", "41-50 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/3, "Peso por Debajo", "51-60 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/2, "Peso por Debajo", "61-70 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/2, "Peso por Debajo", "71-80 años");
+            Dato.addValue(/*op.DatosGraf.PesoOptimo2*/3, "Peso por Debajo", "81-90 años");
+            
+         //   op.DatosGraf = op.DatosGraf.sig;
+       //}
         return Dato;
     }
         

@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Controller.Operaciones;
 import Model.SaludFisica;
+import static View.FrmPrincipal.userIni;
 
 /**
  *
@@ -231,7 +232,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtncaloriasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        op.GuardarSaludFisica(SaludDatos);
+        op.GuardarSaludFisica(SaludDatos,userIni.IdUsuario);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -21,7 +21,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo de Enfermedad"/>
+            <Property name="text" type="java.lang.String" value="Enfermedades"/>
           </Properties>
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMenu4">
@@ -358,36 +358,7 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu10">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Img/EnfermedadesDigestivas.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Digestivas"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu11">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Img/EnfermedadesNeurologicas.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Neurol&#xf3;gicas"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu12">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Img/EnfermedadesUrgencias.png"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Urgencias M&#xe9;dicas"/>
-              </Properties>
-            </Menu>
           </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sintomas"/>
-          </Properties>
         </Menu>
       </SubComponents>
     </Menu>
