@@ -7,8 +7,11 @@ package View;
 import ConexionDB.ConexionDB;
 import Controller.Operaciones;
 import Model.Usuario;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.beans.PropertyVetoException;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -73,6 +76,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
         JLabelBienvenido = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnSaludFisica = new javax.swing.JButton();
         btnEnfermedades = new javax.swing.JButton();
@@ -168,22 +173,42 @@ public class FrmPrincipal extends javax.swing.JFrame {
         JLabelBienvenido.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         JLabelBienvenido.setText("GRACIAS POR INICIAR EN NUESTRA APLICACIÓN");
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_square-facebook_317727.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_yumminky-social-media-06_2082557.png"))); // NOI18N
+        jButton4.setBorder(null);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         jDesktopPane1.setLayer(JPanelCuenta, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(JLabelBienvenido, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(JPanelCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(JLabelBienvenido)
-                        .addGap(111, 111, 111))))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JLabelBienvenido)
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                            .addComponent(jButton1)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton4))
+                        .addComponent(JPanelCuenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(145, 145, 145))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +217,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(JLabelBienvenido)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(JPanelCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(jButton4))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnSaludFisica.setText("Salud Física");
@@ -463,6 +492,33 @@ public class FrmPrincipal extends javax.swing.JFrame {
        
     }//GEN-LAST:event_btnEstadisticasMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        if(java.awt.Desktop.isDesktopSupported()){
+        java.awt.Desktop desktop= java.awt.Desktop.getDesktop();
+        if(desktop.isSupported(Desktop.Action.BROWSE)){}
+        try{
+        java.net.URI uri= new java.net.URI("https://www.facebook.com/Wellness-of-feeling-Healthy-110020824072114/?view_public_for=110020824072114&ref=page_internal");
+        desktop.browse(uri);
+        }catch(URISyntaxException | IOException ex){}
+        
+        
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(java.awt.Desktop.isDesktopSupported()){
+        java.awt.Desktop desktop= java.awt.Desktop.getDesktop();
+        if(desktop.isSupported(Desktop.Action.BROWSE)){}
+        try{
+        java.net.URI uri= new java.net.URI("https://www.instagram.com/wellnessoffeelinghealthy/");
+        desktop.browse(uri);
+        }catch(URISyntaxException | IOException ex){}
+        
+        
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -508,7 +564,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnSaludFisica;
     private javax.swing.JButton btncrearcuenta;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
