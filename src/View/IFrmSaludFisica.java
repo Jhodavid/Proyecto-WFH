@@ -9,27 +9,32 @@ import java.awt.Dimension;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static Controller.Operaciones.user;
+import Controller.Operaciones;
+import Model.SaludFisica;
+
 /**
  *
  * @author jhoda
  */
 public class IFrmSaludFisica extends javax.swing.JInternalFrame {
 
-  
+    public static SaludFisica SaludDatos;
+    public Operaciones op;
+
     /**
      * Creates new form IFrmSaludFisica
      */
     public IFrmSaludFisica() {
         initComponents();
-        
+        SaludDatos = new SaludFisica();
+        op = new Operaciones();
     }
-    public void habliitar(){
-      BtnPeso.setEnabled(true);
+
+    public void habliitar() {
+        BtnPeso.setEnabled(true);
         BtnRitmoCardiaco.setEnabled(true);
         Btncalorias.setEnabled(true);
-
-            }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,6 +54,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         Btncalorias = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         BtnPeso = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -112,6 +118,13 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setText("Guardar Datos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,7 +132,8 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 235, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(140, 140, 140))
                     .addGroup(layout.createSequentialGroup()
@@ -142,8 +156,11 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDesktopPane1)
                 .addContainerGap())
@@ -160,7 +177,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Btncalorias)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,21 +185,21 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
 
     private void BtnRitmoCardiacoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRitmoCardiacoActionPerformed
         IFrmRitmoCardiaco obje = new IFrmRitmoCardiaco();
-       jDesktopPane1.add(obje);
+        jDesktopPane1.add(obje);
         obje.toFront();
-         obje.setLocation(jDesktopPane1.getWidth() / 2 - obje.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obje.getHeight() / 2);
-           try {
+        obje.setLocation(jDesktopPane1.getWidth() / 2 - obje.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obje.getHeight() / 2);
+        try {
             obje.setMaximum(true);
         } catch (PropertyVetoException ex) {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         obje.setVisible(true);
         obje.setVisible(true);
-      
+
     }//GEN-LAST:event_BtnRitmoCardiacoActionPerformed
 
     private void BtnPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnPesoActionPerformed
-       IFrmPesoOptimo obj = new IFrmPesoOptimo();
+        IFrmPesoOptimo obj = new IFrmPesoOptimo();
         Dimension preferredSize = jDesktopPane1.getPreferredSize();
         obj.setPreferredSize(preferredSize);
         jDesktopPane1.add(obj);
@@ -194,12 +211,12 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         obj.setVisible(true);
-        
-       
+
+
     }//GEN-LAST:event_BtnPesoActionPerformed
 
     private void BtncaloriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncaloriasActionPerformed
-         IFrmCalorias f = new IFrmCalorias();
+        IFrmCalorias f = new IFrmCalorias();
         Dimension preferredSize = jDesktopPane1.getPreferredSize();
         f.setPreferredSize(preferredSize);
         jDesktopPane1.add(f);
@@ -213,11 +230,16 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
         f.setVisible(true);
     }//GEN-LAST:event_BtncaloriasActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        op.GuardarSaludFisica(SaludDatos);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnPeso;
     private javax.swing.JButton BtnRitmoCardiaco;
     private javax.swing.JButton Btncalorias;
+    private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

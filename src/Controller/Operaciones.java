@@ -28,7 +28,7 @@ public class Operaciones {
     public Usuario userEstad;
     public static DatosGrafica DatosGraf;
     public Enfermedad datosE;
-    public SaludFisica SaludF;
+    public static SaludFisica SaludF;
 
     DefaultTableModel model = new DefaultTableModel();
     Statement st = null;
@@ -195,7 +195,7 @@ public class Operaciones {
 
     public void GuardarSaludFisica(SaludFisica datos) {
         try {
-            query = "insert into SaludFiscia (Peso Optimo, Ritmo Cardiaco, CaloriasDiarias, IdUsuario) values ('" + datos.IMC + "', '" + datos.Rc + "', '" + datos.TBM + "', '" + user.IdUsuario + "')";
+            query = "insert into SaludFisica (PesoOptimo, RitmoCardiaco, CaloriasDiarias, IdUsuario) values ('" + datos.IMC + "', '" + datos.Rc + "', '" + datos.TBM + "', '" + user.IdUsuario + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
             con = conect.getConnection();
