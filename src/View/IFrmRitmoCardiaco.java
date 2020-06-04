@@ -10,7 +10,8 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import  View.IFrmSaludFisica;
 import javax.swing.JOptionPane;
-
+import static View.IFrmSaludFisica.SaludDatos;
+import Model.SaludFisica;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
  */
 public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame { 
     IFrmSaludFisica X= new  IFrmSaludFisica();
+    SaludFisica p = new SaludFisica();
     /**
      * Creates new form IFrmRitmoCardiaco
      */
@@ -27,6 +29,9 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
           BtnIniciar.setEnabled(false);
           Btnpausar.setEnabled(false);
           Btndetener.setEnabled(false);
+          Btn10.setEnabled(false);
+          Btn20.setEnabled(false);
+          Btn30.setEnabled(false);
        
     }
 
@@ -200,22 +205,28 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
        t.stop();
         BtnIniciar.setEnabled(true);
         Btnpausar.setEnabled(false);
+         Btn10.setEnabled(true);
+          Btn20.setEnabled(true);
+          Btn30.setEnabled(true);
+       
     }//GEN-LAST:event_BtnpausarActionPerformed
 
     private void BtnUsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnUsoActionPerformed
         javax.swing.JOptionPane.showMessageDialog(null, "Para medir el ritmo cardiaco los pasos a hacer son :\n"
-                + "- hay 3 formas de saber su ritmo cardiaco , entre mas segundos dure mas exaco sera \n"
-                + ""
-                + "1. Escoge uno de los 3 marcadores ya sea el de 10 20 o 30 segundos \n"
-                + "2. active el cronometro y posterirmente tome su pulso hay varias formas algunas son :"
-                + "- Coloca tu índice y tercer dedo en el cuello, a un costado costado de la tráquea. Para encontrar tu pulso en la muñeca,\n "
+                + "- Hay 3 formas de saber su ritmo cardiaco , entre mas segundos dure mas exacto sera. \n"
+                + "\n"
+                + "1. Escoge uno de los 3 marcadores ya sea el de 10 20 o 30 segundos \n "
+                + "\n"
+                + "2. active el cronometro y posterirmente tome su pulso hay varias formas algunas son : \n"
+                + "- Coloca tu índice y tercer dedo en el cuello, a un costado costado de la tráquea. Para encontrar tu pulso en la muñeca \n "
                 + "coloca 2 dedos entre el hueso y el tendón sobre tu arteria radial, que se encuentra en el lado del pulgar de la muñeca. \n"
-                + "3.Registra tu marca en el cuadro correspondiente a los segundos empleados y dale a calcular \n"
+                + "\n"
+                + "3.Registra tu marca en el cuadro correspondiente a los segundos empleados y dale a calcular. \n"
                 + "de esta forma sabras tus latidos por minuto ");
         
-        javax.swing.JOptionPane.showMessageDialog(null, " - Una fracuencia cardiaca normal ocsila entre los 100 y 60 latidos por minuto \n"
-                + "- Si se teiene menos representa mejor capacidad cardiovascular hasta ciertos niveles \n"
-                + "- Si es mas de 100 puedes tener problemas de taquicardia !!!! Consulta un especialista", "RANGOS DE BUENOS LATIDOS POR MINUTO", JOptionPane.ERROR_MESSAGE);
+        javax.swing.JOptionPane.showMessageDialog(null, " - Una fracuencia cardiaca normal ocsila entre los 100 y 60 latidos por minuto. \n"
+                + "- Si se tiene menos representa mejor capacidad cardiovascular hasta ciertos niveles. \n"
+                + "- Si es mas de 110 puedes tener problemas de taquicardia !!!! Consulta un especialista.", "RANGOS DE BUENOS LATIDOS POR MINUTO", JOptionPane.ERROR_MESSAGE);
         BtnIniciar.setEnabled(true);
     }//GEN-LAST:event_BtnUsoActionPerformed
 
@@ -246,15 +257,34 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtnsalirActionPerformed
 
     private void Btn10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn10ActionPerformed
-        // TODO add your handling code here:
+    
+     p.Rc = Integer.parseInt(Txtpulso.getText());
+     p.Rc= p.Rc* 6 ;
+        if (p.Rc<100 && p.Rc > 60) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son normales !");
+        }else
+            if (p.Rc >= 100) {
+            javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son muy altos !!!!", "PROBLEMAS ", JOptionPane.ERROR_MESSAGE);
+        }else
+     Txtlatidos.setText(Double.toString(p.Rc));
+     SaludDatos.Rc=p.Rc;
+     
     }//GEN-LAST:event_Btn10ActionPerformed
 
     private void Btn20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn20ActionPerformed
-        // TODO add your handling code here:
+   p.Rc = Integer.parseInt(Txtpulso.getText());
+     p.Rc= p.Rc* 3 ;
+     Txtlatidos.setText(Double.toString(p.Rc));
+     SaludDatos.Rc=p.Rc;
+     
     }//GEN-LAST:event_Btn20ActionPerformed
 
     private void Btn30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn30ActionPerformed
-        // TODO add your handling code here:
+       p.Rc = Integer.parseInt(Txtpulso.getText());
+     p.Rc= p.Rc* 2 ;
+     Txtlatidos.setText(Double.toString(p.Rc));
+     SaludDatos.Rc=p.Rc;
+     
     }//GEN-LAST:event_Btn30ActionPerformed
 
 
