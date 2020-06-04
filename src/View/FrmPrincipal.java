@@ -12,6 +12,7 @@ import java.beans.PropertyVetoException;
 import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class FrmPrincipal extends javax.swing.JFrame {
@@ -26,6 +27,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
      */
     public FrmPrincipal() {
         initComponents();
+        setIconImage(new ImageIcon(getClass().getResource("../Img/wfh.PNG")).getImage());
         setLocationRelativeTo(null);
         Dimension preferredSize = jDesktopPane1.getPreferredSize();
         JLabelBienvenido.setVisible(false);
