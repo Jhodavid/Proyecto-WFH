@@ -87,7 +87,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btnsalir.setBackground(new java.awt.Color(0, 204, 204));
         Btnsalir.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btnsalir.setForeground(new java.awt.Color(0, 0, 0));
         Btnsalir.setText("SALIR");
         Btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,17 +96,14 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         getContentPane().add(Btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Latidos por minuto");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Medidor de ritmo caridiaco");
+        jLabel3.setText("Medidor de ritmo cardiaco");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         etiquetaTiempo.setFont(new java.awt.Font("Lucida Sans", 0, 36)); // NOI18N
-        etiquetaTiempo.setForeground(new java.awt.Color(0, 0, 0));
         etiquetaTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaTiempo.setText("00:00:00");
         getContentPane().add(etiquetaTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
@@ -115,7 +111,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btnpausar.setBackground(new java.awt.Color(0, 204, 204));
         Btnpausar.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btnpausar.setForeground(new java.awt.Color(0, 0, 0));
         Btnpausar.setText("PAUSAR");
         Btnpausar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,7 +121,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         BtnUso.setBackground(new java.awt.Color(0, 204, 204));
         BtnUso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        BtnUso.setForeground(new java.awt.Color(0, 0, 0));
         BtnUso.setText(" ¿ COMO UTILIZAR  ?");
         BtnUso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,13 +130,11 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         getContentPane().add(BtnUso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 180, 30));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Registre pulso");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
         Btndetener.setBackground(new java.awt.Color(0, 204, 204));
         Btndetener.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btndetener.setForeground(new java.awt.Color(0, 0, 0));
         Btndetener.setText("DETENER");
         Btndetener.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +145,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btn10.setBackground(new java.awt.Color(0, 204, 204));
         Btn10.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btn10.setForeground(new java.awt.Color(0, 0, 0));
         Btn10.setText("10 SEGUNDOS");
         Btn10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,7 +155,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btn20.setBackground(new java.awt.Color(0, 204, 204));
         Btn20.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btn20.setForeground(new java.awt.Color(0, 0, 0));
         Btn20.setText("20 SEGUDNOS");
         Btn20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,7 +165,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btn30.setBackground(new java.awt.Color(0, 204, 204));
         Btn30.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btn30.setForeground(new java.awt.Color(0, 0, 0));
         Btn30.setText("30 SEGUNDOS");
         Btn30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -186,7 +175,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         BtnIniciar.setBackground(new java.awt.Color(0, 204, 204));
         BtnIniciar.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        BtnIniciar.setForeground(new java.awt.Color(0, 0, 0));
         BtnIniciar.setText("INICIAR");
         BtnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
