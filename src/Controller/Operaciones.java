@@ -179,8 +179,9 @@ public class Operaciones {
         return null;
     }
 
-    public void ImformeEnfermedad(int IdEnfermedad) {
+    public void ImformeEnfermedad(int IdEnfermedad, int IdUsuario) {
         try {
+            System.out.println(IdUsuario+" -- "+IdEnfermedad);
             query = "insert into Informe_Enfermedades (IdUsuario, IdEnfermedades) values ('" + user.IdUsuario + "', '" + datosE.IdEnfermedad + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
