@@ -6,8 +6,10 @@
 package Controller;
 
 import ConexionDB.ConexionDB;
+import Model.DatosGrafica;
 import Model.Usuario;
 import Model.Enfermedad;
+import Model.SaludFisica;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +25,10 @@ import javax.swing.table.DefaultTableModel;
 public class Operaciones {
 
     public static Usuario user;
+    public static DatosGrafica DatosGraf;
     public Enfermedad datosE;
+    public SaludFisica SaludF;
+    
     
     DefaultTableModel model = new DefaultTableModel();
     Statement st = null;
@@ -34,6 +39,8 @@ public class Operaciones {
     public Operaciones() {
         user = new Usuario();
         datosE = new Enfermedad();
+        SaludF = new SaludFisica();
+        DatosGraf = new DatosGrafica();
     }
 
     public void Registar(String tabla, String campos, String valores) {
@@ -82,7 +89,7 @@ public class Operaciones {
 
     }
 
-    ///////////////METODOS INICIO - ADMIN - ENFERMEDADES
+    ///////////////METODOS INICIO - ADMIN - ENFERMEDADES - ESTADISTICAS
     public Usuario iniciar(String inicio[]) {
 
         try {
@@ -160,7 +167,7 @@ public class Operaciones {
                     datosE.Tipo = rs.getString("TipoEnfermedad");
                     datosE.Descripcion = rs.getString("Descripcion");
                     datosE.Sintomas = rs.getString("Sintomas");
-
+                    
                     return datosE;
                 }
             }
@@ -183,6 +190,46 @@ public class Operaciones {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error sql" + ex);
         }
+    }
+    
+    public void GuardarSaludFisica(SaludFisica datos){
+        try {
+            query = "insert into SaludFiscia (Peso Optimo, Ritmo Cardiaco, CaloriasDiarias, IdUsuario) values ('" + datos.IMC + "', '" + datos.Rc + "', '" + datos.TBM + "', '" + user.IdUsuario + "')";
+            Connection con = null;
+            ConexionDB conect = new ConexionDB();
+            con = conect.getConnection();
+            Statement st = con.createStatement();
+            st.execute(query);
+            JOptionPane.showMessageDialog(null, "Regitro guardado exitosamente");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error sql" + ex);
+        }
+    }
+    
+    public void DatosSaludFisica(){
+        try {
+            Connection con1 = null;
+            ConexionDB conect1 = new ConexionDB();
+            con1 = conect1.getConnection();
+            String sql = "select * from SaludFisica";
+            Statement st = con1.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                SaludF.IdSaludFisica = Integer.parseInt(rs.getString("IdSaludFisica"));
+                SaludF.IMC = Integer.parseInt(rs.getString("Peso Optimo"));
+                SaludF.TBM = Integer.parseInt(rs.getString("CaloriasDiarias"));
+                SaludF.Rc = Integer.parseInt(rs.getString("Ritmo Cardiaco"));
+                
+            }
+        } catch (SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    public DatosGrafica DatosGradicas(){
+        
+        
+        return null;
     }
 
     ////////////////////////////////////////////////////////////////////////////

@@ -3,7 +3,8 @@ package Model;
 
 
 public class SaludFisica {
-       public SaludFisica LI;
+    public SaludFisica LI;
+    public int IdSaludFisica;
     public double IMC;
     public double TBM;
     public double Rc;
@@ -15,6 +16,7 @@ public class SaludFisica {
     }
 
     public SaludFisica(SaludFisica datos) {
+        IdSaludFisica = datos.IdSaludFisica;
         IMC = datos.IMC;
         TBM = datos.TBM;
         Rc = datos.Rc;

@@ -61,7 +61,24 @@ public class DatosGrafica {
         PesoOptimo9 = datos.PesoOptimo9;
         
         SobrePeso1 = datos.SobrePeso1;
+        SobrePeso2 = datos.SobrePeso2;
+        SobrePeso3 = datos.SobrePeso3;
+        SobrePeso4 = datos.SobrePeso4;
+        SobrePeso5 = datos.SobrePeso5;
+        SobrePeso6 = datos.SobrePeso6;
+        SobrePeso7 = datos.SobrePeso7;
+        SobrePeso8 = datos.SobrePeso8;
+        SobrePeso9 = datos.SobrePeso9;
         
+        PorDebajo1 = datos.PorDebajo1;
+        PorDebajo2 = datos.PorDebajo2;
+        PorDebajo3 = datos.PorDebajo3;
+        PorDebajo4 = datos.PorDebajo4;
+        PorDebajo5 = datos.PorDebajo5;
+        PorDebajo6 = datos.PorDebajo6;
+        PorDebajo7 = datos.PorDebajo7;
+        PorDebajo8 = datos.PorDebajo8;
+        PorDebajo9 = datos.PorDebajo9;
         
         LI = null;
         LD = null;
