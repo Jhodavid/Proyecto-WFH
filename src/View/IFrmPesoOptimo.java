@@ -8,7 +8,7 @@ import static View.FrmPrincipal.userIni;
 import Controller.Operaciones;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
+import Model.SaludFisica;
 import javax.swing.JOptionPane;
 /**
  *
@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
   Operaciones X= new Operaciones();
+  SaludFisica Sf = new SaludFisica();
     /**
      * Creates new form IFrmPesoOptimo
      */
@@ -159,18 +160,18 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtAlturaActionPerformed
 
     private void BtncomputarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncomputarActionPerformed
-     double peso;
-     peso= X.PesoOptimo(userIni.Altura, userIni.Peso);
-     BigDecimal bigDecimal = new BigDecimal(peso).setScale(2, RoundingMode.UP);
+   
+     Sf.IMC= X.PesoOptimo(userIni.Altura, userIni.Peso);
+     BigDecimal bigDecimal = new BigDecimal(Sf.IMC).setScale(2, RoundingMode.UP);
      System.out.println();
     TxtIMC.setText(Double.toString(bigDecimal.doubleValue()));
-        if (peso<18) {
+        if (Sf.IMC<18) {
             JOptionPane.showMessageDialog(null,"Tu peso es mas bajo de lo normal","Peso no Optimo",JOptionPane.ERROR_MESSAGE);
         }else
-        if (peso>25 && peso < 30) {
+        if (Sf.IMC>25 && Sf.IMC < 30) {
             JOptionPane.showMessageDialog(null,"Poesees indices de sobre peso ","Peso no Optimo",JOptionPane.ERROR_MESSAGE);
         }else
-            if (peso>30) {
+            if (Sf.IMC>30) {
             JOptionPane.showMessageDialog(null,"Possees indices de sobre peso , contacta un especilista !","Peso no Optimo",JOptionPane.ERROR_MESSAGE);
         }else{
                 JOptionPane.showMessageDialog(null, "Tienes un peso adecuado :D !!!! ");
