@@ -57,6 +57,8 @@ public class IFrmEnfermedadesInterfaz extends javax.swing.JInternalFrame {
 
         jLabel1.setText("jLabel1");
 
+        setClosable(true);
+
         txtAEnfermedades.setEditable(false);
         txtAEnfermedades.setColumns(20);
         txtAEnfermedades.setRows(5);
@@ -164,7 +166,7 @@ public class IFrmEnfermedadesInterfaz extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPadezcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPadezcoActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "", title, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+        if(JOptionPane.showConfirmDialog(null, "¿Padece usted ésta enfermedad?", title, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
             op.ImformeEnfermedad(op.datosE.IdEnfermedad);
         }
     }//GEN-LAST:event_btnPadezcoActionPerformed
