@@ -8,12 +8,14 @@ package View;
 import javax.swing.JOptionPane;
 import static View.FrmPrincipal.userIni;
 import Controller.Operaciones;
+import Model.SaludFisica;
 /**
  *
  * @author CAMILO A TRUYOL O
  */
 public class IFrmCalorias extends javax.swing.JInternalFrame {
   Operaciones F = new Operaciones();
+  SaludFisica GG = new SaludFisica();
     /**
      * Creates new form IFrmCalorias
      */
@@ -206,45 +208,45 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtncargardatosActionPerformed
 
     private void MndiariasnormalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MndiariasnormalesActionPerformed
-       double TBM=0;
+     
         if (CMBestado.getSelectedIndex()!=0) {
             
         if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==1) {
-            TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-            TBM=TBM*1.2;
+            GG.TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+            GG.TBM=GG.TBM*1.2;
         }else
             if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==2) {
-                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                TBM=TBM* 1.375;
+                GG.TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                GG.TBM=GG.TBM* 1.375;
             } else
                 if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==3 ) {
-                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                TBM=TBM*1.55;
+                GG.TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                GG.TBM=GG.TBM*1.55;
             }else
                     if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==4) {
-                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                TBM=TBM*1.725;
+                GG.TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                GG.TBM=GG.TBM*1.725;
             }else
                         
             if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==1) {
-            TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-             TBM=TBM*1.2;
+            GG.TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+             GG.TBM=GG.TBM*1.2;
         }else
                 if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==2) {
-                 TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 TBM=TBM*1.375;
+                 GG.TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                 GG.TBM=GG.TBM*1.375;
             }else
              if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==3) {
-                  TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 TBM=TBM*1.55;
+                  GG.TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                GG. TBM=GG.TBM*1.55;
              }else
                  if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==4) {
-                 TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 TBM=TBM*1.725;
+                 GG.TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                 GG.TBM=GG.TBM*1.725;
             }
          
-         JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para esta persona son de : "+TBM);
-         Txtcalorias.setText(Double.toString(TBM));
+         JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para esta persona son de : "+GG.TBM);
+         Txtcalorias.setText(Double.toString(GG.TBM));
         }else{
              JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
