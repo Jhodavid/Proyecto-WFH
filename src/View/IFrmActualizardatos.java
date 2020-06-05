@@ -4,24 +4,32 @@
  * and open the template in the editor.
  */
 package View;
+
 import Controller.Operaciones;
 import static View.FrmPrincipal.userIni;
 import javax.swing.JOptionPane;
+import Controller.Encriptacion;
+import Model.Usuario;
 /**
  *
  * @author angel
  */
 public class IFrmActualizardatos extends javax.swing.JInternalFrame {
-Operaciones op = new Operaciones();
+
+    Operaciones op = new Operaciones();
+    public Encriptacion en;
+    public Usuario Actualizar;
     /**
      * Creates new form IFrmActualizardatos
      */
     public IFrmActualizardatos() {
         initComponents();
         VerDatos();
-
+        en = new Encriptacion();
+        Actualizar = new Usuario();
     }
- public void VerDatos() {
+
+    public void VerDatos() {
 
         txtnombre.setText(userIni.Nombre);
         txtid.setText(Integer.toString(userIni.IdUsuario));
@@ -35,7 +43,6 @@ Operaciones op = new Operaciones();
         cmbsexo.setSelectedItem(userIni.Sexo);
 
     }
- 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -266,10 +273,10 @@ Operaciones op = new Operaciones();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
-       if (txtcontraseña.getText().isEmpty() || txtconfirmarcontraseña.getText().isEmpty()) {
+        if (txtcontraseña.getText().isEmpty() || txtconfirmarcontraseña.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe ingresar la contraseña en ambos campos", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtcontraseña.requestFocus();
-        } else if(!txtcontraseña.getText().equals(txtconfirmarcontraseña.getText())) {
+        } else if (!txtcontraseña.getText().equals(txtconfirmarcontraseña.getText())) {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtcontraseña.requestFocus();
         } else if (txtnombre.getText().isEmpty()) {
@@ -296,24 +303,21 @@ Operaciones op = new Operaciones();
             JOptionPane.showMessageDialog(null, "Debe ingresar su edad", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtedad.requestFocus();
         } else {
-            
-               
-               String v[]=new String [10];
-              
-               v[0]=txtnombre.getText();
-               v[1]=txtapellido.getText();
-               v[2]=txtcedula.getText();
-               v[3]=txtelefono.getText();
-               v[4]=txtcontraseña.getText();
-               v[5]=txtedad.getText();
-               v[6]=txtpeso.getText();
-               v[7]=txtestatura.getText();
-               v[8]=(String) cmbsexo.getSelectedItem();
-               v[9]=txtid.getText();
-                 op.Actualizar(v);
-        
+
+            Actualizar.Nombre = txtnombre.getText();
+            Actualizar.Apellidos = txtapellido.getText();
+            Actualizar.Cedula = Integer.parseInt(txtcedula.getText());
+            Actualizar.Telefono = Integer.parseInt(txtelefono.getText());
+            Actualizar.Contraseña = en.Cifrado(txtcontraseña.getText());
+            Actualizar.Edad = Integer.parseInt(txtedad.getText());
+            Actualizar.Peso = Double.parseDouble(txtpeso.getText());
+            Actualizar.Altura = Double.parseDouble(txtestatura.getText());
+            Actualizar.Sexo = (String) cmbsexo.getSelectedItem();
+            Actualizar.IdUsuario = Integer.parseInt(txtid.getText());
+            op.Actualizar(Actualizar);
+
         }
-       
+
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped

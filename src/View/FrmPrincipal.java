@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import Controller.Encriptacion;
 
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -24,7 +25,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     ConexionDB conect = new ConexionDB();
     public Operaciones op;
     public static Usuario userIni = new Usuario(); 
-    
+    public Encriptacion en;
     /**
      * Creates new form FrmPrincipal
      */
@@ -45,7 +46,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         this.setResizable(false);
         
         op = new Operaciones();
-        
+        en = new Encriptacion();
     }
     
     /**
@@ -416,7 +417,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         String inicio[] = new String[2];
         
         inicio[0] = txtCedula.getText();
-        inicio[1] = txtContraseña.getText();
+        inicio[1] = en.Cifrado(txtContraseña.getText());
         txtCedula.setText("");
         txtContraseña.setText("");
         

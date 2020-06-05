@@ -60,7 +60,7 @@ public class Operaciones {
         }
     }
 
-    public void Actualizar(String v[]) {
+    public void Actualizar(Usuario Actualizar) {
 
         try {
             Connection con = null;
@@ -69,16 +69,16 @@ public class Operaciones {
             Statement st = con.createStatement();
             String sql = "update Usuario set Cedula = ?, Contraseña = ?, Nombre = ?, Apellidos = ?, Sexo = ?, Telefono = ?, Edad = ?, Altura = ?, Peso = ? where IdUsuario = ?";
             PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, v[2]);
-            pst.setString(2, v[4]);
-            pst.setString(3, v[0]);
-            pst.setString(4, v[1]);
-            pst.setString(5, v[8]);
-            pst.setString(6, v[3]);
-            pst.setString(7, v[5]);
-            pst.setString(8, v[7]);
-            pst.setString(9, v[6]);
-            pst.setInt(10, Integer.parseInt(v[9]));
+            pst.setInt(1, Actualizar.Cedula);
+            pst.setString(2, Actualizar.Contraseña);
+            pst.setString(3, Actualizar.Nombre);
+            pst.setString(4, Actualizar.Apellidos);
+            pst.setString(5, Actualizar.Sexo);
+            pst.setInt(6, Actualizar.Telefono);
+            pst.setInt(7, Actualizar.Edad);
+            pst.setDouble(8, Actualizar.Altura);
+            pst.setDouble(9, Actualizar.Peso);
+            pst.setInt(10, Actualizar.IdUsuario);
 
             pst.executeUpdate();
 
@@ -105,7 +105,7 @@ public class Operaciones {
             while (rs.next()) {
                 user.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
                 user.Cedula = Integer.parseInt(rs.getString("Cedula"));
-                user.Contraseña = en.Desencriptado(rs.getString("Contraseña"));
+                user.Contraseña = (rs.getString("Contraseña"));
                 user.Nombre = rs.getString("Nombre");
                 user.Apellidos = rs.getString("Apellidos");
                 user.Sexo = rs.getString("Sexo");
