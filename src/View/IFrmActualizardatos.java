@@ -74,7 +74,7 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         txtestatura = new javax.swing.JTextField();
         txtcontraseña = new javax.swing.JPasswordField();
         txtconfirmarcontraseña = new javax.swing.JPasswordField();
-        jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -192,8 +192,13 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 139, 201, 31));
         getContentPane().add(txtconfirmarcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 139, 201, 31));
 
-        jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(595, 375, -1, -1));
+        jButton1.setText("PDF");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -278,12 +283,17 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtestaturaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnregistrar;
     private javax.swing.JComboBox<String> cmbsexo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
