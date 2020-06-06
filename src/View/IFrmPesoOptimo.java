@@ -51,7 +51,6 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Peso");
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -65,7 +64,6 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
 
         Btncargardatos.setBackground(new java.awt.Color(0, 255, 204));
         Btncargardatos.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Btncargardatos.setForeground(new java.awt.Color(0, 0, 0));
         Btncargardatos.setText("Cargar Datos");
         Btncargardatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,7 +74,6 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
 
         btnsalir.setBackground(new java.awt.Color(0, 255, 204));
         btnsalir.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        btnsalir.setForeground(new java.awt.Color(0, 0, 0));
         btnsalir.setText("Cerar");
         btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,7 +84,6 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 255, 204));
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("¿ Como Utilizar ?");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,17 +93,14 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Altura (Cm)");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Peso (KG)");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("INDICE DE MASA CORPORAL");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, -1, -1));
 
@@ -120,7 +113,6 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
 
         Btncomputar.setBackground(new java.awt.Color(0, 255, 204));
         Btncomputar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        Btncomputar.setForeground(new java.awt.Color(0, 0, 0));
         Btncomputar.setText("Computar datos");
         Btncomputar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +128,7 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/salud.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 320));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
