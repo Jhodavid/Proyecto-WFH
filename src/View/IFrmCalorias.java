@@ -59,6 +59,7 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         Mndiariasnormales = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(Txtcalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 140, 30));
 
@@ -98,7 +99,7 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
                 CMBestadoActionPerformed(evt);
             }
         });
-        getContentPane().add(CMBestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, -1));
+        getContentPane().add(CMBestado, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, -1, -1));
         getContentPane().add(TxtAlltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 100, 30));
         getContentPane().add(Txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 100, 30));
         getContentPane().add(TxtSExo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 100, 30));
@@ -134,7 +135,12 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondi isi.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        jMenuBar1.setBackground(new java.awt.Color(0, 255, 255));
+
+        Jmenuusar.setBackground(new java.awt.Color(0, 0, 0));
+        Jmenuusar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         Jmenuusar.setText("Ayuda");
+        Jmenuusar.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         Jmenuusar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 JmenuusarKeyPressed(evt);
@@ -151,7 +157,11 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
 
         jMenuBar1.add(Jmenuusar);
 
+        MenuCalculat.setBackground(new java.awt.Color(0, 0, 0));
+        MenuCalculat.setBorder(new javax.swing.border.MatteBorder(null));
+        MenuCalculat.setForeground(new java.awt.Color(0, 0, 0));
         MenuCalculat.setText("Calcular");
+        MenuCalculat.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
 
         Mndiariasnormales.setText(" Calorias diarias para mantener peso");
         Mndiariasnormales.addActionListener(new java.awt.event.ActionListener() {
