@@ -399,9 +399,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEnfermedadesActionPerformed
 
     private void btncrearcuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncrearcuentaActionPerformed
+     
+         
         RegistroUsuario obj = new RegistroUsuario();
-        Dimension preferredSize = jDesktopPane1.getPreferredSize();
-        obj.setPreferredSize(preferredSize);
+
         jDesktopPane1.add(obj);
         obj.toFront();
         obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
