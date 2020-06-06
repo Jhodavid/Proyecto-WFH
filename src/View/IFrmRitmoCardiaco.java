@@ -8,10 +8,8 @@ package View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import View.IFrmSaludFisica;
+import static View.FrmPrincipal.userIni;
 import javax.swing.JOptionPane;
-import static View.IFrmSaludFisica.SaludDatos;
-import Model.SaludFisica;
 
 /**
  *
@@ -20,7 +18,6 @@ import Model.SaludFisica;
 public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
     IFrmSaludFisica X = new IFrmSaludFisica();
-    SaludFisica p = new SaludFisica();
     public int seg = 0;
 
     /**
@@ -277,48 +274,48 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
     private void BtncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncalcularActionPerformed
         if (seg == 10) {
-            p.Rc = Integer.parseInt(Txtpulso.getText());
-            p.Rc = p.Rc * 6;
-            if (p.Rc < 100 && p.Rc > 60) {
+            userIni.RitmoCardiaco = Integer.parseInt(Txtpulso.getText());
+            userIni.RitmoCardiaco = userIni.RitmoCardiaco * 6;
+            if (userIni.RitmoCardiaco < 100 && userIni.RitmoCardiaco > 60) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son normales !");
-                Txtlatidos.setText(Double.toString(p.Rc));
-            } else if (p.Rc >= 100) {
+                Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
+            } else if (userIni.RitmoCardiaco >= 100) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son muy altos !!!!", "PROBLEMAS ", JOptionPane.ERROR_MESSAGE);
-                Txtlatidos.setText(Double.toString(p.Rc));
+                Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
             } else {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos son muy buenos !");
             }
-            Txtlatidos.setText(Double.toString(p.Rc));
-            SaludDatos.Rc = p.Rc;
+            Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
+            userIni.RitmoCardiaco = userIni.RitmoCardiaco;
         } else if (seg == 20) {
-            p.Rc = Integer.parseInt(Txtpulso.getText());
-            p.Rc = p.Rc * 3;
-            if (p.Rc < 100 && p.Rc > 60) {
+            userIni.RitmoCardiaco = Integer.parseInt(Txtpulso.getText());
+            userIni.RitmoCardiaco = userIni.RitmoCardiaco * 3;
+            if (userIni.RitmoCardiaco < 100 && userIni.RitmoCardiaco > 60) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son normales !");
-                Txtlatidos.setText(Double.toString(p.Rc));
-            } else if (p.Rc >= 100) {
+                Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
+            } else if (userIni.RitmoCardiaco >= 100) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son muy altos !!!!", "PROBLEMAS ", JOptionPane.ERROR_MESSAGE);
-                Txtlatidos.setText(Double.toString(p.Rc));
+                Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
             } else {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos son muy buenos !");
             }
-            Txtlatidos.setText(Double.toString(p.Rc));
-            SaludDatos.Rc = p.Rc;
+            Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
+            userIni.RitmoCardiaco = userIni.RitmoCardiaco;
         } else if (seg == 30) {
-            p.Rc = Integer.parseInt(Txtpulso.getText());
-            p.Rc = p.Rc * 2;
+            userIni.RitmoCardiaco = Integer.parseInt(Txtpulso.getText());
+            userIni.RitmoCardiaco = userIni.RitmoCardiaco * 2;
 
-            if (p.Rc < 100 && p.Rc > 60) {
+            if (userIni.RitmoCardiaco < 100 && userIni.RitmoCardiaco > 60) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son normales !");
-                Txtlatidos.setText(Double.toString(p.Rc));
-            } else if (p.Rc >= 100) {
+                Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
+            } else if (userIni.RitmoCardiaco >= 100) {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos por minuto son muy altos !!!!", "PROBLEMAS ", JOptionPane.ERROR_MESSAGE);
-                Txtlatidos.setText(Double.toString(p.Rc));
+                Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
             } else {
                 javax.swing.JOptionPane.showMessageDialog(null, "Tus latidos son muy buenos !");
             }
-            Txtlatidos.setText(Double.toString(p.Rc));
-            SaludDatos.Rc = p.Rc;
+            Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
+            userIni.RitmoCardiaco = userIni.RitmoCardiaco;
         }
 
     }//GEN-LAST:event_BtncalcularActionPerformed
