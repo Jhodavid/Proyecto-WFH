@@ -152,18 +152,19 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         etiquetaTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaTiempo.setText("00:00:00");
         getContentPane().add(etiquetaTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
-        getContentPane().add(Txtpulso, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 110, 30));
+        getContentPane().add(Txtpulso, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 110, 30));
 
         Btnpausar.setBackground(new java.awt.Color(0, 204, 204));
         Btnpausar.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         Btnpausar.setForeground(new java.awt.Color(0, 0, 0));
-        Btnpausar.setText("PAUSAR");
+        Btnpausar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pause.png"))); // NOI18N
+        Btnpausar.setPreferredSize(new java.awt.Dimension(10, 15));
         Btnpausar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnpausarActionPerformed(evt);
             }
         });
-        getContentPane().add(Btnpausar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
+        getContentPane().add(Btnpausar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 40, 40));
 
         BtnUso.setBackground(new java.awt.Color(0, 204, 204));
         BtnUso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -179,18 +180,18 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Registre pulso");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
 
-        BtnReiniciar.setBackground(new java.awt.Color(0, 204, 204));
+        BtnReiniciar.setBackground(new java.awt.Color(204, 255, 255));
         BtnReiniciar.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         BtnReiniciar.setForeground(new java.awt.Color(0, 0, 0));
-        BtnReiniciar.setText("Reiniciar");
+        BtnReiniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/recargar (1).png"))); // NOI18N
         BtnReiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnReiniciarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, -1));
+        getContentPane().add(BtnReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 50, 50));
 
         Btn10.setBackground(new java.awt.Color(0, 204, 204));
         Btn10.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
@@ -201,7 +202,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
                 Btn10ActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+        getContentPane().add(Btn10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, -1, -1));
 
         Btn20.setBackground(new java.awt.Color(0, 204, 204));
         Btn20.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
@@ -212,7 +213,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
                 Btn20ActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn20, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
+        getContentPane().add(Btn20, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
 
         Btn30.setBackground(new java.awt.Color(0, 204, 204));
         Btn30.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
@@ -223,7 +224,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
                 Btn30ActionPerformed(evt);
             }
         });
-        getContentPane().add(Btn30, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, -1, -1));
+        getContentPane().add(Btn30, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));
 
         Btncalcular.setBackground(new java.awt.Color(0, 204, 204));
         Btncalcular.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
@@ -234,7 +235,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
                 BtncalcularActionPerformed(evt);
             }
         });
-        getContentPane().add(Btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        getContentPane().add(Btncalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/ritmo cardiaco.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -273,23 +274,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         Btn20.setEnabled(true);
         Btn30.setEnabled(true);
     }//GEN-LAST:event_BtnUsoActionPerformed
-
-    private void BtnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReiniciarActionPerformed
-        if (t.isRunning()) {
-            t.stop();
-            Btncalcular.setEnabled(true);
-        }
-        Btnpausar.setEnabled(false);
-        BtnReiniciar.setEnabled(false);
-
-        m = 0;
-        s = 0;
-        cs = 0;
-        actualizarLabel();
-        Btn10.setEnabled(true);
-        Btn20.setEnabled(true);
-        Btn30.setEnabled(true);
-    }//GEN-LAST:event_BtnReiniciarActionPerformed
 
     private void BtncalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncalcularActionPerformed
         if (seg == 10) {
@@ -380,6 +364,23 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
     private void TxtlatidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtlatidosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtlatidosActionPerformed
+
+    private void BtnReiniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnReiniciarActionPerformed
+        if (t.isRunning()) {
+            t.stop();
+            Btncalcular.setEnabled(true);
+        }
+        Btnpausar.setEnabled(false);
+        BtnReiniciar.setEnabled(false);
+
+        m = 0;
+        s = 0;
+        cs = 0;
+        actualizarLabel();
+        Btn10.setEnabled(true);
+        Btn20.setEnabled(true);
+        Btn30.setEnabled(true);
+    }//GEN-LAST:event_BtnReiniciarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
