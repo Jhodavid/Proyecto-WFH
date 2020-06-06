@@ -16,7 +16,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import Controller.Encriptacion;
 
 /**
  *
@@ -26,10 +25,10 @@ public class Operaciones {
 
     public static Usuario user;
     public Usuario userEstad;
-    public static DatosGrafica DatosGraf;
+    public DatosGrafica DatosGraf;
     public Enfermedad datosE;
     public Encriptacion en;
-    
+
     DefaultTableModel model = new DefaultTableModel();
     Statement st = null;
     ResultSet rs = null;
@@ -41,6 +40,36 @@ public class Operaciones {
         datosE = new Enfermedad();
         DatosGraf = new DatosGrafica();
         userEstad = new Usuario();
+    }
+
+    public void IniciarDatosGraf() {
+        DatosGraf.PesoOptimo1 = 0;
+        DatosGraf.PesoOptimo2 = 0;
+        DatosGraf.PesoOptimo3 = 0;
+        DatosGraf.PesoOptimo4 = 0;
+        DatosGraf.PesoOptimo5 = 0;
+        DatosGraf.PesoOptimo6 = 0;
+        DatosGraf.PesoOptimo7 = 0;
+        DatosGraf.PesoOptimo8 = 0;
+        DatosGraf.PesoOptimo9 = 0;
+        DatosGraf.SobrePeso1 = 0;
+        DatosGraf.SobrePeso2 = 0;
+        DatosGraf.SobrePeso3 = 0;
+        DatosGraf.SobrePeso4 = 0;
+        DatosGraf.SobrePeso5 = 0;
+        DatosGraf.SobrePeso6 = 0;
+        DatosGraf.SobrePeso7 = 0;
+        DatosGraf.SobrePeso8 = 0;
+        DatosGraf.SobrePeso9 = 0;
+        DatosGraf.PorDebajo1 = 0;
+        DatosGraf.PorDebajo2 = 0;
+        DatosGraf.PorDebajo3 = 0;
+        DatosGraf.PorDebajo4 = 0;
+        DatosGraf.PorDebajo5 = 0;
+        DatosGraf.PorDebajo6 = 0;
+        DatosGraf.PorDebajo7 = 0;
+        DatosGraf.PorDebajo8 = 0;
+        DatosGraf.PorDebajo9 = 0;
     }
 
     public void Registar(String tabla, String campos, String valores) {
@@ -177,7 +206,7 @@ public class Operaciones {
 
     public void ImformeEnfermedad(int IdEnfermedad, int IdUsuario) {
         try {
-            System.out.println(IdUsuario+" -- "+IdEnfermedad);
+            System.out.println(IdUsuario + " -- " + IdEnfermedad);
             query = "insert into Informe_Enfermedades (IdUsuario, IdEnfermedades) values ('" + IdUsuario + "', '" + IdEnfermedad + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
@@ -189,7 +218,7 @@ public class Operaciones {
             JOptionPane.showMessageDialog(null, "Error sql" + ex);
         }
     }
-    
+
     public void GuardarSaludFisica(Usuario Actualizar) {
         try {
             Connection con = null;
@@ -202,135 +231,122 @@ public class Operaciones {
             pst.setDouble(2, Actualizar.RitmoCardiaco);
             pst.setDouble(3, Actualizar.CaloriasDiarias);
             pst.setInt(4, Actualizar.IdUsuario);
-            
+
             pst.executeUpdate();
-            
+
             JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE");
-            
+
         } catch (SQLException ex) {
             //JOptionPane.showMessageDialog(null, "Error sql" + ex);    
             JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR MIENTRAS SE ACTULIZABAN SUS DATOS", "Error " + ex, javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }
-    /*
-    public void DatosSaludFisicaGrafica() {
 
+    public DatosGrafica GraficaPesos() {
+        IniciarDatosGraf();
         try {
             Connection con1 = null;
             ConexionDB conect1 = new ConexionDB();
             con1 = conect1.getConnection();
-            String sql = "select * from SaludFisica";
+            String sql = "select * from Usuario";
             Statement st = con1.createStatement();
             ResultSet rs = st.executeQuery(sql);
 
-            Connection con12 = null;
-            ConexionDB conect12 = new ConexionDB();
-            con1 = conect1.getConnection();
-            String sql2 = "select * from Usuario";
-            Statement st2 = con1.createStatement();
-            ResultSet rs2 = st.executeQuery(sql);
-
             while (rs.next()) {
-                
-                while (DatosGraf != null) {
-                    
-                        SaludF.IdSaludFisica = Integer.parseInt(rs.getString("IdSaludFisica"));
-                        SaludF.IMC = Integer.parseInt(rs.getString("Peso Optimo"));
-                        SaludF.TBM = Integer.parseInt(rs.getString("CaloriasDiarias"));
-                        SaludF.Rc = Integer.parseInt(rs.getString("Ritmo Cardiaco"));
+                userEstad.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
+                userEstad.Cedula = Integer.parseInt(rs.getString("Cedula"));
+                userEstad.Contraseña = rs.getString("Contraseña");
+                userEstad.Nombre = rs.getString("Nombre");
+                userEstad.Apellidos = rs.getString("Apellidos");
+                userEstad.Sexo = rs.getString("Sexo");
+                userEstad.Telefono = Integer.parseInt(rs.getString("Telefono"));
+                userEstad.Edad = Integer.parseInt(rs.getString("Edad"));
+                userEstad.Altura = Double.parseDouble(rs.getString("Altura"));
+                userEstad.Peso = Double.parseDouble(rs.getString("Peso"));
+                userEstad.PesoOptimo = Double.parseDouble(rs.getString("Peso Optimo"));
+                userEstad.CaloriasDiarias = Double.parseDouble(rs.getString("CaloriasDiarias"));
+                userEstad.RitmoCardiaco = Double.parseDouble(rs.getString("Ritmo Cardiaco"));
 
-                        userEstad.IdUsuario = Integer.parseInt(rs2.getString("IdUsuario"));
-                        userEstad.Cedula = Integer.parseInt(rs2.getString("Cedula"));
-                        userEstad.Contraseña = rs2.getString("Contraseña");
-                        userEstad.Nombre = rs2.getString("Nombre");
-                        userEstad.Apellidos = rs2.getString("Apellidos");
-                        userEstad.Sexo = rs2.getString("Sexo");
-                        userEstad.Telefono = Integer.parseInt(rs2.getString("Telefono"));
-                        userEstad.Edad = Integer.parseInt(rs2.getString("Edad"));
-                        userEstad.Altura = Double.parseDouble(rs2.getString("Altura"));
-                        userEstad.Peso = Double.parseDouble(rs2.getString("Peso"));
-
-                        if (userEstad.Edad < 11) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo1++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo1++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso1++;
-                            }
-                        } else if (userEstad.Edad >= 11 && userEstad.Edad < 20) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo2++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo2++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso2++;
-                            }
-                        } else if (userEstad.Edad >= 20 && userEstad.Edad < 30) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo3++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo3++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso3++;
-                            }
-                        } else if (userEstad.Edad >= 30 && userEstad.Edad < 40) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo4++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo4++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso4++;
-                            }
-                        } else if (userEstad.Edad >= 40 && userEstad.Edad < 50) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo5++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo5++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso5++;
-                            }
-                        } else if (userEstad.Edad >= 50 && userEstad.Edad < 60) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo6++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo6++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso6++;
-                            }
-                        } else if (userEstad.Edad >= 60 && userEstad.Edad < 70) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo7++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo7++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso7++;
-                            }
-                        } else if (userEstad.Edad >= 70 && userEstad.Edad < 80) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo8++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo8++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso8++;
-                            }
-                        } else if (userEstad.Edad >= 80) {
-                            if (SaludF.IMC < 18.5) {
-                                DatosGraf.PorDebajo9++;
-                            } else if (SaludF.IMC >= 18.5 && SaludF.IMC <= 25) {
-                                DatosGraf.PesoOptimo9++;
-                            } else if (SaludF.IMC > 25) {
-                                DatosGraf.SobrePeso9++;
-                            }
-                        }
-                   DatosGraf = DatosGraf.sig;
+                if (userEstad.Edad < 11) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo1++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo1++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso1++;
+                    }
+                } else if (userEstad.Edad >= 11 && userEstad.Edad < 20) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo2++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo2++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso2++;
+                    }
+                } else if (userEstad.Edad >= 20 && userEstad.Edad < 30) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo3++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo3++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso3++;
+                    }
+                } else if (userEstad.Edad >= 30 && userEstad.Edad < 40) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo4++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo4++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso4++;
+                    }
+                } else if (userEstad.Edad >= 40 && userEstad.Edad < 50) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo5++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo5++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso5++;
+                    }
+                } else if (userEstad.Edad >= 50 && userEstad.Edad < 60) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo6++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo6++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso6++;
+                    }
+                } else if (userEstad.Edad >= 60 && userEstad.Edad < 70) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo7++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo7++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso7++;
+                    }
+                } else if (userEstad.Edad >= 70 && userEstad.Edad < 80) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo8++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo8++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso8++;
+                    }
+                } else if (userEstad.Edad >= 80) {
+                    if (userEstad.PesoOptimo < 18.5) {
+                        DatosGraf.PorDebajo9++;
+                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                        DatosGraf.PesoOptimo9++;
+                    } else if (userEstad.PesoOptimo > 25) {
+                        DatosGraf.SobrePeso9++;
+                    }
                 }
             }
         } catch (SQLException e) {
             javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
+        return DatosGraf;
     }
-    */
+
     ////////////////////////////////////////////////////////////////////////////
     // ________________________________________________________________________________ graficar 
     public void graficar(Usuario dato) {

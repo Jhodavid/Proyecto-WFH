@@ -4,26 +4,59 @@
  * and open the template in the editor.
  */
 package View;
-import java.beans.PropertyVetoException;
-import static Controller.Operaciones.user;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import javax.swing.JFrame;
+import org.jfree.chart.*;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import Controller.Operaciones;
 
-/**
- *
- * @author jhoda
- */
 public class IFrmEstadisticas extends javax.swing.JInternalFrame {
 
-
-    /**
-     * Creates new form IFrmEstadisticas
-     */
+    JFreeChart Grafica;
+    DefaultCategoryDataset Dato = new DefaultCategoryDataset();
+    public Operaciones op;
+    
     public IFrmEstadisticas() {
         initComponents();
+        op = new Operaciones();
     }
 
+    public DefaultCategoryDataset GraficaSaludFisica() {
+
+            Dato.addValue(op.GraficaPesos().PesoOptimo1, "Peso Optimo", "1-10 año(s)");
+            Dato.addValue(op.GraficaPesos().PesoOptimo2, "Peso Optimo", "11-20 años");
+            Dato.addValue(op.GraficaPesos().PesoOptimo3, "Peso Optimo", "21-30 años");
+            Dato.addValue(op.GraficaPesos().PesoOptimo4, "Peso Optimo", "31-40 años");
+            Dato.addValue(op.GraficaPesos().PesoOptimo5, "Peso Optimo", "41-50 años");
+            Dato.addValue(op.GraficaPesos().PesoOptimo6, "Peso Optimo", "51-60 años");
+            Dato.addValue(op.GraficaPesos().PesoOptimo7, "Peso Optimo", "61-70 años");
+            Dato.addValue(op.GraficaPesos().PesoOptimo8, "Peso Optimo", "71-80 años");
+            Dato.addValue(op.GraficaPesos().PesoOptimo9, "Peso Optimo", "81-90 años");
+            
+            Dato.addValue(op.DatosGraf.SobrePeso1, "Sobre Peso", "1-10 año(s)");
+            Dato.addValue(op.DatosGraf.SobrePeso2, "Sobre Peso", "11-20 años");
+            Dato.addValue(op.DatosGraf.SobrePeso3, "Sobre Peso", "21-30 años");
+            Dato.addValue(op.DatosGraf.SobrePeso4, "Sobre Peso", "31-40 años");
+            Dato.addValue(op.DatosGraf.SobrePeso5, "Sobre Peso", "41-50 años");
+            Dato.addValue(op.DatosGraf.SobrePeso6, "Sobre Peso", "51-60 años");
+            Dato.addValue(op.DatosGraf.SobrePeso7, "Sobre Peso", "61-70 años");
+            Dato.addValue(op.DatosGraf.SobrePeso8, "Sobre Peso", "71-80 años");
+            Dato.addValue(op.DatosGraf.SobrePeso9, "Sobre Peso", "81-90 años");
+
+            Dato.addValue(op.DatosGraf.PorDebajo1, "Peso por Debajo", "1-10 año(s)");
+            Dato.addValue(op.DatosGraf.PorDebajo2, "Peso por Debajo", "11-20 años");
+            Dato.addValue(op.DatosGraf.PorDebajo3, "Peso por Debajo", "21-30 años");
+            Dato.addValue(op.DatosGraf.PorDebajo4, "Peso por Debajo", "31-40 años");
+            Dato.addValue(op.DatosGraf.PorDebajo5, "Peso por Debajo", "41-50 años");
+            Dato.addValue(op.DatosGraf.PorDebajo6, "Peso por Debajo", "51-60 años");
+            Dato.addValue(op.DatosGraf.PorDebajo7, "Peso por Debajo", "61-70 años");
+            Dato.addValue(op.DatosGraf.PorDebajo8, "Peso por Debajo", "71-80 años");
+            Dato.addValue(op.DatosGraf.PorDebajo9, "Peso por Debajo", "81-90 años");
+            
+        return Dato;
+    }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,170 +66,161 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        BTNSALUDFISICA = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        BtnRitmoCardiaco1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
+        jScrollBar1 = new javax.swing.JScrollBar();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jPopupMenu2 = new javax.swing.JPopupMenu();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jPopupMenu3 = new javax.swing.JPopupMenu();
+        jFrame1 = new javax.swing.JFrame();
+        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jPopupMenu4 = new javax.swing.JPopupMenu();
+        jPopupMenu5 = new javax.swing.JPopupMenu();
+        jPopupMenu6 = new javax.swing.JPopupMenu();
+        jLabel1 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
+
+        jCheckBox1.setText("jCheckBox1");
+
+        jCheckBox2.setText("jCheckBox2");
+
+        jRadioButtonMenuItem1.setSelected(true);
+        jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+
+        jMenu3.setText("jMenu3");
+
+        jMenu4.setText("jMenu4");
+
+        jMenu5.setText("jMenu5");
+
+        jMenu6.setText("jMenu6");
+
+        jMenu7.setText("File");
+        jMenuBar2.add(jMenu7);
+
+        jMenu8.setText("Edit");
+        jMenuBar2.add(jMenu8);
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenuItem3.setText("jMenuItem3");
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jCheckBoxMenuItem2.setSelected(true);
+        jCheckBoxMenuItem2.setText("jCheckBoxMenuItem2");
 
         setClosable(true);
         setIconifiable(true);
-        setPreferredSize(new java.awt.Dimension(696, 369));
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                formMouseExited(evt);
-            }
-        });
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("Estadistica de Salud Fisica");
 
-        BTNSALUDFISICA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/images.jpg"))); // NOI18N
-        BTNSALUDFISICA.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        BTNSALUDFISICA.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setText("GRAFICA PESOS");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BTNSALUDFISICAActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("ESTADISTICA GENERAL ");
-
-        BtnRitmoCardiaco1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/stats1_add.png"))); // NOI18N
-        BtnRitmoCardiaco1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnRitmoCardiaco1ActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setText("SALUD FISICA");
-
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setText("ENFERMEDADES");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jDesktopPane1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(BTNSALUDFISICA, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addContainerGap())
-                    .addComponent(BtnRitmoCardiaco1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 297, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(72, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BTNSALUDFISICA, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BtnRitmoCardiaco1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jDesktopPane1)))
-                .addContainerGap())
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(221, 221, 221)
+                        .addComponent(jLabel1)))
+                .addContainerGap(225, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel1)
+                .addGap(46, 46, 46)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BTNSALUDFISICAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTNSALUDFISICAActionPerformed
-         IFrmEstadisticasSaludFisica obje = new IFrmEstadisticasSaludFisica();
-       jDesktopPane1.add(obje);
-        obje.toFront();
-         obje.setLocation(jDesktopPane1.getWidth() / 2 - obje.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obje.getHeight() / 2);
-           try {
-            obje.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        obje.setVisible(true);
-        obje.setVisible(true);
-        
-       
-         
-     
-    }//GEN-LAST:event_BTNSALUDFISICAActionPerformed
-
-    private void BtnRitmoCardiaco1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRitmoCardiaco1ActionPerformed
-        IFrmEstadisticaEmfermedades obje = new IFrmEstadisticaEmfermedades();
-       jDesktopPane1.add(obje);
-        obje.toFront();
-         obje.setLocation(jDesktopPane1.getWidth() / 2 - obje.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obje.getHeight() / 2);
-           try {
-            obje.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        obje.setVisible(true);
-        obje.setVisible(true);
-    }//GEN-LAST:event_BtnRitmoCardiaco1ActionPerformed
-
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_formMouseClicked
-
-    private void formMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseExited
-        // TODOd your handling code here:
-        
-    }//GEN-LAST:event_formMouseExited
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        Grafica = ChartFactory.createBarChart3D("GRAFICA DE PESO ", " RANGO DE EDADES", "CANTIDAD DE PERSONAS",
+                 GraficaSaludFisica(), PlotOrientation.VERTICAL, true, true, false);
+        ChartPanel Panel = new ChartPanel(Grafica);
+        JFrame Ventana;
+        Ventana = new JFrame("Grafica de pesos en general.");
+        Ventana.getContentPane().add(Panel);
+        Ventana.pack();
+        Ventana.setVisible(true);
+        Ventana.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BTNSALUDFISICA;
-    private javax.swing.JButton BtnRitmoCardiaco1;
-    private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JPopupMenu jPopupMenu2;
+    private javax.swing.JPopupMenu jPopupMenu3;
+    private javax.swing.JPopupMenu jPopupMenu4;
+    private javax.swing.JPopupMenu jPopupMenu5;
+    private javax.swing.JPopupMenu jPopupMenu6;
+    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
+    private javax.swing.JScrollBar jScrollBar1;
     // End of variables declaration//GEN-END:variables
+
 }
