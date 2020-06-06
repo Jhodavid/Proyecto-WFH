@@ -63,26 +63,32 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         getContentPane().add(Txtcalorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 140, 30));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Actividades  diarias");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Peso (Kg)");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Altura (Cm)");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Edad");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Calorias diarias Aprox");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Sexo");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
@@ -100,6 +106,7 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
 
         Btncargardatos.setBackground(new java.awt.Color(0, 255, 204));
         Btncargardatos.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        Btncargardatos.setForeground(new java.awt.Color(0, 0, 0));
         Btncargardatos.setText("Cargar Datos");
         Btncargardatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +116,8 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         getContentPane().add(Btncargardatos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         Btnsalir.setBackground(new java.awt.Color(0, 255, 204));
-        Btnsalir.setText("SALIR");
+        Btnsalir.setForeground(new java.awt.Color(0, 0, 0));
+        Btnsalir.setText("Cerrar");
         Btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnsalirActionPerformed(evt);

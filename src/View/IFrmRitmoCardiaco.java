@@ -129,7 +129,7 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         Btnsalir.setBackground(new java.awt.Color(0, 204, 204));
         Btnsalir.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         Btnsalir.setForeground(new java.awt.Color(0, 0, 0));
-        Btnsalir.setText("SALIR");
+        Btnsalir.setText("Cerrar");
         Btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BtnsalirActionPerformed(evt);
