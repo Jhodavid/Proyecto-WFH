@@ -245,7 +245,7 @@ Operaciones op=new Operaciones();
         }
          
     }//GEN-LAST:event_btnregistrarActionPerformed
-
+//validar campos
     private void txtcedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyPressed
   char Validacion = evt.getKeyChar();
         if (Validacion < '0' || Validacion > '9') {
