@@ -19,6 +19,9 @@ public class Usuario {
     public int Edad;
     public double Altura;
     public double Peso;
+    public double PesoOptimo;
+    public double RitmoCardiaco;
+    public double CaloriasDiarias;
     public Usuario LD;
 
     public Usuario() {
@@ -36,6 +39,9 @@ public class Usuario {
         Edad = user.Edad;
         Altura = user.Altura;
         Altura = user.Peso;
+        PesoOptimo = user.PesoOptimo;
+        RitmoCardiaco = user.RitmoCardiaco;
+        CaloriasDiarias = user.CaloriasDiarias;
         LI = null;
         LD = null;
     }

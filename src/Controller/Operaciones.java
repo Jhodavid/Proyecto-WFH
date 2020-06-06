@@ -9,7 +9,6 @@ import ConexionDB.ConexionDB;
 import Model.DatosGrafica;
 import Model.Usuario;
 import Model.Enfermedad;
-import Model.SaludFisica;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -29,7 +28,6 @@ public class Operaciones {
     public Usuario userEstad;
     public static DatosGrafica DatosGraf;
     public Enfermedad datosE;
-    public static SaludFisica SaludF;
     public Encriptacion en;
     
     DefaultTableModel model = new DefaultTableModel();
@@ -41,7 +39,6 @@ public class Operaciones {
     public Operaciones() {
         user = new Usuario();
         datosE = new Enfermedad();
-        SaludF = new SaludFisica();
         DatosGraf = new DatosGrafica();
         userEstad = new Usuario();
     }
@@ -61,7 +58,6 @@ public class Operaciones {
     }
 
     public void Actualizar(Usuario Actualizar) {
-
         try {
             Connection con = null;
             ConexionDB conect1 = new ConexionDB();
@@ -87,9 +83,7 @@ public class Operaciones {
         } catch (SQLException ex) {
             //JOptionPane.showMessageDialog(null, "Error sql" + ex);    
             JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR MIENTRAS SE ACTULIZABAN SUS DATOS", "Error " + ex, javax.swing.JOptionPane.ERROR_MESSAGE);
-
         }
-
     }
 
     ///////////////METODOS INICIO - ADMIN - ENFERMEDADES - ESTADISTICAS
@@ -195,21 +189,30 @@ public class Operaciones {
             JOptionPane.showMessageDialog(null, "Error sql" + ex);
         }
     }
-
-    public void GuardarSaludFisica(SaludFisica datos, int idUser) {
+    
+    public void GuardarSaludFisica(Usuario Actualizar) {
         try {
-            query = "insert into SaludFisica (PesoOptimo, RitmoCardiaco, CaloriasDiarias, IdUsuario) values ('" + datos.IMC + "', '" + datos.Rc + "', '" + datos.TBM + "', '" + idUser + "')";
             Connection con = null;
-            ConexionDB conect = new ConexionDB();
-            con = conect.getConnection();
+            ConexionDB conect1 = new ConexionDB();
+            con = conect1.getConnection();
             Statement st = con.createStatement();
-            st.execute(query);
-            JOptionPane.showMessageDialog(null, "Regitro guardado exitosamente");
+            String sql = "update Usuario set PesoOptimo = ?, RitmoCardiaco = ?, CaloriasDiarias = ? where IdUsuario = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setDouble(1, Actualizar.PesoOptimo);
+            pst.setDouble(2, Actualizar.RitmoCardiaco);
+            pst.setDouble(3, Actualizar.CaloriasDiarias);
+            pst.setInt(4, Actualizar.IdUsuario);
+            
+            pst.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE");
+            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error sql" + ex);
+            //JOptionPane.showMessageDialog(null, "Error sql" + ex);    
+            JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR MIENTRAS SE ACTULIZABAN SUS DATOS", "Error " + ex, javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    /*
     public void DatosSaludFisicaGrafica() {
 
         try {
@@ -327,7 +330,7 @@ public class Operaciones {
             javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    */
     ////////////////////////////////////////////////////////////////////////////
     // ________________________________________________________________________________ graficar 
     public void graficar(Usuario dato) {
