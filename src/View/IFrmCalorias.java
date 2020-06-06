@@ -6,17 +6,18 @@
 package View;
 
 import javax.swing.JOptionPane;
-import static View.FrmPrincipal.userIni;
 import Controller.Operaciones;
-import Model.SaludFisica;
-import static View.IFrmSaludFisica.SaludDatos;
+import Model.Usuario;
+import static View.FrmPrincipal.userIni;
+
 /**
  *
  * @author CAMILO A TRUYOL O
  */
 public class IFrmCalorias extends javax.swing.JInternalFrame {
-  Operaciones F = new Operaciones();
-  SaludFisica GG = new SaludFisica();
+
+    Operaciones F = new Operaciones();
+
     /**
      * Creates new form IFrmCalorias
      */
@@ -187,149 +188,133 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnsalirActionPerformed
-     this.setVisible(false);
-     
+        this.setVisible(false);
+
     }//GEN-LAST:event_BtnsalirActionPerformed
 
     private void JmenuusarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_JmenuusarKeyPressed
-      
+
     }//GEN-LAST:event_JmenuusarKeyPressed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-      JOptionPane.showMessageDialog(null, " PASOS PARA CALCULAR LAS CALORIAS DIARIAS A CONSUMIR : \n"
-              + "\n"
-              + "1. Cargar los datos para proceder con el computo \n"
-              + "2. Escoger una de las Actividades diarias para saber cuantas calorias se queman en la semana \n"
-              + "3. En la opcion de arriba presionar calcular y escoger una de las 2 opciones \n"
-              + "La primera calcula las calorias para aprox para mantener el peso \n"
-              + "la 2da opcion nos deja ver cuantas calorias comer para perfer peso");
+        JOptionPane.showMessageDialog(null, " PASOS PARA CALCULAR LAS CALORIAS DIARIAS A CONSUMIR : \n"
+                + "\n"
+                + "1. Cargar los datos para proceder con el computo \n"
+                + "2. Escoger una de las Actividades diarias para saber cuantas calorias se queman en la semana \n"
+                + "3. En la opcion de arriba presionar calcular y escoger una de las 2 opciones \n"
+                + "La primera calcula las calorias para aprox para mantener el peso \n"
+                + "la 2da opcion nos deja ver cuantas calorias comer para perfer peso");
         Btncargardatos.setEnabled(true);
         CMBestado.setEnabled(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void CMBestadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMBestadoActionPerformed
-   MenuCalculat.setEnabled(true);
+        MenuCalculat.setEnabled(true);
     }//GEN-LAST:event_CMBestadoActionPerformed
 
     private void BtncargardatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncargardatosActionPerformed
-    TxtAlltura.setText(Double.toString(userIni.Altura));
-    TxtSExo.setText(userIni.Sexo);
-    Txtedad.setText(Integer.toString(userIni.Edad));
-    Txtpeso.setText(Double.toString(userIni.Peso));
+        TxtAlltura.setText(Double.toString(userIni.Altura));
+        TxtSExo.setText(userIni.Sexo);
+        Txtedad.setText(Integer.toString(userIni.Edad));
+        Txtpeso.setText(Double.toString(userIni.Peso));
     }//GEN-LAST:event_BtncargardatosActionPerformed
 
     private void MndiariasnormalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MndiariasnormalesActionPerformed
-     
-        if (CMBestado.getSelectedIndex()!=0) {
-            
-        if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==1) {
-            GG.TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-            GG.TBM=GG.TBM*1.2;
-            SaludDatos.TBM = GG.TBM;
-        }else
-            if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==2) {
-                GG.TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                GG.TBM=GG.TBM* 1.375;
-                SaludDatos.TBM = GG.TBM;
-            } else
-                if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==3 ) {
-                GG.TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                GG.TBM=GG.TBM*1.55;
-                SaludDatos.TBM = GG.TBM;
-            }else
-                    if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==4) {
-                GG.TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                GG.TBM=GG.TBM*1.725;
-                SaludDatos.TBM = GG.TBM;
-            }else
-                        
-            if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==1) {
-            GG.TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-             GG.TBM=GG.TBM*1.2;
-             SaludDatos.TBM = GG.TBM;
-        }else
-                if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==2) {
-                 GG.TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 GG.TBM=GG.TBM*1.375;
-                 SaludDatos.TBM = GG.TBM;
-            }else
-             if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==3) {
-                 GG.TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 GG.TBM=GG.TBM*1.55;
-                 SaludDatos.TBM = GG.TBM;
-             }else
-                 if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==4) {
-                 GG.TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 GG.TBM=GG.TBM*1.725;
-                 SaludDatos.TBM = GG.TBM;
+
+        if (CMBestado.getSelectedIndex() != 0) {
+
+            if (userIni.Sexo.equals("Femenino") && CMBestado.getSelectedIndex() == 1) {
+                userIni.CaloriasDiarias = F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias * 1.2;
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias;
+            } else if (userIni.Sexo.equals("Femenino") && CMBestado.getSelectedIndex() == 2) {
+                userIni.CaloriasDiarias = F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias * 1.375;
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias;
+            } else if (userIni.Sexo.equals("Femenino") && CMBestado.getSelectedIndex() == 3) {
+                userIni.CaloriasDiarias = F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias * 1.55;
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias;
+            } else if (userIni.Sexo.equals("Femenino") && CMBestado.getSelectedIndex() == 4) {
+                userIni.CaloriasDiarias = F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias * 1.725;
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias;
+            } else if (userIni.Sexo.equals("Masculino") && CMBestado.getSelectedIndex() == 1) {
+                userIni.CaloriasDiarias = F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias * 1.2;
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias;
+            } else if (userIni.Sexo.equals("Masculino") && CMBestado.getSelectedIndex() == 2) {
+                userIni.CaloriasDiarias = F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias * 1.375;
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias;
+            } else if (userIni.Sexo.equals("Masculino") && CMBestado.getSelectedIndex() == 3) {
+                userIni.CaloriasDiarias = F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias * 1.55;
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias;
+            } else if (userIni.Sexo.equals("Masculino") && CMBestado.getSelectedIndex() == 4) {
+                userIni.CaloriasDiarias = F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias * 1.725;
+                userIni.CaloriasDiarias = userIni.CaloriasDiarias;
             }
-         
-         JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para esta persona son de : "+GG.TBM);
-         Txtcalorias.setText(Double.toString(GG.TBM));
-        }else{
-             JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+            JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para esta persona son de : " + userIni.CaloriasDiarias);
+            Txtcalorias.setText(Double.toString(userIni.CaloriasDiarias));
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-       
+
     }//GEN-LAST:event_MndiariasnormalesActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-      double TBM=0,resta;
-        if (CMBestado.getSelectedIndex()!=0) {
-            
-        if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==1) {
-            TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-            TBM=TBM*1.2;
-            resta=TBM*0.17;
-            TBM=TBM-resta;
-        }else
-            if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==2) {
-                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                TBM=TBM* 1.375;
-                resta=TBM*0.17;
-                TBM=TBM-resta;
-            } else
-                if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==3 ) {
-                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                TBM=TBM*1.55;
-                resta=TBM*0.17;
-                TBM=TBM-resta;
-            }else
-                    if (userIni.Sexo.equals("Femenino")&& CMBestado.getSelectedIndex()==4) {
-                TBM=F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
-                TBM=TBM*1.725;
-                resta=TBM*0.17;
-                TBM=TBM-resta;
-            }else
-                        
-            if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==1) {
-            TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-             TBM=TBM*1.2;
-             resta=TBM*0.17;
-             TBM=TBM-resta;
-        }else
-                if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==2) {
-                 TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 TBM=TBM*1.375;
-                 resta=TBM*0.17;
-                 TBM=TBM-resta;
-            }else
-             if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==3) {
-                  TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 TBM=TBM*1.55;
-                 resta=TBM*0.17;
-                 TBM=TBM-resta;
-             }else
-                 if (userIni.Sexo.equals("Masculino")&& CMBestado.getSelectedIndex()==4) {
-                 TBM=F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
-                 TBM=TBM*1.725;
-                 resta=TBM*0.17;
-                 TBM=TBM-resta;
+        double TBM = 0, resta;
+        if (CMBestado.getSelectedIndex() != 0) {
+
+            if (userIni.Sexo.equals("Femenino") && CMBestado.getSelectedIndex() == 1) {
+                TBM = F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM = TBM * 1.2;
+                resta = TBM * 0.17;
+                TBM = TBM - resta;
+            } else if (userIni.Sexo.equals("Femenino") && CMBestado.getSelectedIndex() == 2) {
+                TBM = F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM = TBM * 1.375;
+                resta = TBM * 0.17;
+                TBM = TBM - resta;
+            } else if (userIni.Sexo.equals("Femenino") && CMBestado.getSelectedIndex() == 3) {
+                TBM = F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM = TBM * 1.55;
+                resta = TBM * 0.17;
+                TBM = TBM - resta;
+            } else if (userIni.Sexo.equals("Femenino") && CMBestado.getSelectedIndex() == 4) {
+                TBM = F.CaloriasF(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM = TBM * 1.725;
+                resta = TBM * 0.17;
+                TBM = TBM - resta;
+            } else if (userIni.Sexo.equals("Masculino") && CMBestado.getSelectedIndex() == 1) {
+                TBM = F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM = TBM * 1.2;
+                resta = TBM * 0.17;
+                TBM = TBM - resta;
+            } else if (userIni.Sexo.equals("Masculino") && CMBestado.getSelectedIndex() == 2) {
+                TBM = F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM = TBM * 1.375;
+                resta = TBM * 0.17;
+                TBM = TBM - resta;
+            } else if (userIni.Sexo.equals("Masculino") && CMBestado.getSelectedIndex() == 3) {
+                TBM = F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM = TBM * 1.55;
+                resta = TBM * 0.17;
+                TBM = TBM - resta;
+            } else if (userIni.Sexo.equals("Masculino") && CMBestado.getSelectedIndex() == 4) {
+                TBM = F.CaloriasM(userIni.Peso, userIni.Altura, userIni.Edad);
+                TBM = TBM * 1.725;
+                resta = TBM * 0.17;
+                TBM = TBM - resta;
             }
-         
-         JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para perder de 0.5 a 1 kilo semanal son de : "+TBM);
-         Txtcalorias.setText(Double.toString(TBM));
-        }else{
-             JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
+
+            JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para perder de 0.5 a 1 kilo semanal son de : " + TBM);
+            Txtcalorias.setText(Double.toString(TBM));
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 

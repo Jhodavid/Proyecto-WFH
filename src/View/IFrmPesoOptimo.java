@@ -4,27 +4,28 @@
  * and open the template in the editor.
  */
 package View;
+
 import static View.FrmPrincipal.userIni;
 import Controller.Operaciones;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import Model.SaludFisica;
 import javax.swing.JOptionPane;
-import static View.IFrmSaludFisica.SaludDatos;
+
 /**
  *
  * @author CAMILO A TRUYOL O
  */
 public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
-  Operaciones X= new Operaciones();
-  SaludFisica Sf = new SaludFisica();
+
+    Operaciones X = new Operaciones();
+
     /**
      * Creates new form IFrmPesoOptimo
      */
     public IFrmPesoOptimo() {
         initComponents();
         Btncargardatos.setEnabled(false);
-       Btncomputar.setEnabled(false);
+        Btncomputar.setEnabled(false);
     }
 
     /**
@@ -134,7 +135,7 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalirActionPerformed
-      this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_btnsalirActionPerformed
 
     private void TxtpesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtpesoActionPerformed
@@ -143,9 +144,9 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
 
     private void BtncargardatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncargardatosActionPerformed
 
-         Txtpeso.setText(Double.toString(userIni.Peso));
-         TxtAltura.setText(Double.toString(userIni.Altura));
-         Btncomputar.setEnabled(true);
+        Txtpeso.setText(Double.toString(userIni.Peso));
+        TxtAltura.setText(Double.toString(userIni.Altura));
+        Btncomputar.setEnabled(true);
     }//GEN-LAST:event_BtncargardatosActionPerformed
 
     private void TxtAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtAlturaActionPerformed
@@ -153,40 +154,38 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_TxtAlturaActionPerformed
 
     private void BtncomputarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtncomputarActionPerformed
-   
-     Sf.IMC= X.PesoOptimo(userIni.Altura, userIni.Peso);
-     BigDecimal bigDecimal = new BigDecimal(Sf.IMC).setScale(2, RoundingMode.UP);
-     System.out.println();
-    TxtIMC.setText(Double.toString(bigDecimal.doubleValue()));
-        if (Sf.IMC<18) {
-            JOptionPane.showMessageDialog(null,"Tu peso es mas bajo de lo normal","Peso no Optimo",JOptionPane.ERROR_MESSAGE);
-        }else
-        if (Sf.IMC>25 && Sf.IMC < 30) {
-            JOptionPane.showMessageDialog(null,"Poesees indices de sobre peso ","Peso no Optimo",JOptionPane.ERROR_MESSAGE);
-        }else
-            if (Sf.IMC>30) {
-            JOptionPane.showMessageDialog(null,"Possees indices de sobre peso , contacta un especilista !","Peso no Optimo",JOptionPane.ERROR_MESSAGE);
-        }else{
-                JOptionPane.showMessageDialog(null, "Tienes un peso adecuado :D !!!! ");
-            }
-        SaludDatos.IMC = Sf.IMC;
-        
+
+        userIni.PesoOptimo = X.PesoOptimo(userIni.Altura, userIni.Peso);
+        BigDecimal bigDecimal = new BigDecimal(userIni.PesoOptimo).setScale(2, RoundingMode.UP);
+        System.out.println();
+        TxtIMC.setText(Double.toString(bigDecimal.doubleValue()));
+        if (userIni.PesoOptimo < 18) {
+            JOptionPane.showMessageDialog(null, "Tu peso es mas bajo de lo normal", "Peso no Optimo", JOptionPane.ERROR_MESSAGE);
+        } else if (userIni.PesoOptimo > 25 && userIni.PesoOptimo < 30) {
+            JOptionPane.showMessageDialog(null, "Poesees indices de sobre peso ", "Peso no Optimo", JOptionPane.ERROR_MESSAGE);
+        } else if (userIni.PesoOptimo > 30) {
+            JOptionPane.showMessageDialog(null, "Possees indices de sobre peso , contacta un especilista !", "Peso no Optimo", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Tienes un peso adecuado :D !!!! ");
+        }
+        userIni.PesoOptimo = userIni.PesoOptimo;
+
     }//GEN-LAST:event_BtncomputarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       JOptionPane.showMessageDialog(null, " PARA CALCULAR SI TU PESO ES EL OPTIMO SIGUE LOS SIGUIENTES PASOS :\n"
-               + "\n"
-               + "1. Cargar tus datos para saber tu altura y tu peso \n"
-               + "2. Presione el boton de computar , el programa procedera a hallar su indice de masa coorporal  \n"
-               + "Si es mayor a 18.5 y menor a 25 tienes el peso adecuado :D !!! \n"
-               + "\n");
-       JOptionPane.showMessageDialog(null," Si tu indice de masa coporal marca uno de estos valores tu salud fisica no es optima \n"
-               + "intenta contactar con un especialista : \n"
-               + "\n"
-               + "1. Si es menor a 18.5 posees un peso bajo de lo normal \n"
-               + "2. Si es mayor a 25 posees indices de sobre peso \n"
-               + "3. Si es mayor a 30 es recomendable contactar a un especialistas ya que presentas indices se obesidad","CASOS A TRATAR CON ESPECIALISTAS !!!",JOptionPane.ERROR_MESSAGE);
-            Btncargardatos.setEnabled(true);
+        JOptionPane.showMessageDialog(null, " PARA CALCULAR SI TU PESO ES EL OPTIMO SIGUE LOS SIGUIENTES PASOS :\n"
+                + "\n"
+                + "1. Cargar tus datos para saber tu altura y tu peso \n"
+                + "2. Presione el boton de computar , el programa procedera a hallar su indice de masa coorporal  \n"
+                + "Si es mayor a 18.5 y menor a 25 tienes el peso adecuado :D !!! \n"
+                + "\n");
+        JOptionPane.showMessageDialog(null, " Si tu indice de masa coporal marca uno de estos valores tu salud fisica no es optima \n"
+                + "intenta contactar con un especialista : \n"
+                + "\n"
+                + "1. Si es menor a 18.5 posees un peso bajo de lo normal \n"
+                + "2. Si es mayor a 25 posees indices de sobre peso \n"
+                + "3. Si es mayor a 30 es recomendable contactar a un especialistas ya que presentas indices se obesidad", "CASOS A TRATAR CON ESPECIALISTAS !!!", JOptionPane.ERROR_MESSAGE);
+        Btncargardatos.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

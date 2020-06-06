@@ -10,7 +10,6 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Controller.Operaciones;
-import Model.SaludFisica;
 import static View.FrmPrincipal.userIni;
 
 /**
@@ -19,7 +18,6 @@ import static View.FrmPrincipal.userIni;
  */
 public class IFrmSaludFisica extends javax.swing.JInternalFrame {
 
-    public static SaludFisica SaludDatos;
     public Operaciones op;
 
     /**
@@ -27,7 +25,6 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
      */
     public IFrmSaludFisica() {
         initComponents();
-        SaludDatos = new SaludFisica();
         op = new Operaciones();
     }
 
@@ -233,7 +230,7 @@ public class IFrmSaludFisica extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_BtncaloriasActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        op.GuardarSaludFisica(SaludDatos,userIni.IdUsuario);
+        op.GuardarSaludFisica(userIni);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
