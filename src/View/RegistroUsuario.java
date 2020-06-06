@@ -74,7 +74,8 @@ Operaciones op=new Operaciones();
         setIconifiable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtcedula.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cedula", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        txtcedula.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtcedula.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cedula", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
         txtcedula.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtcedulaKeyPressed(evt);
@@ -83,9 +84,10 @@ Operaciones op=new Operaciones();
                 txtcedulaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 311, -1));
+        getContentPane().add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 311, -1));
 
-        txttelefono.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Telefono", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        txttelefono.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txttelefono.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Telefono", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
         txttelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txttelefonoActionPerformed(evt);
@@ -99,40 +101,48 @@ Operaciones op=new Operaciones();
                 txttelefonoKeyTyped(evt);
             }
         });
-        getContentPane().add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 300, -1));
+        getContentPane().add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, 300, -1));
 
         cmbsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Masculino", "Femenino" }));
         cmbsexo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sexo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
-        getContentPane().add(cmbsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 181, 60));
+        getContentPane().add(cmbsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 181, 60));
 
-        txtapellido.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        txtapellido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtapellido.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
         txtapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtapellidoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 300, -1));
+        getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 300, -1));
 
-        txtedad.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        txtedad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtedad.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Edad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
         txtedad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtedadKeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtedadKeyTyped(evt);
             }
         });
-        getContentPane().add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 260, 147, -1));
+        getContentPane().add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 147, -1));
 
-        txtnombre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nombre", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
-        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 311, -1));
+        txtnombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtnombre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nombre", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 311, -1));
 
-        txtpeso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Peso  KG", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        txtpeso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtpeso.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Peso  KG", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
         txtpeso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtpesoKeyTyped(evt);
             }
         });
-        getContentPane().add(txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 260, 143, -1));
+        getContentPane().add(txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 143, -1));
 
-        txtaltura.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Altura", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        txtaltura.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtaltura.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Altura", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
         txtaltura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtalturaActionPerformed(evt);
@@ -143,7 +153,7 @@ Operaciones op=new Operaciones();
                 txtalturaKeyTyped(evt);
             }
         });
-        getContentPane().add(txtaltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 112, -1));
+        getContentPane().add(txtaltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 112, -1));
 
         btnregistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_download2_3592678.png"))); // NOI18N
         btnregistrar.setBorder(null);
@@ -154,16 +164,18 @@ Operaciones op=new Operaciones();
         });
         getContentPane().add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, -1, -1));
 
-        txtcontraseña.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
-        getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 311, 51));
+        txtcontraseña.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtcontraseña.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 311, 60));
 
-        txtconfirmarcontraseña.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Confirmar contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
-        getContentPane().add(txtconfirmarcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 200, 300, 51));
+        txtconfirmarcontraseña.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtconfirmarcontraseña.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Confirmar contraseña", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        getContentPane().add(txtconfirmarcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, 300, 60));
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 2, 30)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Registrate");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 30, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fitness2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -235,7 +247,10 @@ Operaciones op=new Operaciones();
     }//GEN-LAST:event_btnregistrarActionPerformed
 
     private void txtcedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyPressed
-
+  char Validacion = evt.getKeyChar();
+        if (Validacion < '0' || Validacion > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtcedulaKeyPressed
 
     private void txttelefonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelefonoKeyPressed
@@ -274,6 +289,13 @@ Operaciones op=new Operaciones();
             evt.consume();
         }
     }//GEN-LAST:event_txtedadKeyTyped
+
+    private void txtedadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyPressed
+      char Validacion = evt.getKeyChar();
+        if (Validacion < '0' || Validacion > '9') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtedadKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
