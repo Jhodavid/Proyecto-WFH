@@ -10,6 +10,13 @@ import static View.FrmPrincipal.userIni;
 import javax.swing.JOptionPane;
 import Controller.Encriptacion;
 import Model.Usuario;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import javax.swing.JFileChooser;
+
 /**
  *
  * @author angel
@@ -41,6 +48,59 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         txtedad.setText(Integer.toString(userIni.Edad));
         txtcontraseña.setText(userIni.Contraseña);
         cmbsexo.setSelectedItem(userIni.Sexo);
+
+    }
+     public void GuardarPdfComo() {
+
+        JFileChooser dlg = new JFileChooser();
+        int Option = dlg.showSaveDialog(this);
+        if (Option == JFileChooser.APPROVE_OPTION) {
+            File F = dlg.getSelectedFile();
+            txtruta.setText(F.toString());
+
+        }
+
+    }
+
+    public void GenerarPdf() {
+        String ruta=txtruta.getText();
+        String ID=Integer.toString(userIni.IdUsuario);
+        String Nombre=userIni.Nombre;
+        String Apellido=userIni.Apellidos;
+        String Cedula=Integer.toString(userIni.Cedula);
+        String telefono=Integer.toString(userIni.Telefono);
+        String Edad=Integer.toString(userIni.Edad);
+        String Peso=Integer.toString((int) userIni.Peso);
+        String Sexo=userIni.Sexo;
+        String Estatura=Integer.toString((int) userIni.Altura);
+        String cadena="----------------------------------------------------------------------------------------------------------------------------------"+"\n"
+                     +"---------------------------------------------------- Datos Del Usuario ----------------------------------------------------"+"\n"
+                     +"----------------------------------------------------------------------------------------------------------------------------------"+"\n"
+                     +"\n"
+                     +"\n"
+                     +"\n"
+                     +"                      Su ID     "+ID+"\n"
+                     +"                      Nombre    "+Nombre+"\n"
+                     +"                      Apellido  "+Apellido+"\n"
+                     +"                      Cedula    "+Cedula+"\n"   
+                     +"                      Telefono  "+telefono+"\n"
+                     +"                      Edad      "+Edad+"\n"
+                     +"                      Sexo      "+Sexo+"\n"
+                     +"                      Peso      "+Peso+"\n"
+                     +"                      Estatura  "+Estatura
+                     ;     
+        try{
+        FileOutputStream archivo = new FileOutputStream(ruta+".pdf");
+        Document doc=new Document();
+        PdfWriter.getInstance(doc, archivo);
+        doc.open();
+        doc.add(new Paragraph(cadena));
+        doc.close();
+        javax.swing.JOptionPane.showMessageDialog(null, "PDF correctamente creado");
+                
+        }catch(Exception e){
+             JOptionPane.showMessageDialog(null, "Error sql" + e);
+        }
 
     }
 
@@ -75,19 +135,22 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         txtcontraseña = new javax.swing.JPasswordField();
         txtconfirmarcontraseña = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtruta = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
 
         setClosable(true);
         setIconifiable(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Su ID", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        txtid.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
         txtid.setFocusable(false);
         txtid.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtidKeyTyped(evt);
             }
         });
-        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 72, -1));
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 72, 30));
 
         btnregistrar.setFont(new java.awt.Font("Trebuchet MS", 3, 18)); // NOI18N
         btnregistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/iconfinder_download2_3592678.png"))); // NOI18N
@@ -97,11 +160,11 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                 btnregistrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(286, 284, -1, 80));
+        getContentPane().add(btnregistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, -1, 60));
 
         cmbsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Seleccione-", "Masculino", "Femenino" }));
         cmbsexo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sexualidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
-        getContentPane().add(cmbsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 213, 281, -1));
+        getContentPane().add(cmbsexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, 281, -1));
         cmbsexo.getAccessibleContext().setAccessibleName("Sexo");
         cmbsexo.getAccessibleContext().setAccessibleDescription("");
 
@@ -110,87 +173,87 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                 txtnombreActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 67, 201, 29));
+        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 201, 29));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
-        jLabel1.setText("Nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 100, 29));
+        jLabel1.setText("Su ID");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 40, 29));
 
         jLabel2.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         jLabel2.setText("Apellido");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 65, 76, 29));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 76, 29));
 
         txtcedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtcedulaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 104, 201, 29));
+        getContentPane().add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 201, 29));
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         jLabel3.setText("Cedula");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 102, 100, 29));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 100, 29));
 
         txtapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtapellidoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 67, 201, 29));
+        getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 201, 29));
 
         jLabel4.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         jLabel4.setText("Contraseña");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 138, 100, 29));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 100, 29));
 
         jLabel5.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         jLabel5.setText("Telefono");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 102, 76, 29));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 76, 29));
 
         txtelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtelefonoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 104, 201, 29));
+        getContentPane().add(txtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 201, 29));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         jLabel6.setText("Confime");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 138, 76, 29));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, 76, 29));
 
         txtedad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtedadActionPerformed(evt);
             }
         });
-        getContentPane().add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 176, 201, 29));
+        getContentPane().add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 201, 29));
 
         jLabel7.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         jLabel7.setText("Edad");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 176, 100, 29));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, 29));
 
         jLabel8.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         jLabel8.setText("Peso KG");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(339, 176, 77, 29));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 77, 29));
 
         txtpeso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtpesoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 178, 200, 29));
+        getContentPane().add(txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 200, 29));
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
         jLabel9.setText("Estatura");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 213, 100, 29));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, 29));
 
         txtestatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtestaturaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtestatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 215, 201, 29));
-        getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 139, 201, 31));
-        getContentPane().add(txtconfirmarcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 139, 201, 31));
+        getContentPane().add(txtestatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 201, 29));
+        getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 201, 31));
+        getContentPane().add(txtconfirmarcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 201, 31));
 
         jButton1.setText("PDF");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -198,7 +261,17 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 320, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
+        jLabel10.setText("Nombre");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 100, 29));
+
+        txtruta.setFocusable(false);
+        getContentPane().add(txtruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 190, 30));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondo registrar.png"))); // NOI18N
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,10 +324,6 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnregistrarActionPerformed
 
-    private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped
-
-    }//GEN-LAST:event_txtidKeyTyped
-
     private void txtnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnombreActionPerformed
@@ -284,9 +353,13 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtestaturaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-      
+       GuardarPdfComo();
+       GenerarPdf();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped
+
+    }//GEN-LAST:event_txtidKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -294,6 +367,8 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> cmbsexo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -312,5 +387,6 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txtpeso;
+    private javax.swing.JTextField txtruta;
     // End of variables declaration//GEN-END:variables
 }
