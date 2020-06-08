@@ -71,18 +71,18 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                      +"\n"
                      +"\n"
                      +"\n"
-                     +"                      Su ID                       "+userIni.IdUsuario+"\n"
-                     +"                      Nombre                     "+userIni.Nombre+"\n"
-                     +"                      Apellido                   "+userIni.Apellidos+"\n"
-                     +"                      Cedula                     "+userIni.Cedula+"\n"   
-                     +"                      Telefono                   "+userIni.Telefono+"\n"
-                     +"                      Edad                       "+userIni.Edad+"\n"
-                     +"                      Sexo                       "+userIni.Sexo+"\n"
-                     +"                      Peso                       "+userIni.Peso+"\n"
-                     +"                      Estatura                   "+userIni.Altura+"\n"
-                     +"                      Indice De Masa Corporal    "+userIni.PesoOptimo+"\n"
-                     +"                      Ritmo Cardiaco Por Minuto  "+userIni.RitmoCardiaco+"\n"
-                     +"                      Calorias diarias           "+userIni.CaloriasDiarias
+                     +"                      Su ID                                     "+userIni.IdUsuario+"\n"
+                     +"                      Nombre                                 "+userIni.Nombre+"\n"
+                     +"                      Apellido                                 "+userIni.Apellidos+"\n"
+                     +"                      Cedula                                  "+userIni.Cedula+"\n"   
+                     +"                      Telefono                                "+userIni.Telefono+"\n"
+                     +"                      Edad                                     "+userIni.Edad+"\n"
+                     +"                      Sexo                                      "+userIni.Sexo+"\n"
+                     +"                      Peso                                      "+userIni.Peso+"\n"
+                     +"                      Estatura                                 "+userIni.Altura+"\n"
+                     +"                      Indice De Masa Corporal       "+userIni.PesoOptimo+"\n"
+                     +"                      Ritmo Cardiaco Por Minuto    "+userIni.RitmoCardiaco+"\n"
+                     +"                      Calorias diarias                      "+userIni.CaloriasDiarias
                      ;     
         try{
         FileOutputStream archivo = new FileOutputStream(ruta+".pdf");
