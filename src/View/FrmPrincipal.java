@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import Controller.Encriptacion;
+import Model.DatosGrafica;
 
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -25,6 +26,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     ConexionDB conect = new ConexionDB();
     public Operaciones op;
     public static Usuario userIni = new Usuario(); 
+    public static DatosGrafica GrafPeso = new DatosGrafica();
     public Encriptacion en;
     /**
      * Creates new form FrmPrincipal
@@ -338,6 +340,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasActionPerformed
+        
+        GrafPeso = op.GraficaPesos();
+        System.out.println(GrafPeso.PesoOptimo2);
         IFrmEstadisticas obj = new IFrmEstadisticas();
 
         jDesktopPane1.add(obj);

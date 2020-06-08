@@ -136,6 +136,9 @@ public class Operaciones {
                 user.Edad = Integer.parseInt(rs.getString("Edad"));
                 user.Altura = Double.parseDouble(rs.getString("Altura"));
                 user.Peso = Double.parseDouble(rs.getString("Peso"));
+                user.PesoOptimo = Double.parseDouble(rs.getString("PesoOptimo"));
+                user.RitmoCardiaco = Double.parseDouble(rs.getString("RitmoCardiaco"));
+                user.CaloriasDiarias = Double.parseDouble(rs.getString("CaloriasDiarias"));
 
                 if (Integer.toString(user.Cedula).equals(inicio[0]) && user.Contraseña.equals(inicio[1])) {
                     return user;
@@ -241,7 +244,7 @@ public class Operaciones {
             JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR MIENTRAS SE ACTULIZABAN SUS DATOS", "Error " + ex, javax.swing.JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     public DatosGrafica GraficaPesos() {
         IniciarDatosGraf();
         try {
@@ -251,15 +254,8 @@ public class Operaciones {
             String sql = "select * from Usuario";
             Statement st = con1.createStatement();
             ResultSet rs = st.executeQuery(sql);
-
             while (rs.next()) {
-                userEstad.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
-                userEstad.Cedula = Integer.parseInt(rs.getString("Cedula"));
-                userEstad.Contraseña = rs.getString("Contraseña");
-                userEstad.Nombre = rs.getString("Nombre");
-                userEstad.Apellidos = rs.getString("Apellidos");
                 userEstad.Sexo = rs.getString("Sexo");
-                userEstad.Telefono = Integer.parseInt(rs.getString("Telefono"));
                 userEstad.Edad = Integer.parseInt(rs.getString("Edad"));
                 userEstad.Altura = Double.parseDouble(rs.getString("Altura"));
                 userEstad.Peso = Double.parseDouble(rs.getString("Peso"));
