@@ -23,9 +23,9 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Operaciones {
 
-    public static Usuario user;
+    public Usuario user;
     public Usuario userEstad;
-    public DatosGrafica DatosGraf;
+    public static DatosGrafica DatosGraf;
     public Enfermedad datosE;
     public Encriptacion en;
 
@@ -139,10 +139,11 @@ public class Operaciones {
                 user.PesoOptimo = Double.parseDouble(rs.getString("PesoOptimo"));
                 user.RitmoCardiaco = Double.parseDouble(rs.getString("RitmoCardiaco"));
                 user.CaloriasDiarias = Double.parseDouble(rs.getString("CaloriasDiarias"));
-
+                
                 if (Integer.toString(user.Cedula).equals(inicio[0]) && user.Contraseña.equals(inicio[1])) {
                     return user;
                 }
+                
             }
         } catch (SQLException e) {
             javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -246,7 +247,7 @@ public class Operaciones {
     }
     
     public DatosGrafica GraficaPesos() {
-        IniciarDatosGraf();
+        
         try {
             Connection con1 = null;
             ConexionDB conect1 = new ConexionDB();
@@ -255,84 +256,91 @@ public class Operaciones {
             Statement st = con1.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                userEstad.Sexo = rs.getString("Sexo");
-                userEstad.Edad = Integer.parseInt(rs.getString("Edad"));
-                userEstad.Altura = Double.parseDouble(rs.getString("Altura"));
-                userEstad.Peso = Double.parseDouble(rs.getString("Peso"));
-                userEstad.PesoOptimo = Double.parseDouble(rs.getString("Peso Optimo"));
-                userEstad.CaloriasDiarias = Double.parseDouble(rs.getString("CaloriasDiarias"));
-                userEstad.RitmoCardiaco = Double.parseDouble(rs.getString("Ritmo Cardiaco"));
-
-                if (userEstad.Edad < 11) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                user.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
+                user.Cedula = Integer.parseInt(rs.getString("Cedula"));
+                user.Contraseña = (rs.getString("Contraseña"));
+                user.Nombre = rs.getString("Nombre");
+                user.Apellidos = rs.getString("Apellidos");
+                user.Sexo = rs.getString("Sexo");
+                user.Telefono = Integer.parseInt(rs.getString("Telefono"));
+                user.Edad = Integer.parseInt(rs.getString("Edad"));
+                user.Altura = Double.parseDouble(rs.getString("Altura"));
+                user.Peso = Double.parseDouble(rs.getString("Peso"));
+                user.PesoOptimo = Double.parseDouble(rs.getString("PesoOptimo"));
+                user.RitmoCardiaco = Double.parseDouble(rs.getString("RitmoCardiaco"));
+                user.CaloriasDiarias = Double.parseDouble(rs.getString("CaloriasDiarias"));
+                
+                
+                if (user.Edad < 11) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo1++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo1++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso1++;
                     }
-                } else if (userEstad.Edad >= 11 && userEstad.Edad < 20) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                } else if (user.Edad >= 11 && user.Edad < 20) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo2++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo2++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso2++;
                     }
-                } else if (userEstad.Edad >= 20 && userEstad.Edad < 30) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                } else if (user.Edad >= 20 && user.Edad < 30) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo3++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo3++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso3++;
                     }
-                } else if (userEstad.Edad >= 30 && userEstad.Edad < 40) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                } else if (user.Edad >= 30 && user.Edad < 40) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo4++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo4++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso4++;
                     }
-                } else if (userEstad.Edad >= 40 && userEstad.Edad < 50) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                } else if (user.Edad >= 40 && user.Edad < 50) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo5++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo5++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso5++;
                     }
-                } else if (userEstad.Edad >= 50 && userEstad.Edad < 60) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                } else if (user.Edad >= 50 && user.Edad < 60) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo6++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo6++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso6++;
                     }
-                } else if (userEstad.Edad >= 60 && userEstad.Edad < 70) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                } else if (user.Edad >= 60 && user.Edad < 70) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo7++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo7++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso7++;
                     }
-                } else if (userEstad.Edad >= 70 && userEstad.Edad < 80) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                } else if (user.Edad >= 70 && user.Edad < 80) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo8++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo8++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso8++;
                     }
-                } else if (userEstad.Edad >= 80) {
-                    if (userEstad.PesoOptimo < 18.5) {
+                } else if (user.Edad >= 80) {
+                    if (user.PesoOptimo < 18.5) {
                         DatosGraf.PorDebajo9++;
-                    } else if (userEstad.PesoOptimo >= 18.5 && userEstad.PesoOptimo <= 25) {
+                    } else if (user.PesoOptimo >= 18.5 && user.PesoOptimo <= 25) {
                         DatosGraf.PesoOptimo9++;
-                    } else if (userEstad.PesoOptimo > 25) {
+                    } else if (user.PesoOptimo > 25) {
                         DatosGraf.SobrePeso9++;
                     }
                 }
