@@ -16,6 +16,7 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
 
     JFreeChart Grafica;
     DefaultCategoryDataset Dato = new DefaultCategoryDataset();
+    DefaultCategoryDataset Dato2 = new DefaultCategoryDataset();
     public Operaciones op;
     
     public IFrmEstadisticas() {
@@ -59,17 +60,17 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
     }
     
     public DefaultCategoryDataset GraficaEnfermedades(String nombre) {
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad1, "Padecen "+nombre, "1-10 año(s)");
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad2, "Padecen "+nombre, "11-20 años");
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad3, "Padecen "+nombre, "21-30 años");
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad4, "Padecen "+nombre, "31-40 años");
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad5, "Padecen "+nombre, "41-50 años");
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad6, "Padecen "+nombre, "51-60 años");
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad7, "Padecen "+nombre, "61-70 años");
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad8, "Padecen "+nombre, "71-80 años");
-            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad9, "Padecen "+nombre, "81-90 años");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad1, "Padecen "+nombre, "1-10 año(s)");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad2, "Padecen "+nombre, "11-20 años");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad3, "Padecen "+nombre, "21-30 años");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad4, "Padecen "+nombre, "31-40 años");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad5, "Padecen "+nombre, "41-50 años");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad6, "Padecen "+nombre, "51-60 años");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad7, "Padecen "+nombre, "61-70 años");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad8, "Padecen "+nombre, "71-80 años");
+            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad9, "Padecen "+nombre, "81-90 años");
             
-        return Dato;
+        return Dato2;
     }
     
     /**

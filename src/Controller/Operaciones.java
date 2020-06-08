@@ -26,7 +26,7 @@ public class Operaciones {
 
     public Usuario user;
     public Usuario userEstad;
-    public static DatosGrafica DatosGraf;
+    public static DatosGrafica DatosGraf, GrafEnfer;
     public Enfermedad datosE;
     public Encriptacion en;
     NodoAllInformEnferm userEnfer = new NodoAllInformEnferm();
@@ -41,38 +41,9 @@ public class Operaciones {
         user = new Usuario();
         datosE = new Enfermedad();
         DatosGraf = new DatosGrafica();
+        GrafEnfer = new DatosGrafica();
         userEstad = new Usuario();
         userEnfer = null;
-    }
-
-    public void IniciarDatosGraf() {
-        DatosGraf.PesoOptimo1 = 0;
-        DatosGraf.PesoOptimo2 = 0;
-        DatosGraf.PesoOptimo3 = 0;
-        DatosGraf.PesoOptimo4 = 0;
-        DatosGraf.PesoOptimo5 = 0;
-        DatosGraf.PesoOptimo6 = 0;
-        DatosGraf.PesoOptimo7 = 0;
-        DatosGraf.PesoOptimo8 = 0;
-        DatosGraf.PesoOptimo9 = 0;
-        DatosGraf.SobrePeso1 = 0;
-        DatosGraf.SobrePeso2 = 0;
-        DatosGraf.SobrePeso3 = 0;
-        DatosGraf.SobrePeso4 = 0;
-        DatosGraf.SobrePeso5 = 0;
-        DatosGraf.SobrePeso6 = 0;
-        DatosGraf.SobrePeso7 = 0;
-        DatosGraf.SobrePeso8 = 0;
-        DatosGraf.SobrePeso9 = 0;
-        DatosGraf.PorDebajo1 = 0;
-        DatosGraf.PorDebajo2 = 0;
-        DatosGraf.PorDebajo3 = 0;
-        DatosGraf.PorDebajo4 = 0;
-        DatosGraf.PorDebajo5 = 0;
-        DatosGraf.PorDebajo6 = 0;
-        DatosGraf.PorDebajo7 = 0;
-        DatosGraf.PorDebajo8 = 0;
-        DatosGraf.PorDebajo9 = 0;
     }
 
     public void Registar(String tabla, String campos, String valores) {
@@ -353,9 +324,14 @@ public class Operaciones {
         return DatosGraf;
     }
 
+    public void InsertarInicio(NodoAllInformEnferm dato) {
+        NodoAllInformEnferm x = new NodoAllInformEnferm(dato); // Creando el bloque
+        x.Sig = userEnfer; //Enlazamos
+        userEnfer = x; // Mueve al inicio
+    }
+
     //////////LLENADO DEL NODO DEL INFORME DE LAS ENFERMEDADES//////////////////
     public DatosGrafica GraficaEnfermedades(String NombreEnfermedad) {
-        DatosGrafica GrafEnfer = new DatosGrafica();
         try {
             Connection con1 = null;
             ConexionDB conect1 = new ConexionDB();
@@ -370,8 +346,7 @@ public class Operaciones {
                 ConsultInforme.IdInforme = Integer.parseInt(rs.getString("IdInforme_Enfermedades"));
                 ConsultInforme.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
                 ConsultInforme.IdEnfermedad = Integer.parseInt(rs.getString("IdEnfermedades"));
-                ConsultInforme.Sig = userEnfer;
-                userEnfer = ConsultInforme;
+                InsertarInicio(ConsultInforme);
             }
 
             con1 = null;
@@ -380,20 +355,19 @@ public class Operaciones {
             sql = "select * from Enfermedades";
             st = con1.createStatement();
             rs = st.executeQuery(sql);
-            
+
             NodoAllInformEnferm ConsultEnfermedades = new NodoAllInformEnferm();
             while (rs.next()) {
                 ConsultEnfermedades = userEnfer;
                 while (ConsultEnfermedades != null) {
-                    System.out.println(Integer.parseInt(rs.getString("IdEnfermedades")) + " " + ConsultEnfermedades.IdEnfermedad);
                     if (Integer.parseInt(rs.getString("IdEnfermedades")) == ConsultEnfermedades.IdEnfermedad) {
                         ConsultEnfermedades.NombreEnfer = rs.getString("Nombre");
                         userEnfer = ConsultEnfermedades;
-                        System.out.println(userEnfer.NombreEnfer);
-                        break;
+                        System.out.println(userEnfer.NombreEnfer + " " + userEnfer.IdInforme + " " + Integer.parseInt(rs.getString("IdEnfermedades")));
                     }
                     ConsultEnfermedades = ConsultEnfermedades.Sig;
                 }
+                System.out.println(Integer.parseInt(rs.getString("IdEnfermedades")));
             }
 
             con1 = null;
@@ -404,16 +378,15 @@ public class Operaciones {
             rs = st.executeQuery(sql);
 
             NodoAllInformEnferm ConsultUsuario = new NodoAllInformEnferm();
-            while (rs.next()) {
-                ConsultUsuario = userEnfer;
-                while (ConsultUsuario != null) {
+            while (ConsultUsuario != null) {
+                while (rs.next()) {
+                    ConsultUsuario = userEnfer;
                     if (Integer.parseInt(rs.getString("IdUsuario")) == ConsultUsuario.IdUsuario) {
                         ConsultUsuario.EdadUsuario = Integer.parseInt(rs.getString("Edad"));
                         userEnfer = ConsultUsuario;
-                        break;
                     }
-                    ConsultUsuario = ConsultUsuario.Sig;
                 }
+                ConsultUsuario = ConsultUsuario.Sig;
             }
 
             NodoAllInformEnferm Recorrido = new NodoAllInformEnferm();
@@ -423,31 +396,29 @@ public class Operaciones {
                     if (Recorrido.EdadUsuario < 11) {
                         GrafEnfer.Enfermedad1++;
                     } else if (Recorrido.EdadUsuario >= 11 && Recorrido.EdadUsuario < 20) {
-                        GrafEnfer.Enfermedad1++;
+                        GrafEnfer.Enfermedad2++;
                     } else if (Recorrido.EdadUsuario >= 20 && Recorrido.EdadUsuario < 30) {
-                        GrafEnfer.Enfermedad1++;
+                        GrafEnfer.Enfermedad3++;
                     } else if (Recorrido.EdadUsuario >= 30 && Recorrido.EdadUsuario < 40) {
-                        GrafEnfer.Enfermedad1++;
+                        GrafEnfer.Enfermedad4++;
                     } else if (Recorrido.EdadUsuario >= 40 && Recorrido.EdadUsuario < 50) {
-                        GrafEnfer.Enfermedad1++;
+                        GrafEnfer.Enfermedad5++;
                     } else if (Recorrido.EdadUsuario >= 50 && Recorrido.EdadUsuario < 60) {
-                        GrafEnfer.Enfermedad1++;
+                        GrafEnfer.Enfermedad6++;
                     } else if (Recorrido.EdadUsuario >= 60 && Recorrido.EdadUsuario < 70) {
-                        GrafEnfer.Enfermedad1++;
+                        GrafEnfer.Enfermedad7++;
                     } else if (Recorrido.EdadUsuario >= 70 && Recorrido.EdadUsuario < 80) {
-                        GrafEnfer.Enfermedad1++;
+                        GrafEnfer.Enfermedad8++;
                     } else if (Recorrido.EdadUsuario >= 80) {
-
+                        GrafEnfer.Enfermedad9++;
                     }
                 }
                 Recorrido = Recorrido.Sig;
             }
-
         } catch (SQLException e) {
             javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
         ////////////////////////////////////////////////////////////////////////
-
         return GrafEnfer;
     }
 
