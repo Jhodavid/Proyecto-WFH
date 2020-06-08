@@ -11,7 +11,6 @@ package Model;
  */
 public class DatosGrafica {
     
-    public DatosGrafica sig;
     public int PesoOptimo1;
     public int PesoOptimo2;
     public int PesoOptimo3;
@@ -41,9 +40,18 @@ public class DatosGrafica {
     public int PorDebajo7;
     public int PorDebajo8;
     public int PorDebajo9;
-
+    
+    public int Enfermedad1;
+    public int Enfermedad2;
+    public int Enfermedad3;
+    public int Enfermedad4;
+    public int Enfermedad5;
+    public int Enfermedad6;
+    public int Enfermedad7;
+    public int Enfermedad8;
+    public int Enfermedad9;
+    
     public DatosGrafica() {
-        sig = null;
     }
 
     public DatosGrafica(DatosGrafica datos) {
@@ -77,6 +85,14 @@ public class DatosGrafica {
         PorDebajo8 = datos.PorDebajo8;
         PorDebajo9 = datos.PorDebajo9;
         
-        sig = null;
+        Enfermedad1 = datos.Enfermedad1;
+        Enfermedad2 = datos.Enfermedad2;
+        Enfermedad3 = datos.Enfermedad3;
+        Enfermedad4 = datos.Enfermedad4;
+        Enfermedad5 = datos.Enfermedad5;
+        Enfermedad6 = datos.Enfermedad6;
+        Enfermedad7 = datos.Enfermedad7;
+        Enfermedad8 = datos.Enfermedad8;
+        Enfermedad9 = datos.Enfermedad9;
     }
 }

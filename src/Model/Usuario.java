@@ -8,7 +8,6 @@ package Model;
 
 public class Usuario {
     
-    public Usuario LI;
     public int IdUsuario;
     public int Cedula;
     public String Contraseña;
@@ -22,11 +21,8 @@ public class Usuario {
     public double PesoOptimo;
     public double RitmoCardiaco;
     public double CaloriasDiarias;
-    public Usuario LD;
 
     public Usuario() {
-        LI = null;
-        LD = null;
     }
 
     public Usuario(Usuario user) {
@@ -42,7 +38,5 @@ public class Usuario {
         PesoOptimo = user.PesoOptimo;
         RitmoCardiaco = user.RitmoCardiaco;
         CaloriasDiarias = user.CaloriasDiarias;
-        LI = null;
-        LD = null;
     }
 }

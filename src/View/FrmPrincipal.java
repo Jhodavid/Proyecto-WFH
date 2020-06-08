@@ -340,9 +340,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstadisticasActionPerformed
-        
+
         GrafPeso = op.GraficaPesos();
-        System.out.println(GrafPeso.PesoOptimo2);
         IFrmEstadisticas obj = new IFrmEstadisticas();
 
         jDesktopPane1.add(obj);

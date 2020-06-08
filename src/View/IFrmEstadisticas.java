@@ -23,7 +23,7 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
         op = new Operaciones();
     }
 
-    public DefaultCategoryDataset GraficaSaludFisica() {
+    public DefaultCategoryDataset GraficaPesos() {
 
             Dato.addValue(GrafPeso.PesoOptimo1, "Peso Optimo", "1-10 año(s)");
             Dato.addValue(GrafPeso.PesoOptimo2, "Peso Optimo", "11-20 años");
@@ -57,7 +57,21 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
             
         return Dato;
     }
-        
+    
+    public DefaultCategoryDataset GraficaEnfermedades(String nombre) {
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad1, "Padecen "+nombre, "1-10 año(s)");
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad2, "Padecen "+nombre, "11-20 años");
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad3, "Padecen "+nombre, "21-30 años");
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad4, "Padecen "+nombre, "31-40 años");
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad5, "Padecen "+nombre, "41-50 años");
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad6, "Padecen "+nombre, "51-60 años");
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad7, "Padecen "+nombre, "61-70 años");
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad8, "Padecen "+nombre, "71-80 años");
+            Dato.addValue(op.GraficaEnfermedades(nombre).Enfermedad9, "Padecen "+nombre, "81-90 años");
+            
+        return Dato;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,6 +109,7 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
         jPopupMenu6 = new javax.swing.JPopupMenu();
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
@@ -144,12 +159,19 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
         setIconifiable(true);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setText("Estadistica de Salud Fisica");
+        jLabel1.setText("Estadisticas");
 
-        jButton3.setText("GRAFICA PESOS");
+        jButton3.setText("GRAFICA DE PESOS");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("GRAFICA DE ENFERMEDADES");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -160,21 +182,25 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(69, 69, 69)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(jButton4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(221, 221, 221)
+                        .addGap(223, 223, 223)
                         .addComponent(jLabel1)))
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel1)
-                .addGap(46, 46, 46)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(161, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
@@ -182,7 +208,7 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Grafica = ChartFactory.createBarChart3D("GRAFICA DE PESO ", " RANGO DE EDADES", "CANTIDAD DE PERSONAS",
-                 GraficaSaludFisica(), PlotOrientation.VERTICAL, true, true, false);
+                 GraficaPesos(), PlotOrientation.VERTICAL, true, true, false);
         ChartPanel Panel = new ChartPanel(Grafica);
         JFrame Ventana;
         Ventana = new JFrame("Grafica de pesos en general.");
@@ -192,6 +218,18 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
         Ventana.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Grafica = ChartFactory.createBarChart3D("GRAFICA DE ENFERMEDADES", " RANGO DE EDADES", "CANTIDAD DE PERSONAS",
+                 GraficaEnfermedades("Acné"), PlotOrientation.VERTICAL, true, true, false);
+        ChartPanel Panel = new ChartPanel(Grafica);
+        JFrame Ventana;
+        Ventana = new JFrame("Grafica de pesos en general.");
+        Ventana.getContentPane().add(Panel);
+        Ventana.pack();
+        Ventana.setVisible(true);
+        Ventana.setLocationRelativeTo(null);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
@@ -199,6 +237,7 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
