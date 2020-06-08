@@ -64,30 +64,25 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
 
     public void GenerarPdf() {
         String ruta=txtruta.getText();
-        String ID=Integer.toString(userIni.IdUsuario);
-        String Nombre=userIni.Nombre;
-        String Apellido=userIni.Apellidos;
-        String Cedula=Integer.toString(userIni.Cedula);
-        String telefono=Integer.toString(userIni.Telefono);
-        String Edad=Integer.toString(userIni.Edad);
-        String Peso=Integer.toString((int) userIni.Peso);
-        String Sexo=userIni.Sexo;
-        String Estatura=Integer.toString((int) userIni.Altura);
+       
         String cadena="----------------------------------------------------------------------------------------------------------------------------------"+"\n"
                      +"---------------------------------------------------- Datos Del Usuario ----------------------------------------------------"+"\n"
                      +"----------------------------------------------------------------------------------------------------------------------------------"+"\n"
                      +"\n"
                      +"\n"
                      +"\n"
-                     +"                      Su ID     "+ID+"\n"
-                     +"                      Nombre    "+Nombre+"\n"
-                     +"                      Apellido  "+Apellido+"\n"
-                     +"                      Cedula    "+Cedula+"\n"   
-                     +"                      Telefono  "+telefono+"\n"
-                     +"                      Edad      "+Edad+"\n"
-                     +"                      Sexo      "+Sexo+"\n"
-                     +"                      Peso      "+Peso+"\n"
-                     +"                      Estatura  "+Estatura
+                     +"                      Su ID                       "+userIni.IdUsuario+"\n"
+                     +"                      Nombre                     "+userIni.Nombre+"\n"
+                     +"                      Apellido                   "+userIni.Apellidos+"\n"
+                     +"                      Cedula                     "+userIni.Cedula+"\n"   
+                     +"                      Telefono                   "+userIni.Telefono+"\n"
+                     +"                      Edad                       "+userIni.Edad+"\n"
+                     +"                      Sexo                       "+userIni.Sexo+"\n"
+                     +"                      Peso                       "+userIni.Peso+"\n"
+                     +"                      Estatura                   "+userIni.Altura+"\n"
+                     +"                      Indice De Masa Corporal    "+userIni.PesoOptimo+"\n"
+                     +"                      Ritmo Cardiaco Por Minuto  "+userIni.RitmoCardiaco+"\n"
+                     +"                      Calorias diarias           "+userIni.CaloriasDiarias
                      ;     
         try{
         FileOutputStream archivo = new FileOutputStream(ruta+".pdf");
