@@ -311,9 +311,12 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
                 resta = TBM * 0.17;
                 TBM = TBM - resta;
             }
-
+           
             JOptionPane.showMessageDialog(null, "Las calorias a consumir diarias para perder de 0.5 a 1 kilo semanal son de : " + TBM);
             Txtcalorias.setText(Double.toString(TBM));
+             userIni.CaloriasDiarias = TBM;
+              F.GuardarSaludFisica(userIni);
+             
         } else {
             JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
