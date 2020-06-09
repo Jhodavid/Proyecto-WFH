@@ -262,6 +262,7 @@ public class IFrmCalorias extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Selecciona una opcion para calcular ", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+           F.GuardarSaludFisica(userIni);
 
     }//GEN-LAST:event_MndiariasnormalesActionPerformed
 

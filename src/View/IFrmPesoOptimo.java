@@ -6,10 +6,11 @@
 package View;
 
 import static View.FrmPrincipal.userIni;
-import Controller.Operaciones;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import javax.swing.JOptionPane;
+import Controller.Operaciones;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.swing.JOptionPane;
 public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
 
     Operaciones X = new Operaciones();
+    
 
     /**
      * Creates new form IFrmPesoOptimo
@@ -169,6 +171,7 @@ public class IFrmPesoOptimo extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Tienes un peso adecuado :D !!!! ");
         }
         userIni.PesoOptimo = userIni.PesoOptimo;
+           X.GuardarSaludFisica(userIni);
 
     }//GEN-LAST:event_BtncomputarActionPerformed
 

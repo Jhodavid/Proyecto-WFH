@@ -10,14 +10,16 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import static View.FrmPrincipal.userIni;
 import javax.swing.JOptionPane;
+import Controller.Operaciones;
 
 /**
  *
  * @author CAMILO A TRUYOL O
  */
 public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
-
+   Operaciones O = new Operaciones();
     IFrmSaludFisica X = new IFrmSaludFisica();
+    
     public int seg = 0;
 
     /**
@@ -317,6 +319,8 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
             Txtlatidos.setText(Double.toString(userIni.RitmoCardiaco));
             userIni.RitmoCardiaco = userIni.RitmoCardiaco;
         }
+        
+           O.GuardarSaludFisica(userIni);
 
     }//GEN-LAST:event_BtncalcularActionPerformed
 
