@@ -25,9 +25,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     Connection con = null;
     ConexionDB conect = new ConexionDB();
     public Operaciones op;
-    public static Usuario userIni = new Usuario(); 
+    public static Usuario userIni = new Usuario();
     public static DatosGrafica GrafPeso, GrafEnfer = new DatosGrafica();
     public Encriptacion en;
+
     /**
      * Creates new form FrmPrincipal
      */
@@ -46,11 +47,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnCuenta.setEnabled(false);
         btnCerrarSesion.setEnabled(false);
         this.setResizable(false);
-        
+
         op = new Operaciones();
         en = new Encriptacion();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -356,20 +357,25 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEstadisticasActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        con = conect.getConnection();
-        JOptionPane.showMessageDialog(null, "CONEXION EXITOSA");
-        
-        IFrmAdmin obj = new IFrmAdmin();
+        if (JOptionPane.showInputDialog("Digite contraseña de admin.").equals("admin")) {
+            btnCerrarSesion.setEnabled(true);
+            con = conect.getConnection();
+            JOptionPane.showMessageDialog(null, "CONEXION EXITOSA");
 
-        jDesktopPane1.add(obj);
-        obj.toFront();
-        obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
-        try {
-            obj.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            IFrmAdmin obj = new IFrmAdmin();
+
+            jDesktopPane1.add(obj);
+            obj.toFront();
+            obj.setLocation(jDesktopPane1.getWidth() / 2 - obj.getWidth() / 2, jDesktopPane1.getHeight() / 2 - obj.getHeight() / 2);
+            try {
+                obj.setMaximum(true);
+            } catch (PropertyVetoException ex) {
+                Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            obj.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Contraseña incorrecta.");
         }
-        obj.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnSaludFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaludFisicaActionPerformed
@@ -418,40 +424,38 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         String inicio[] = new String[2];
-        
+
         inicio[0] = txtCedula.getText();
         inicio[1] = en.Cifrado(txtContraseña.getText());
         txtCedula.setText("");
         txtContraseña.setText("");
-        
-        if(op.iniciar(inicio) != null){
-            
-                userIni = op.iniciar(inicio);
-                //INTERFAZ//////////////////////////////////////////////////////
-                Dimension preferredSize = jDesktopPane1.getPreferredSize();
-                JPanelCuenta.setVisible(false);
-                JLabelBienvenido.setVisible(true);
-                jDesktopPane1.setPreferredSize(preferredSize);
 
-                btnEnfermedades.setEnabled(true);
-                btnEstadisticas.setEnabled(true);
-                btnSaludFisica.setEnabled(true);
-                btnCuenta.setEnabled(true);
-                btnCerrarSesion.setEnabled(true);
-                ////////////////////////////////////////////////////////////////
-                
-                
-            
-        }else{
+        if (op.iniciar(inicio) != null) {
+
+            userIni = op.iniciar(inicio);
+            //INTERFAZ//////////////////////////////////////////////////////
+            Dimension preferredSize = jDesktopPane1.getPreferredSize();
+            JPanelCuenta.setVisible(false);
+            JLabelBienvenido.setVisible(true);
+            jDesktopPane1.setPreferredSize(preferredSize);
+
+            btnEnfermedades.setEnabled(true);
+            btnEstadisticas.setEnabled(true);
+            btnSaludFisica.setEnabled(true);
+            btnCuenta.setEnabled(true);
+            btnCerrarSesion.setEnabled(true);
+            ////////////////////////////////////////////////////////////////
+
+        } else {
             javax.swing.JOptionPane.showMessageDialog(null, "Contraseña y/o usuario inconrrecto(s).");
         }
-            
+
 
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnCuentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCuentaActionPerformed
-      
-         IFrmActualizardatos obj = new IFrmActualizardatos();
+
+        IFrmActualizardatos obj = new IFrmActualizardatos();
 
         jDesktopPane1.add(obj);
         obj.toFront();
@@ -462,7 +466,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         obj.setVisible(true);
-        
+
     }//GEN-LAST:event_btnCuentaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -483,7 +487,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnSaludFisica.setEnabled(false);
         btnCuenta.setEnabled(false);
         btnCerrarSesion.setEnabled(false);
-        
+
         this.setVisible(false);
         FrmPrincipal Nuevo = new FrmPrincipal();
         Nuevo.setVisible(true);
@@ -491,35 +495,36 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnEstadisticasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEstadisticasMouseClicked
         // TODO add your handling code here:
-      
-      
-       
+
+
     }//GEN-LAST:event_btnEstadisticasMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-        if(java.awt.Desktop.isDesktopSupported()){
-        java.awt.Desktop desktop= java.awt.Desktop.getDesktop();
-        if(desktop.isSupported(Desktop.Action.BROWSE)){}
-        try{
-        java.net.URI uri= new java.net.URI("https://www.facebook.com/Wellness-of-feeling-Healthy-110020824072114/?view_public_for=110020824072114&ref=page_internal");
-        desktop.browse(uri);
-        }catch(URISyntaxException | IOException ex){}
-        
-        
+
+        if (java.awt.Desktop.isDesktopSupported()) {
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+            if (desktop.isSupported(Desktop.Action.BROWSE)) {
+            }
+            try {
+                java.net.URI uri = new java.net.URI("https://www.facebook.com/Wellness-of-feeling-Healthy-110020824072114/?view_public_for=110020824072114&ref=page_internal");
+                desktop.browse(uri);
+            } catch (URISyntaxException | IOException ex) {
+            }
+
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if(java.awt.Desktop.isDesktopSupported()){
-        java.awt.Desktop desktop= java.awt.Desktop.getDesktop();
-        if(desktop.isSupported(Desktop.Action.BROWSE)){}
-        try{
-        java.net.URI uri= new java.net.URI("https://www.instagram.com/wellnessoffeelinghealthy/");
-        desktop.browse(uri);
-        }catch(URISyntaxException | IOException ex){}
-        
-        
+        if (java.awt.Desktop.isDesktopSupported()) {
+            java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+            if (desktop.isSupported(Desktop.Action.BROWSE)) {
+            }
+            try {
+                java.net.URI uri = new java.net.URI("https://www.instagram.com/wellnessoffeelinghealthy/");
+                desktop.browse(uri);
+            } catch (URISyntaxException | IOException ex) {
+            }
+
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
