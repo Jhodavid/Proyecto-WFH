@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import javax.swing.JFileChooser;
 import static View.IFrmEstadisticas.nombre;
+import static View.IFrmCalorias.tipocalorias;
 
 /**
  *
@@ -95,7 +96,7 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                      +"                      Estatura                                 "+userIni.Altura+"\n"
                      +"                      Indice De Masa Corporal       "+userIni.PesoOptimo+"\n"
                      +"                      Ritmo Cardiaco Por Minuto    "+userIni.RitmoCardiaco+"\n"
-                     +"                      Calorias diarias                      "+userIni.CaloriasDiarias+"\n\n"
+                     +"                      Calorias diarias                      "+userIni.CaloriasDiarias+" "+tipocalorias+"\n\n"
                      +"                     "+Enfermedades();     
         try{
         FileOutputStream archivo = new FileOutputStream(ruta+".pdf");
