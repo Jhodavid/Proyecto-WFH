@@ -240,19 +240,8 @@ public class Operaciones {
             Statement st = con1.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                user.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
-                user.Cedula = Integer.parseInt(rs.getString("Cedula"));
-                user.Contraseña = (rs.getString("Contraseña"));
-                user.Nombre = rs.getString("Nombre");
-                user.Apellidos = rs.getString("Apellidos");
-                user.Sexo = rs.getString("Sexo");
-                user.Telefono = Integer.parseInt(rs.getString("Telefono"));
                 user.Edad = Integer.parseInt(rs.getString("Edad"));
-                user.Altura = Double.parseDouble(rs.getString("Altura"));
-                user.Peso = Double.parseDouble(rs.getString("Peso"));
                 user.PesoOptimo = Double.parseDouble(rs.getString("PesoOptimo"));
-                user.RitmoCardiaco = Double.parseDouble(rs.getString("RitmoCardiaco"));
-                user.CaloriasDiarias = Double.parseDouble(rs.getString("CaloriasDiarias"));
 
                 if (user.Edad < 11) {
                     if (user.PesoOptimo < 18.5) {
