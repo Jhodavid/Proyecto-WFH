@@ -212,7 +212,7 @@ public class Operaciones {
 
             pst.executeUpdate();
 
-            JOptionPane.showMessageDialog(null, "DATOS ACTUALIZADOS CORRECTAMENTE");
+          
 
         } catch (SQLException ex) {
             //JOptionPane.showMessageDialog(null, "Error sql" + ex);    
