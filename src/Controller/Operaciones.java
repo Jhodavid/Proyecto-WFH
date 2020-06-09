@@ -30,6 +30,7 @@ public class Operaciones {
     public Enfermedad datosE;
     public Encriptacion en;
     NodoAllInformEnferm userEnfer = new NodoAllInformEnferm();
+    public static NodoAllInformEnferm ConsultInforme = new NodoAllInformEnferm();
 
     DefaultTableModel model = new DefaultTableModel();
     Statement st = null;
@@ -44,6 +45,18 @@ public class Operaciones {
         GrafEnfer = new DatosGrafica();
         userEstad = new Usuario();
         userEnfer = null;
+    }
+    
+    public void blanco(){
+        GrafEnfer.Enfermedad1 = 0;
+        GrafEnfer.Enfermedad2 = 0;
+        GrafEnfer.Enfermedad3 = 0;
+        GrafEnfer.Enfermedad4 = 0;
+        GrafEnfer.Enfermedad5 = 0;
+        GrafEnfer.Enfermedad6 = 0;
+        GrafEnfer.Enfermedad7 = 0;
+        GrafEnfer.Enfermedad8 = 0;
+        GrafEnfer.Enfermedad9 = 0;
     }
 
     public void Registar(String tabla, String campos, String valores) {
@@ -182,10 +195,10 @@ public class Operaciones {
         return null;
     }
 
-    public void ImformeEnfermedad(int IdEnfermedad, int IdUsuario) {
+    public void ImformeEnfermedad(int IdEnfermedad, int IdUsuario, int EdadUsuario, String NombreEnfermedada) {
         try {
             System.out.println(IdUsuario + " -- " + IdEnfermedad);
-            query = "insert into Informe_Enfermedades (IdUsuario, IdEnfermedades) values ('" + IdUsuario + "', '" + IdEnfermedad + "')";
+            query = "insert into Informe_Enfermedades (IdUsuario, IdEnfermedades, EdadUsuario, NombreEnfermedada) values ('" + IdUsuario + "', '" + IdEnfermedad + "', '" + EdadUsuario + "', '" + NombreEnfermedada + "')";
             Connection con = null;
             ConexionDB conect = new ConexionDB();
             con = conect.getConnection();
@@ -212,8 +225,6 @@ public class Operaciones {
 
             pst.executeUpdate();
 
-          
-
         } catch (SQLException ex) {
             //JOptionPane.showMessageDialog(null, "Error sql" + ex);    
             JOptionPane.showMessageDialog(null, "OCURRIO UN ERROR MIENTRAS SE ACTULIZABAN SUS DATOS", "Error " + ex, javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -221,7 +232,6 @@ public class Operaciones {
     }
 
     public DatosGrafica GraficaPesos() {
-
         try {
             Connection con1 = null;
             ConexionDB conect1 = new ConexionDB();
@@ -325,13 +335,14 @@ public class Operaciones {
     }
 
     public void InsertarInicio(NodoAllInformEnferm dato) {
-        NodoAllInformEnferm x = new NodoAllInformEnferm(dato); // Creando el bloque
-        x.Sig = userEnfer; //Enlazamos
-        userEnfer = x; // Mueve al inicio
+        NodoAllInformEnferm x = new NodoAllInformEnferm(dato);
+        x.Sig = userEnfer;
+        userEnfer = x;
     }
 
     //////////LLENADO DEL NODO DEL INFORME DE LAS ENFERMEDADES//////////////////
     public DatosGrafica GraficaEnfermedades(String NombreEnfermedad) {
+        blanco();
         try {
             Connection con1 = null;
             ConexionDB conect1 = new ConexionDB();
@@ -340,80 +351,34 @@ public class Operaciones {
             Statement st = con1.createStatement();
             ResultSet rs = st.executeQuery(sql);
 
-            NodoAllInformEnferm ConsultInforme = new NodoAllInformEnferm();
-
             while (rs.next()) {
-                ConsultInforme.IdInforme = Integer.parseInt(rs.getString("IdInforme_Enfermedades"));
-                ConsultInforme.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
-                ConsultInforme.IdEnfermedad = Integer.parseInt(rs.getString("IdEnfermedades"));
-                InsertarInicio(ConsultInforme);
-            }
-
-            con1 = null;
-            conect1 = new ConexionDB();
-            con1 = conect1.getConnection();
-            sql = "select * from Enfermedades";
-            st = con1.createStatement();
-            rs = st.executeQuery(sql);
-
-            NodoAllInformEnferm ConsultEnfermedades = new NodoAllInformEnferm();
-            while (rs.next()) {
-                ConsultEnfermedades = userEnfer;
-                while (ConsultEnfermedades != null) {
-                    if (Integer.parseInt(rs.getString("IdEnfermedades")) == ConsultEnfermedades.IdEnfermedad) {
-                        ConsultEnfermedades.NombreEnfer = rs.getString("Nombre");
-                        userEnfer = ConsultEnfermedades;
-                        System.out.println(userEnfer.NombreEnfer + " " + userEnfer.IdInforme + " " + Integer.parseInt(rs.getString("IdEnfermedades")));
-                    }
-                    ConsultEnfermedades = ConsultEnfermedades.Sig;
-                }
-                System.out.println(Integer.parseInt(rs.getString("IdEnfermedades")));
-            }
-
-            con1 = null;
-            conect1 = new ConexionDB();
-            con1 = conect1.getConnection();
-            sql = "select * from Usuario";
-            st = con1.createStatement();
-            rs = st.executeQuery(sql);
-
-            NodoAllInformEnferm ConsultUsuario = new NodoAllInformEnferm();
-            while (ConsultUsuario != null) {
-                while (rs.next()) {
-                    ConsultUsuario = userEnfer;
-                    if (Integer.parseInt(rs.getString("IdUsuario")) == ConsultUsuario.IdUsuario) {
-                        ConsultUsuario.EdadUsuario = Integer.parseInt(rs.getString("Edad"));
-                        userEnfer = ConsultUsuario;
-                    }
-                }
-                ConsultUsuario = ConsultUsuario.Sig;
-            }
-
-            NodoAllInformEnferm Recorrido = new NodoAllInformEnferm();
-            Recorrido = userEnfer;
-            while (Recorrido != null) {
-                if (NombreEnfermedad.equals(Recorrido.NombreEnfer)) {
-                    if (Recorrido.EdadUsuario < 11) {
+                    ConsultInforme.IdInforme = Integer.parseInt(rs.getString("IdInforme_Enfermedades"));
+                    ConsultInforme.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
+                    ConsultInforme.IdEnfermedad = Integer.parseInt(rs.getString("IdEnfermedades"));
+                    ConsultInforme.EdadUsuario = Integer.parseInt(rs.getString("EdadUsuario"));
+                    ConsultInforme.NombreEnfer = rs.getString("NombreEnfermedada");
+                    InsertarInicio(ConsultInforme);                   
+                if (ConsultInforme.NombreEnfer.equals(NombreEnfermedad)) {
+                    if (ConsultInforme.EdadUsuario < 11) {
                         GrafEnfer.Enfermedad1++;
-                    } else if (Recorrido.EdadUsuario >= 11 && Recorrido.EdadUsuario < 20) {
+                    } else if (ConsultInforme.EdadUsuario >= 11 && ConsultInforme.EdadUsuario < 20) {
                         GrafEnfer.Enfermedad2++;
-                    } else if (Recorrido.EdadUsuario >= 20 && Recorrido.EdadUsuario < 30) {
+                    } else if (ConsultInforme.EdadUsuario >= 20 && ConsultInforme.EdadUsuario < 30) {
                         GrafEnfer.Enfermedad3++;
-                    } else if (Recorrido.EdadUsuario >= 30 && Recorrido.EdadUsuario < 40) {
+                    } else if (ConsultInforme.EdadUsuario >= 30 && ConsultInforme.EdadUsuario < 40) {
                         GrafEnfer.Enfermedad4++;
-                    } else if (Recorrido.EdadUsuario >= 40 && Recorrido.EdadUsuario < 50) {
+                    } else if (ConsultInforme.EdadUsuario >= 40 && ConsultInforme.EdadUsuario < 50) {
                         GrafEnfer.Enfermedad5++;
-                    } else if (Recorrido.EdadUsuario >= 50 && Recorrido.EdadUsuario < 60) {
+                    } else if (ConsultInforme.EdadUsuario >= 50 && ConsultInforme.EdadUsuario < 60) {
                         GrafEnfer.Enfermedad6++;
-                    } else if (Recorrido.EdadUsuario >= 60 && Recorrido.EdadUsuario < 70) {
+                    } else if (ConsultInforme.EdadUsuario >= 60 && ConsultInforme.EdadUsuario < 70) {
                         GrafEnfer.Enfermedad7++;
-                    } else if (Recorrido.EdadUsuario >= 70 && Recorrido.EdadUsuario < 80) {
+                    } else if (ConsultInforme.EdadUsuario >= 70 && ConsultInforme.EdadUsuario < 80) {
                         GrafEnfer.Enfermedad8++;
-                    } else if (Recorrido.EdadUsuario >= 80) {
+                    } else if (ConsultInforme.EdadUsuario >= 80) {
                         GrafEnfer.Enfermedad9++;
                     }
                 }
-                Recorrido = Recorrido.Sig;
             }
         } catch (SQLException e) {
             javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
@@ -421,17 +386,37 @@ public class Operaciones {
         ////////////////////////////////////////////////////////////////////////
         return GrafEnfer;
     }
-
-    public DatosGrafica GraficaEnfermedad() {
-
-        return null;
+    
+    public NodoAllInformEnferm InformeEnfer(int idUser){
+        NodoAllInformEnferm tInforme = new NodoAllInformEnferm();
+        try {
+            Connection con1 = null;
+            ConexionDB conect1 = new ConexionDB();
+            con1 = conect1.getConnection();
+            String sql = "select * from Informe_Enfermedades";
+            Statement st = con1.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            while (rs.next()) {
+                if(idUser == Integer.parseInt(rs.getString("IdUsuario"))){
+                    tInforme.IdInforme = Integer.parseInt(rs.getString("IdInforme_Enfermedades"));
+                    tInforme.IdUsuario = Integer.parseInt(rs.getString("IdUsuario"));
+                    tInforme.IdEnfermedad = Integer.parseInt(rs.getString("IdEnfermedades"));
+                    tInforme.EdadUsuario = Integer.parseInt(rs.getString("EdadUsuario"));
+                    tInforme.NombreEnfer = rs.getString("NombreEnfermedada");
+                    NodoAllInformEnferm x = new NodoAllInformEnferm();
+                    x.Sig = tInforme;
+                    tInforme = x; 
+                }                 
+            }
+        } catch (SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+        ////////////////////////////////////////////////////////////////////////
+        return tInforme;
     }
-
+    
     ////////////////////////////////////////////////////////////////////////////
-    // ________________________________________________________________________________ graficar 
-    public void graficar(Usuario dato) {
-
-    }
     /////// SALUD FISICA !!!!!!!!!!!!!!!!!!!!! ///////////////////////////////////////////////////////////
 
     public double PesoOptimo(double cm, double ps) {

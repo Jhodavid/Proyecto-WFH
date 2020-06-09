@@ -11,14 +11,15 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import Controller.Operaciones;
 import static View.FrmPrincipal.GrafPeso;
+import javax.swing.JOptionPane;
 
 public class IFrmEstadisticas extends javax.swing.JInternalFrame {
 
     JFreeChart Grafica;
     DefaultCategoryDataset Dato = new DefaultCategoryDataset();
-    DefaultCategoryDataset Dato2 = new DefaultCategoryDataset();
     public Operaciones op;
-    
+    public static String nombre;
+
     public IFrmEstadisticas() {
         initComponents();
         op = new Operaciones();
@@ -26,53 +27,54 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
 
     public DefaultCategoryDataset GraficaPesos() {
 
-            Dato.addValue(GrafPeso.PesoOptimo1, "Peso Optimo", "1-10 año(s)");
-            Dato.addValue(GrafPeso.PesoOptimo2, "Peso Optimo", "11-20 años");
-            Dato.addValue(GrafPeso.PesoOptimo3, "Peso Optimo", "21-30 años");
-            Dato.addValue(GrafPeso.PesoOptimo4, "Peso Optimo", "31-40 años");
-            Dato.addValue(GrafPeso.PesoOptimo5, "Peso Optimo", "41-50 años");
-            Dato.addValue(GrafPeso.PesoOptimo6, "Peso Optimo", "51-60 años");
-            Dato.addValue(GrafPeso.PesoOptimo7, "Peso Optimo", "61-70 años");
-            Dato.addValue(GrafPeso.PesoOptimo8, "Peso Optimo", "71-80 años");
-            Dato.addValue(GrafPeso.PesoOptimo9, "Peso Optimo", "81-90 años");
-            
-            Dato.addValue(GrafPeso.SobrePeso1, "Sobre Peso", "1-10 año(s)");
-            Dato.addValue(GrafPeso.SobrePeso2, "Sobre Peso", "11-20 años");
-            Dato.addValue(GrafPeso.SobrePeso3, "Sobre Peso", "21-30 años");
-            Dato.addValue(GrafPeso.SobrePeso4, "Sobre Peso", "31-40 años");
-            Dato.addValue(GrafPeso.SobrePeso5, "Sobre Peso", "41-50 años");
-            Dato.addValue(GrafPeso.SobrePeso6, "Sobre Peso", "51-60 años");
-            Dato.addValue(GrafPeso.SobrePeso7, "Sobre Peso", "61-70 años");
-            Dato.addValue(GrafPeso.SobrePeso8, "Sobre Peso", "71-80 años");
-            Dato.addValue(GrafPeso.SobrePeso9, "Sobre Peso", "81-90 años");
+        Dato.addValue(GrafPeso.PesoOptimo1, "Peso Optimo", "1-10 año(s)");
+        Dato.addValue(GrafPeso.PesoOptimo2, "Peso Optimo", "11-20 años");
+        Dato.addValue(GrafPeso.PesoOptimo3, "Peso Optimo", "21-30 años");
+        Dato.addValue(GrafPeso.PesoOptimo4, "Peso Optimo", "31-40 años");
+        Dato.addValue(GrafPeso.PesoOptimo5, "Peso Optimo", "41-50 años");
+        Dato.addValue(GrafPeso.PesoOptimo6, "Peso Optimo", "51-60 años");
+        Dato.addValue(GrafPeso.PesoOptimo7, "Peso Optimo", "61-70 años");
+        Dato.addValue(GrafPeso.PesoOptimo8, "Peso Optimo", "71-80 años");
+        Dato.addValue(GrafPeso.PesoOptimo9, "Peso Optimo", "81-90 años");
 
-            Dato.addValue(GrafPeso.PorDebajo1, "Peso por Debajo", "1-10 año(s)");
-            Dato.addValue(GrafPeso.PorDebajo2, "Peso por Debajo", "11-20 años");
-            Dato.addValue(GrafPeso.PorDebajo3, "Peso por Debajo", "21-30 años");
-            Dato.addValue(GrafPeso.PorDebajo4, "Peso por Debajo", "31-40 años");
-            Dato.addValue(GrafPeso.PorDebajo5, "Peso por Debajo", "41-50 años");
-            Dato.addValue(GrafPeso.PorDebajo6, "Peso por Debajo", "51-60 años");
-            Dato.addValue(GrafPeso.PorDebajo7, "Peso por Debajo", "61-70 años");
-            Dato.addValue(GrafPeso.PorDebajo8, "Peso por Debajo", "71-80 años");
-            Dato.addValue(GrafPeso.PorDebajo9, "Peso por Debajo", "81-90 años");
-            
+        Dato.addValue(GrafPeso.SobrePeso1, "Sobre Peso", "1-10 año(s)");
+        Dato.addValue(GrafPeso.SobrePeso2, "Sobre Peso", "11-20 años");
+        Dato.addValue(GrafPeso.SobrePeso3, "Sobre Peso", "21-30 años");
+        Dato.addValue(GrafPeso.SobrePeso4, "Sobre Peso", "31-40 años");
+        Dato.addValue(GrafPeso.SobrePeso5, "Sobre Peso", "41-50 años");
+        Dato.addValue(GrafPeso.SobrePeso6, "Sobre Peso", "51-60 años");
+        Dato.addValue(GrafPeso.SobrePeso7, "Sobre Peso", "61-70 años");
+        Dato.addValue(GrafPeso.SobrePeso8, "Sobre Peso", "71-80 años");
+        Dato.addValue(GrafPeso.SobrePeso9, "Sobre Peso", "81-90 años");
+
+        Dato.addValue(GrafPeso.PorDebajo1, "Peso por Debajo", "1-10 año(s)");
+        Dato.addValue(GrafPeso.PorDebajo2, "Peso por Debajo", "11-20 años");
+        Dato.addValue(GrafPeso.PorDebajo3, "Peso por Debajo", "21-30 años");
+        Dato.addValue(GrafPeso.PorDebajo4, "Peso por Debajo", "31-40 años");
+        Dato.addValue(GrafPeso.PorDebajo5, "Peso por Debajo", "41-50 años");
+        Dato.addValue(GrafPeso.PorDebajo6, "Peso por Debajo", "51-60 años");
+        Dato.addValue(GrafPeso.PorDebajo7, "Peso por Debajo", "61-70 años");
+        Dato.addValue(GrafPeso.PorDebajo8, "Peso por Debajo", "71-80 años");
+        Dato.addValue(GrafPeso.PorDebajo9, "Peso por Debajo", "81-90 años");
+
         return Dato;
     }
-    
+
     public DefaultCategoryDataset GraficaEnfermedades(String nombre) {
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad1, "Padecen "+nombre, "1-10 año(s)");
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad2, "Padecen "+nombre, "11-20 años");
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad3, "Padecen "+nombre, "21-30 años");
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad4, "Padecen "+nombre, "31-40 años");
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad5, "Padecen "+nombre, "41-50 años");
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad6, "Padecen "+nombre, "51-60 años");
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad7, "Padecen "+nombre, "61-70 años");
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad8, "Padecen "+nombre, "71-80 años");
-            Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad9, "Padecen "+nombre, "81-90 años");
-            
+        DefaultCategoryDataset Dato2 = new DefaultCategoryDataset();
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad1, "Padecen " + nombre, "1-10 año(s)");
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad2, "Padecen " + nombre, "11-20 años");
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad3, "Padecen " + nombre, "21-30 años");
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad4, "Padecen " + nombre, "31-40 años");
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad5, "Padecen " + nombre, "41-50 años");
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad6, "Padecen " + nombre, "51-60 años");
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad7, "Padecen " + nombre, "61-70 años");
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad8, "Padecen " + nombre, "71-80 años");
+        Dato2.addValue(op.GraficaEnfermedades(nombre).Enfermedad9, "Padecen " + nombre, "81-90 años");
+        
         return Dato2;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,6 +113,21 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        cmbEnfemeGrafica = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        cmbEnfemeGrafica1 = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        cmbEnfemeGrafica2 = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        cmbEnfemeGrafica3 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        cmbEnfemeGrafica4 = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        cmbEnfemeGrafica5 = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        cmbEnfemeGrafica6 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -176,32 +193,126 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
             }
         });
 
+        cmbEnfemeGrafica.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Urtica", "Alergias al niquel", "Rinitis", " " }));
+
+        jLabel2.setText("Alergias:");
+
+        jLabel3.setText("Cardiovasculares:");
+
+        cmbEnfemeGrafica1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Las varices", "Shock", "Pericarditis", "Aneurisma", "Insuficiencia cardíaca" }));
+
+        jLabel4.setText("De la Mujer:");
+
+        cmbEnfemeGrafica2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Cáncer de cuello de útero", "Menopausia", "Pólipos uterinos", "Cistitis", "Vaginitis" }));
+
+        jLabel5.setText("Dermatológicas:");
+
+        cmbEnfemeGrafica3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Lepra", "Acné", "Albinismo", "Psoriasis", "Ampollas" }));
+
+        jLabel6.setText("Sanguineas:");
+
+        cmbEnfemeGrafica4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Anemia", "Hemocromatosis", "Leucemia", "Derrame ocular", "Enfermedad de Kawasaki" }));
+
+        jLabel7.setText("Oculares:");
+
+        cmbEnfemeGrafica5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Astigmatismo", "Conjuntivitis", "Cataratas", "Oncocercosis" }));
+
+        jLabel8.setText("Transmisión Sexual:");
+
+        cmbEnfemeGrafica6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-- Selecione --", "Balanitis", "Chancroide", "Clamidia", "Gonorrea", "Ladillas", "Sífilis" }));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("Escoja la enfermedad que desea");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(258, 258, 258)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)
-                        .addComponent(jButton4))
+                        .addGap(75, 75, 75)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cmbEnfemeGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbEnfemeGrafica1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbEnfemeGrafica2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(32, 32, 32)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel6))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(cmbEnfemeGrafica6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(12, 12, 12)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(cmbEnfemeGrafica4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(cmbEnfemeGrafica5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(cmbEnfemeGrafica3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(67, 67, 67)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jButton4)
+                                            .addComponent(jLabel9)))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(jLabel1)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                        .addGap(66, 66, 66)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(cmbEnfemeGrafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbEnfemeGrafica4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(cmbEnfemeGrafica1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addComponent(cmbEnfemeGrafica5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(cmbEnfemeGrafica2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(cmbEnfemeGrafica6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(cmbEnfemeGrafica3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(33, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(20, 20, 20))))
         );
 
         pack();
@@ -209,7 +320,7 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Grafica = ChartFactory.createBarChart3D("GRAFICA DE PESO ", " RANGO DE EDADES", "CANTIDAD DE PERSONAS",
-                 GraficaPesos(), PlotOrientation.VERTICAL, true, true, false);
+                GraficaPesos(), PlotOrientation.VERTICAL, true, true, false);
         ChartPanel Panel = new ChartPanel(Grafica);
         JFrame Ventana;
         Ventana = new JFrame("Grafica de pesos en general.");
@@ -220,15 +331,43 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Grafica = ChartFactory.createBarChart3D("GRAFICA DE ENFERMEDADES", " RANGO DE EDADES", "CANTIDAD DE PERSONAS",
-                 GraficaEnfermedades("Acné"), PlotOrientation.VERTICAL, true, true, false);
-        ChartPanel Panel = new ChartPanel(Grafica);
-        JFrame Ventana;
-        Ventana = new JFrame("Grafica de pesos en general.");
-        Ventana.getContentPane().add(Panel);
-        Ventana.pack();
-        Ventana.setVisible(true);
-        Ventana.setLocationRelativeTo(null);
+        boolean swit = false;
+        if (!cmbEnfemeGrafica.getSelectedItem().toString().equals("-- Selecione --")) {
+            nombre = cmbEnfemeGrafica.getSelectedItem().toString();
+            swit = true;
+        } else if (!cmbEnfemeGrafica1.getSelectedItem().toString().equals("-- Selecione --")) {
+            nombre = cmbEnfemeGrafica1.getSelectedItem().toString();
+            swit = true;
+        } else if (!cmbEnfemeGrafica2.getSelectedItem().toString().equals("-- Selecione --")) {
+            nombre = cmbEnfemeGrafica2.getSelectedItem().toString();
+            swit = true;
+        } else if (!cmbEnfemeGrafica3.getSelectedItem().toString().equals("-- Selecione --")) {
+            nombre = cmbEnfemeGrafica3.getSelectedItem().toString();
+            swit = true;
+        } else if (!cmbEnfemeGrafica4.getSelectedItem().toString().equals("-- Selecione --")) {
+            nombre = cmbEnfemeGrafica4.getSelectedItem().toString();
+            swit = true;
+        } else if (!cmbEnfemeGrafica5.getSelectedItem().toString().equals("-- Selecione --")) {
+            nombre = cmbEnfemeGrafica5.getSelectedItem().toString();
+            swit = true;
+        } else if (!cmbEnfemeGrafica6.getSelectedItem().toString().equals("-- Selecione --")) {
+            nombre = cmbEnfemeGrafica6.getSelectedItem().toString();
+            swit = true;
+        } else {
+            JOptionPane.showMessageDialog(null, "No seleciono ninguna enfermedad");
+        }
+
+        if (swit == true) {
+            Grafica = ChartFactory.createBarChart3D("GRAFICA DE ENFERMEDADES", " RANGO DE EDADES", "CANTIDAD DE PERSONAS",
+                    GraficaEnfermedades(nombre), PlotOrientation.VERTICAL, true, true, false);
+            ChartPanel Panel = new ChartPanel(Grafica);
+            JFrame Ventana;
+            Ventana = new JFrame("Grafica de pesos en general.");
+            Ventana.getContentPane().add(Panel);
+            Ventana.pack();
+            Ventana.setVisible(true);
+            Ventana.setLocationRelativeTo(null);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
 
@@ -236,6 +375,13 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.JComboBox<String> cmbEnfemeGrafica;
+    private javax.swing.JComboBox<String> cmbEnfemeGrafica1;
+    private javax.swing.JComboBox<String> cmbEnfemeGrafica2;
+    private javax.swing.JComboBox<String> cmbEnfemeGrafica3;
+    private javax.swing.JComboBox<String> cmbEnfemeGrafica4;
+    private javax.swing.JComboBox<String> cmbEnfemeGrafica5;
+    private javax.swing.JComboBox<String> cmbEnfemeGrafica6;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -245,6 +391,14 @@ public class IFrmEstadisticas extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;

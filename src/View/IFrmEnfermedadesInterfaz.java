@@ -8,6 +8,7 @@ package View;
 import javax.swing.JOptionPane;
 import static javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER;
 import static View.IFrmEnfermedades.idEnfermedad;
+import static View.IFrmEnfermedades.nombreEnfer;
 import static View.FrmPrincipal.userIni;
 import Controller.Operaciones;
 
@@ -160,7 +161,7 @@ public class IFrmEnfermedadesInterfaz extends javax.swing.JInternalFrame {
 
     private void btnPadezcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPadezcoActionPerformed
         if(JOptionPane.showConfirmDialog(null, "¿Padece usted ésta enfermedad?", title, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-            op.ImformeEnfermedad(idEnfermedad, userIni.IdUsuario);
+            op.ImformeEnfermedad(idEnfermedad, userIni.IdUsuario, userIni.Edad, nombreEnfer);
         }
     }//GEN-LAST:event_btnPadezcoActionPerformed
 

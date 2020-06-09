@@ -18,6 +18,7 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
     
     private Operaciones op;
     public static int idEnfermedad;
+    public static String nombreEnfer;
     
     public IFrmEnfermedades() {
         initComponents();
@@ -38,6 +39,8 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         
         obj.EnfermedadFrm(op.Enfermedades(A).Titulo, "Tipo: "+op.Enfermedades(A).Tipo, op.Enfermedades(A).Descripcion, op.Enfermedades(A).Sintomas);
         idEnfermedad = op.Enfermedades(A).IdEnfermedad;
+        nombreEnfer = op.Enfermedades(A).Titulo;
+        
         obj.setVisible(true);
     }
     

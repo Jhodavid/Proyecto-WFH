@@ -148,6 +148,11 @@ public class IFrmAdmin extends javax.swing.JInternalFrame {
         jLabel9.setText("Descripción: ");
 
         cmbTipoEnfermedad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "- Seleccione -", "Alergias", "Cardiovasculares", "De la Mujer", "Dermatológicas", "Sanguineas", "Oculares", "Transmisión Sexual", "Del Riñón", "Digestivas", "Endocrinas", "Mentales", "Neurológicas", "Urgencias Médicas" }));
+        cmbTipoEnfermedad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTipoEnfermedadActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Tipo Enfermedad: ");
@@ -313,6 +318,10 @@ public class IFrmAdmin extends javax.swing.JInternalFrame {
         cmbTipoEnfermedad.setSelectedItem(0);
         txtDiagEnfermedad.setText("");
     }//GEN-LAST:event_btnGuardarEnfermedadActionPerformed
+
+    private void cmbTipoEnfermedadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoEnfermedadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTipoEnfermedadActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

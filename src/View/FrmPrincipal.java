@@ -26,7 +26,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     ConexionDB conect = new ConexionDB();
     public Operaciones op;
     public static Usuario userIni = new Usuario(); 
-    public static DatosGrafica GrafPeso = new DatosGrafica();
+    public static DatosGrafica GrafPeso, GrafEnfer = new DatosGrafica();
     public Encriptacion en;
     /**
      * Creates new form FrmPrincipal

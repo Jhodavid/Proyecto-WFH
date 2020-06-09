@@ -9,6 +9,7 @@ import Controller.Operaciones;
 import static View.FrmPrincipal.userIni;
 import javax.swing.JOptionPane;
 import Controller.Encriptacion;
+import Model.NodoAllInformEnferm;
 import Model.Usuario;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
@@ -16,6 +17,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import java.io.File;
 import java.io.FileOutputStream;
 import javax.swing.JFileChooser;
+import static View.IFrmEstadisticas.nombre;
 
 /**
  *
@@ -61,7 +63,18 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         }
 
     }
-
+    
+    public String Enfermedades(){
+        NodoAllInformEnferm datos = new NodoAllInformEnferm();
+        datos = op.InformeEnfer(userIni.IdUsuario).Sig;
+        String cad = "Enfermedades que padece:\n";
+        while(datos!=null){
+            cad += "                     "+datos.NombreEnfer+"\n";
+            datos = datos.Sig;
+        }
+        return cad;
+    } 
+     
     public void GenerarPdf() {
         String ruta=txtruta.getText();
        
@@ -82,8 +95,8 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                      +"                      Estatura                                 "+userIni.Altura+"\n"
                      +"                      Indice De Masa Corporal       "+userIni.PesoOptimo+"\n"
                      +"                      Ritmo Cardiaco Por Minuto    "+userIni.RitmoCardiaco+"\n"
-                     +"                      Calorias diarias                      "+userIni.CaloriasDiarias
-                     ;     
+                     +"                      Calorias diarias                      "+userIni.CaloriasDiarias+"\n\n"
+                     +"                     "+Enfermedades();     
         try{
         FileOutputStream archivo = new FileOutputStream(ruta+".pdf");
         Document doc=new Document();
