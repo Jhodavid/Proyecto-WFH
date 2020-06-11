@@ -114,6 +114,11 @@ Operaciones op=new Operaciones();
                 txtapellidoActionPerformed(evt);
             }
         });
+        txtapellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtapellidoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 300, -1));
 
         txtedad.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -130,6 +135,11 @@ Operaciones op=new Operaciones();
 
         txtnombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txtnombre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Nombre", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.BELOW_TOP, new java.awt.Font("Trebuchet MS", 1, 14))); // NOI18N
+        txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombreKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 311, -1));
 
         txtpeso.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -276,11 +286,17 @@ Operaciones op=new Operaciones();
     }//GEN-LAST:event_txtalturaActionPerformed
 
     private void txtalturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtalturaKeyTyped
-
+ char Validacion = evt.getKeyChar();
+        if (Validacion < '0' || Validacion > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtalturaKeyTyped
 
     private void txtpesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesoKeyTyped
-
+ char Validacion = evt.getKeyChar();
+        if (Validacion < '0' || Validacion > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_txtpesoKeyTyped
 
     private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
@@ -296,6 +312,20 @@ Operaciones op=new Operaciones();
             evt.consume();
         }
     }//GEN-LAST:event_txtedadKeyPressed
+
+    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
+       char Validacion = evt.getKeyChar();
+        if (Validacion < 'a' || Validacion > 'z') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtnombreKeyTyped
+
+    private void txtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion < 'a' || Validacion > 'z') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtapellidoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
