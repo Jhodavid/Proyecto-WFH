@@ -18,6 +18,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import javax.swing.JFileChooser;
 import static View.IFrmEstadisticas.nombre;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -181,6 +182,11 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                 txtnombreActionPerformed(evt);
             }
         });
+        txtnombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnombreKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 201, 29));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
@@ -196,6 +202,11 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                 txtcedulaActionPerformed(evt);
             }
         });
+        txtcedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcedulaKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtcedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 201, 29));
 
         jLabel3.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
@@ -205,6 +216,11 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         txtapellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtapellidoActionPerformed(evt);
+            }
+        });
+        txtapellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtapellidoKeyTyped(evt);
             }
         });
         getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, 201, 29));
@@ -222,6 +238,11 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                 txtelefonoActionPerformed(evt);
             }
         });
+        txtelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtelefonoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 201, 29));
 
         jLabel6.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
@@ -231,6 +252,11 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         txtedad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtedadActionPerformed(evt);
+            }
+        });
+        txtedad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtedadKeyTyped(evt);
             }
         });
         getContentPane().add(txtedad, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 201, 29));
@@ -248,6 +274,11 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                 txtpesoActionPerformed(evt);
             }
         });
+        txtpeso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtpesoKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtpeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 220, 200, 29));
 
         jLabel9.setFont(new java.awt.Font("Trebuchet MS", 1, 15)); // NOI18N
@@ -259,8 +290,25 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
                 txtestaturaActionPerformed(evt);
             }
         });
+        txtestatura.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtestaturaKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtestatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 201, 29));
+
+        txtcontraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcontraseñaKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, 201, 31));
+
+        txtconfirmarcontraseña.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtconfirmarcontraseñaKeyTyped(evt);
+            }
+        });
         getContentPane().add(txtconfirmarcontraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 170, 201, 31));
 
         jButton1.setText("PDF");
@@ -279,7 +327,7 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
         getContentPane().add(txtruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 190, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fondo registrar.png"))); // NOI18N
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 440));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 680, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -368,6 +416,82 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
     private void txtidKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidKeyTyped
 
     }//GEN-LAST:event_txtidKeyTyped
+
+    private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < 'a' || Validacion > 'z') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtnombreKeyTyped
+
+    private void txtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < 'a' || Validacion > 'z') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtapellidoKeyTyped
+
+    private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtcedulaKeyTyped
+
+    private void txtelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtelefonoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtelefonoKeyTyped
+
+    private void txtcontraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcontraseñaKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtcontraseñaKeyTyped
+
+    private void txtconfirmarcontraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtconfirmarcontraseñaKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtconfirmarcontraseñaKeyTyped
+
+    private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtedadKeyTyped
+
+    private void txtpesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesoKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtpesoKeyTyped
+
+    private void txtestaturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtestaturaKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_txtestaturaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

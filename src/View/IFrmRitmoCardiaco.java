@@ -11,6 +11,7 @@ import javax.swing.Timer;
 import static View.FrmPrincipal.userIni;
 import javax.swing.JOptionPane;
 import Controller.Operaciones;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -127,7 +128,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btnsalir.setBackground(new java.awt.Color(0, 204, 204));
         Btnsalir.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btnsalir.setForeground(new java.awt.Color(0, 0, 0));
         Btnsalir.setText("Cerrar");
         Btnsalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,25 +137,32 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         getContentPane().add(Btnsalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Latidos por minuto");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Medidor de ritmo cardiaco");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         etiquetaTiempo.setFont(new java.awt.Font("Lucida Sans", 0, 36)); // NOI18N
-        etiquetaTiempo.setForeground(new java.awt.Color(0, 0, 0));
         etiquetaTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiquetaTiempo.setText("00:00:00");
         getContentPane().add(etiquetaTiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, -1, -1));
+
+        Txtpulso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtpulsoActionPerformed(evt);
+            }
+        });
+        Txtpulso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TxtpulsoKeyTyped(evt);
+            }
+        });
         getContentPane().add(Txtpulso, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 250, 110, 30));
 
         Btnpausar.setBackground(new java.awt.Color(0, 204, 204));
         Btnpausar.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btnpausar.setForeground(new java.awt.Color(0, 0, 0));
         Btnpausar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/pause.png"))); // NOI18N
         Btnpausar.setPreferredSize(new java.awt.Dimension(10, 15));
         Btnpausar.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +174,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         BtnUso.setBackground(new java.awt.Color(0, 204, 204));
         BtnUso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        BtnUso.setForeground(new java.awt.Color(0, 0, 0));
         BtnUso.setText(" ¿ COMO UTILIZAR  ?");
         BtnUso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,13 +183,11 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         getContentPane().add(BtnUso, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 180, 30));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Registre pulso");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, -1, -1));
 
         BtnReiniciar.setBackground(new java.awt.Color(204, 255, 255));
         BtnReiniciar.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        BtnReiniciar.setForeground(new java.awt.Color(0, 0, 0));
         BtnReiniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/recargar (1).png"))); // NOI18N
         BtnReiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +198,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btn10.setBackground(new java.awt.Color(0, 204, 204));
         Btn10.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btn10.setForeground(new java.awt.Color(0, 0, 0));
         Btn10.setText("10 SEGUNDOS");
         Btn10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,7 +208,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btn20.setBackground(new java.awt.Color(0, 204, 204));
         Btn20.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btn20.setForeground(new java.awt.Color(0, 0, 0));
         Btn20.setText("20 SEGUDNOS");
         Btn20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,7 +218,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btn30.setBackground(new java.awt.Color(0, 204, 204));
         Btn30.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btn30.setForeground(new java.awt.Color(0, 0, 0));
         Btn30.setText("30 SEGUNDOS");
         Btn30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +228,6 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
 
         Btncalcular.setBackground(new java.awt.Color(0, 204, 204));
         Btncalcular.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
-        Btncalcular.setForeground(new java.awt.Color(0, 0, 0));
         Btncalcular.setText("Calcular");
         Btncalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,6 +382,19 @@ public class IFrmRitmoCardiaco extends javax.swing.JInternalFrame {
         Btn20.setEnabled(true);
         Btn30.setEnabled(true);
     }//GEN-LAST:event_BtnReiniciarActionPerformed
+
+    private void TxtpulsoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtpulsoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtpulsoActionPerformed
+
+    private void TxtpulsoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TxtpulsoKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
+        }
+    }//GEN-LAST:event_TxtpulsoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

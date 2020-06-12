@@ -4,34 +4,39 @@
  * and open the template in the editor.
  */
 package View;
+
 import Controller.Operaciones;
 import ConexionDB.ConexionDB;
 import Controller.Encriptacion;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
  * @author angel
  */
 public class RegistroUsuario extends javax.swing.JInternalFrame {
-    
+
     public Encriptacion en;
     int contador = 0;
-Operaciones op=new Operaciones();
+    Operaciones op = new Operaciones();
+
     /**
      * Creates new form RegistroUsuario
      */
     public RegistroUsuario() {
         initComponents();
-         en = new Encriptacion();
+        en = new Encriptacion();
     }
 
     public void Nuevo() {
@@ -203,12 +208,12 @@ Operaciones op=new Operaciones();
 
     private void btnregistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarActionPerformed
         // TODO add your handling code here:
-       
+
         if (txtcontraseña.getText().isEmpty() || txtconfirmarcontraseña.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Debe ingresar la contraseña en ambos campos", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtcontraseña.requestFocus();
             //------------------ayuda con esta validacion----------------------------------------------------------
-        } else if(!txtcontraseña.getText().equals(txtconfirmarcontraseña.getText())) {
+        } else if (!txtcontraseña.getText().equals(txtconfirmarcontraseña.getText())) {
             JOptionPane.showMessageDialog(null, "Las contraseñas no coinciden", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtcontraseña.requestFocus();
             //------------------------------------------------------------------------------------------------------
@@ -236,30 +241,32 @@ Operaciones op=new Operaciones();
             JOptionPane.showMessageDialog(null, "Debe ingresar su edad", "ARVERTENCIA", JOptionPane.WARNING_MESSAGE);
             txtedad.requestFocus();
         } else {
-            
-             String cedula,contraseña,nombre,apellidos,sexo,telefono,edad,altura,peso,campos ,valores;
-             cedula=txtcedula.getText();
-             contraseña=txtcontraseña.getText();
-             nombre=txtnombre.getText();
-             apellidos=txtapellido.getText();
-             sexo=cmbsexo.getSelectedItem().toString();
-             telefono=txttelefono.getText();
-             edad=txtedad.getText();
-             altura=txtaltura.getText();
-             peso=txtpeso.getText();
-             campos="Cedula,Contraseña,Nombre,Apellidos,Sexo,Telefono,Edad,Altura,Peso";
-             System.out.println(en.Cifrado(contraseña));
-             valores="'"+cedula+"','"+en.Cifrado(contraseña)+"','"+nombre+"','"+apellidos+"','"+sexo+"','"+telefono+"','"+edad+"','"+altura+"','"+peso+"'";
-             op.Registar("Usuario", campos, valores);
-               Nuevo();  
+
+            String cedula, contraseña, nombre, apellidos, sexo, telefono, edad, altura, peso, campos, valores;
+            cedula = txtcedula.getText();
+            contraseña = txtcontraseña.getText();
+            nombre = txtnombre.getText();
+            apellidos = txtapellido.getText();
+            sexo = cmbsexo.getSelectedItem().toString();
+            telefono = txttelefono.getText();
+            edad = txtedad.getText();
+            altura = txtaltura.getText();
+            peso = txtpeso.getText();
+            campos = "Cedula,Contraseña,Nombre,Apellidos,Sexo,Telefono,Edad,Altura,Peso";
+            System.out.println(en.Cifrado(contraseña));
+            valores = "'" + cedula + "','" + en.Cifrado(contraseña) + "','" + nombre + "','" + apellidos + "','" + sexo + "','" + telefono + "','" + edad + "','" + altura + "','" + peso + "'";
+            op.Registar("Usuario", campos, valores);
+            Nuevo();
         }
-         
+
     }//GEN-LAST:event_btnregistrarActionPerformed
 //validar campos
     private void txtcedulaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyPressed
-  char Validacion = evt.getKeyChar();
-        if (Validacion < '0' || Validacion > '9') {
-            evt.consume();
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtcedulaKeyPressed
 
@@ -269,15 +276,19 @@ Operaciones op=new Operaciones();
 
     private void txtcedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyTyped
         char Validacion = evt.getKeyChar();
-        if (Validacion < '0' || Validacion > '9') {
-            evt.consume();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtcedulaKeyTyped
 
     private void txttelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttelefonoKeyTyped
         char Validacion = evt.getKeyChar();
-        if (Validacion < '0' || Validacion > '9') {
-            evt.consume();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txttelefonoKeyTyped
 
@@ -286,44 +297,56 @@ Operaciones op=new Operaciones();
     }//GEN-LAST:event_txtalturaActionPerformed
 
     private void txtalturaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtalturaKeyTyped
- char Validacion = evt.getKeyChar();
-        if (Validacion < '0' || Validacion > '9') {
-            evt.consume();
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtalturaKeyTyped
 
     private void txtpesoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpesoKeyTyped
- char Validacion = evt.getKeyChar();
-        if (Validacion < '0' || Validacion > '9') {
-            evt.consume();
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtpesoKeyTyped
 
     private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped
         char Validacion = evt.getKeyChar();
-        if (Validacion < '0' || Validacion > '9') {
-            evt.consume();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtedadKeyTyped
 
     private void txtedadKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyPressed
-      char Validacion = evt.getKeyChar();
-        if (Validacion < '0' || Validacion > '9') {
-            evt.consume();
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtedadKeyPressed
 
     private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
-       char Validacion = evt.getKeyChar();
-        if (Validacion < 'a' || Validacion > 'z') {
-            evt.consume();
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < 'a' || Validacion > 'z') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtnombreKeyTyped
 
     private void txtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyTyped
         char Validacion = evt.getKeyChar();
-        if (Validacion < 'a' || Validacion > 'z') {
-            evt.consume();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < 'a' || Validacion > 'z') {
+                evt.consume();
+            }
         }
     }//GEN-LAST:event_txtapellidoKeyTyped
 

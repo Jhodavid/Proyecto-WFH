@@ -19,6 +19,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import Controller.Encriptacion;
 import Model.DatosGrafica;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import javax.swing.Timer;
 
 public class FrmPrincipal extends javax.swing.JFrame {
 
@@ -47,6 +51,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         btnCuenta.setEnabled(false);
         btnCerrarSesion.setEnabled(false);
         this.setResizable(false);
+
+        labelContraseñaValidacion.setVisible(false);
 
         op = new Operaciones();
         en = new Encriptacion();
@@ -79,6 +85,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JPasswordField();
+        labelContraseñaValidacion = new javax.swing.JLabel();
         JLabelBienvenido = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -105,6 +112,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jDesktopPane1.setAutoscrolls(true);
 
+        txtCedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCedulaKeyTyped(evt);
+            }
+        });
+
         btnIniciar.setText("Iniciar");
         btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,24 +140,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Cuenta de WFH");
 
+        labelContraseñaValidacion.setForeground(new java.awt.Color(255, 0, 0));
+        labelContraseñaValidacion.setText("La cedula solo admite números*");
+
         javax.swing.GroupLayout JPanelCuentaLayout = new javax.swing.GroupLayout(JPanelCuenta);
         JPanelCuenta.setLayout(JPanelCuentaLayout);
         JPanelCuentaLayout.setHorizontalGroup(
             JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JPanelCuentaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(53, 53, 53)
-                .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCedula)
-                    .addGroup(JPanelCuentaLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(btncrearcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txtContraseña))
-                .addContainerGap())
             .addGroup(JPanelCuentaLayout.createSequentialGroup()
                 .addGap(177, 177, 177)
                 .addComponent(btnIniciar)
@@ -153,6 +155,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addContainerGap(148, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(131, 131, 131))
+            .addGroup(JPanelCuentaLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addGap(53, 53, 53)
+                .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtCedula)
+                    .addComponent(txtContraseña)
+                    .addGroup(JPanelCuentaLayout.createSequentialGroup()
+                        .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelContraseñaValidacion)
+                            .addGroup(JPanelCuentaLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(btncrearcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         JPanelCuentaLayout.setVerticalGroup(
             JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +182,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addGap(18, 18, 18)
+                .addGap(1, 1, 1)
+                .addComponent(labelContraseñaValidacion)
+                .addGap(3, 3, 3)
                 .addGroup(JPanelCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtContraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -528,6 +549,24 @@ public class FrmPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void txtCedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCedulaKeyTyped
+        char Validacion = evt.getKeyChar();
+        if (Validacion != KeyEvent.VK_BACK_SPACE) {
+            if (Validacion < '0' || Validacion > '9') {
+                evt.consume();
+                labelContraseñaValidacion.setVisible(true);
+                int delay = 4000;
+                ActionListener taskPerformer = new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent evt) {
+                        labelContraseñaValidacion.setVisible(false);
+                    }
+                };
+                new Timer(delay, taskPerformer).start();
+            }
+        }
+    }//GEN-LAST:event_txtCedulaKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -591,6 +630,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPopupMenu jPopupMenu2;
     private javax.swing.JPopupMenu jPopupMenu3;
     private javax.swing.JPopupMenu jPopupMenu4;
+    private javax.swing.JLabel labelContraseñaValidacion;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JPasswordField txtContraseña;
     // End of variables declaration//GEN-END:variables
