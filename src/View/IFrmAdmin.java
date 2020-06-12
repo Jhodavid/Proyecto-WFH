@@ -339,6 +339,7 @@ public class IFrmAdmin extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(op.EliminarUser(Integer.parseInt(CedulaEliminar.getText()))){
             JOptionPane.showMessageDialog(null, "Usuario Eliminado.");
+            CedulaEliminar.setText("");
         }else{
             JOptionPane.showMessageDialog(null, "No se encontró ningún usuario con\n"
                     + "la cedula indicada.");

@@ -161,16 +161,18 @@ public class Operaciones {
     
     public boolean EliminarUser (int Cedula){
         try {
-            Connection con1 = null;
-            ConexionDB conect1 = new ConexionDB();
-            con1 = conect1.getConnection();
-            String sql = "delete from Usuario where Cedula='"+Integer.toString(Cedula)+"';";
-            Statement st = con1.createStatement();
-            ResultSet rs = st.executeQuery(sql);
-            
-            while(rs.next()){
-                
-            }
+            Connection con = null;
+                    ConexionDB conect = new ConexionDB();
+                    con = conect.getConnection();
+                    Statement st = con.createStatement();
+                    String sql = "delete from Usuario where Cedula = ?";
+                    PreparedStatement pst = con.prepareStatement(sql);
+                    pst.setInt(1, Cedula);
+                    int n = pst.executeUpdate();
+                    if (n > 0)
+                    {
+                        return true;
+                    }
             
             
         } catch (SQLException e) {
