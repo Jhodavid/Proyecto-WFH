@@ -420,7 +420,7 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
     private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
         char Validacion = evt.getKeyChar();
         if (Validacion != KeyEvent.VK_BACK_SPACE) {
-            if (Validacion < 'a' || Validacion > 'z') {
+            if (Validacion < 'a' || Validacion > 'z' || Validacion < 'A' || Validacion > 'Z') {
                 evt.consume();
             }
         }
@@ -429,7 +429,7 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
     private void txtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyTyped
         char Validacion = evt.getKeyChar();
         if (Validacion != KeyEvent.VK_BACK_SPACE) {
-            if (Validacion < 'a' || Validacion > 'z') {
+            if (Validacion < 'a' || Validacion > 'z' || Validacion < 'A' || Validacion > 'Z') {
                 evt.consume();
             }
         }
@@ -449,21 +449,11 @@ public class IFrmActualizardatos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtelefonoKeyTyped
 
     private void txtcontraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcontraseñaKeyTyped
-        char Validacion = evt.getKeyChar();
-        if (Validacion != KeyEvent.VK_BACK_SPACE) {
-            if (Validacion < '0' || Validacion > '9') {
-                evt.consume();
-            }
-        }
+
     }//GEN-LAST:event_txtcontraseñaKeyTyped
 
     private void txtconfirmarcontraseñaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtconfirmarcontraseñaKeyTyped
-        char Validacion = evt.getKeyChar();
-        if (Validacion != KeyEvent.VK_BACK_SPACE) {
-            if (Validacion < '0' || Validacion > '9') {
-                evt.consume();
-            }
-        }
+
     }//GEN-LAST:event_txtconfirmarcontraseñaKeyTyped
 
     private void txtedadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadKeyTyped

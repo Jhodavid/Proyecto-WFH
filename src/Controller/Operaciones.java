@@ -137,7 +137,49 @@ public class Operaciones {
         }
         return null;
     }
+    
+    public boolean ValidarCedulaRegistro(int Cedula){
+        try {
+            Connection con1 = null;
+            ConexionDB conect1 = new ConexionDB();
+            con1 = conect1.getConnection();
+            String sql = "select * from Usuario";
+            Statement st = con1.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                user.Cedula = Integer.parseInt(rs.getString("Cedula"));
+                if (user.Cedula == Cedula) {
+                    return false;
+                }
 
+            }
+        } catch (SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+        return true;
+    }
+    
+    public boolean EliminarUser (int Cedula){
+        try {
+            Connection con1 = null;
+            ConexionDB conect1 = new ConexionDB();
+            con1 = conect1.getConnection();
+            String sql = "delete from Usuario where Cedula='"+Integer.toString(Cedula)+"';";
+            Statement st = con1.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            
+            while(rs.next()){
+                
+            }
+            
+            
+        } catch (SQLException e) {
+            javax.swing.JOptionPane.showMessageDialog(null, "NO SE PUEDEN VISUALIZAR LOS DATOS DE LA TABLA", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+        return false;
+        
+    }
+    
     public void GuardarSintomas(String sintoma) {
 
         try {

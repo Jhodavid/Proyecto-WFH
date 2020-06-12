@@ -192,6 +192,8 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
         jLabel2.setText("Registrate");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/fitness2.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -253,10 +255,14 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
             altura = txtaltura.getText();
             peso = txtpeso.getText();
             campos = "Cedula,Contraseña,Nombre,Apellidos,Sexo,Telefono,Edad,Altura,Peso";
-            System.out.println(en.Cifrado(contraseña));
-            valores = "'" + cedula + "','" + en.Cifrado(contraseña) + "','" + nombre + "','" + apellidos + "','" + sexo + "','" + telefono + "','" + edad + "','" + altura + "','" + peso + "'";
-            op.Registar("Usuario", campos, valores);
-            Nuevo();
+
+            if (op.ValidarCedulaRegistro(Integer.parseInt(cedula))) {
+                valores = "'" + cedula + "','" + en.Cifrado(contraseña) + "','" + nombre + "','" + apellidos + "','" + sexo + "','" + telefono + "','" + edad + "','" + altura + "','" + peso + "'";
+                op.Registar("Usuario", campos, valores);
+                Nuevo();
+            } else {
+                JOptionPane.showMessageDialog(null, "El usuario ya está registrado.");
+            }
         }
 
     }//GEN-LAST:event_btnregistrarActionPerformed
@@ -335,8 +341,10 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
     private void txtnombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnombreKeyTyped
         char Validacion = evt.getKeyChar();
         if (Validacion != KeyEvent.VK_BACK_SPACE) {
-            if (Validacion < 'a' || Validacion > 'z') {
-                evt.consume();
+            if (Validacion < 'A' || Validacion > 'Z') {
+                if (Validacion < 'a' || Validacion > 'z') {
+                    evt.consume();
+                }
             }
         }
     }//GEN-LAST:event_txtnombreKeyTyped
@@ -344,8 +352,10 @@ public class RegistroUsuario extends javax.swing.JInternalFrame {
     private void txtapellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtapellidoKeyTyped
         char Validacion = evt.getKeyChar();
         if (Validacion != KeyEvent.VK_BACK_SPACE) {
-            if (Validacion < 'a' || Validacion > 'z') {
-                evt.consume();
+            if (Validacion < 'A' || Validacion > 'Z') {
+                if (Validacion < 'a' || Validacion > 'z') {
+                    evt.consume();
+                }
             }
         }
     }//GEN-LAST:event_txtapellidoKeyTyped
