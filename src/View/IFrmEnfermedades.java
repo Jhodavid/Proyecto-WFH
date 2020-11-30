@@ -102,7 +102,6 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         jMenuItem30 = new javax.swing.JMenuItem();
         jMenuItem31 = new javax.swing.JMenuItem();
         jMenuItem32 = new javax.swing.JMenuItem();
-        jMenuItem33 = new javax.swing.JMenuItem();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -174,7 +173,7 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
+                .addContainerGap(138, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -474,14 +473,6 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         });
         jMenu9.add(jMenuItem32);
 
-        jMenuItem33.setText("Ladillas");
-        jMenuItem33.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem33ActionPerformed(evt);
-            }
-        });
-        jMenu9.add(jMenuItem33);
-
         jMenu1.add(jMenu9);
 
         jMenuBar1.add(jMenu1);
@@ -630,10 +621,6 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
         GenerarDatos(jMenuItem32.getText());
     }//GEN-LAST:event_jMenuItem32ActionPerformed
 
-    private void jMenuItem33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem33ActionPerformed
-        GenerarDatos(jMenuItem33.getText());
-    }//GEN-LAST:event_jMenuItem33ActionPerformed
-
     private void btnPadezcoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPadezcoActionPerformed
 
     }//GEN-LAST:event_btnPadezcoActionPerformed
@@ -680,7 +667,6 @@ public class IFrmEnfermedades extends javax.swing.JInternalFrame {
     private javax.swing.JMenuItem jMenuItem30;
     private javax.swing.JMenuItem jMenuItem31;
     private javax.swing.JMenuItem jMenuItem32;
-    private javax.swing.JMenuItem jMenuItem33;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
